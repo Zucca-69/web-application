@@ -1,1 +1,108 @@
-ciao!
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendita Quadri</title>
+    <style>
+        /* Reset margini */
+        body, h1, h2, p, a {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Stile globale */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Colore di sfondo */
+        }
+
+        /* Contenitore per ciascun quadro */
+        .quadro-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Stile per la lista dei link (ancore) */
+        .links {
+            width: 20%;
+            text-align: left;
+        }
+        
+        /* Stile per i collegamenti */
+        .links a {
+            display: block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #0a0a0a;
+        }
+
+        nav {
+            background-color: #01cd01;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav li {
+        float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class= "logo">
+        <img src="../MEDIA/immagini/Logo.png" width="8%" height="auto">
+    </div>
+    <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#servizio clienti">Servizio clienti</a></li>
+          <li><a href="#piattaforme">Piattaforme</a></li>
+          <li><a href="#catalogo">Catalogo</a></li>
+          <li><a href="#categorie">Categorie</a></li>
+        </ul>
+      </nav>
+      
+
+    <!-- Quadro 1: GIOCONDA -->
+    <div class="quadro-container" id="quadro1">
+        <div class="quadro">
+            <img src="media/GIOCONDA.jpeg" width="500" height="500" alt="GIOCONDA">
+            <h4>prezzo = €200</h4>  <!-- Prezzo del quadro -->
+        </div>
+        <div class="links">
+            <h1>Altri quadri</h1>
+            <a href="#quadro2">NOTTE STELLATA</a>
+            <a href="#quadro3">L'URLO</a>
+            <a href="#quadro4">PAPERINO</a>
+        </div>
+    </div>
+
+</body>
+</html>
