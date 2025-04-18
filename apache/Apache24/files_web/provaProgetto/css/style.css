@@ -1,0 +1,48 @@
+body {
+	font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI,
+		Helvetica Neue, Helvetica, Arial, sans-serif;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+	color: #2f2f2f;
+	line-height: 1.5;
+}
+
+.phppot-container {
+	width: 740px;
+	margin: 20 auto;
+	padding: 0px 20px 0px 20px;
+}
+
+.row {
+	padding: 6px 0 6px 0;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.tile-container {
+	width: 240px;
+	border: #9a9a9a 1px solid;
+	border-radius: 3px;
+	padding: 10px 20px 10px 20px;
+}
+
+@media all and (max-width: 780px) {
+	.phppot-container {
+		width: auto;
+	}
+}
+
+@media all and (max-width: 400px) {
+	.phppot-container {
+		padding: 0px 20px;
+	}
+	.tile-container {
+		width: auto;
+	}
+	input, textarea, select {
+		width: 100%;
+	}
+}
