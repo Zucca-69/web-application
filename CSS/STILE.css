@@ -1,0 +1,66 @@
+/* Reset margini */
+body, h1, h2, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile globale */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Colore di sfondo */
+}
+
+/* Contenitore per ciascun quadro */
+.quadro-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Stile per la lista dei link (ancore) */
+.links {
+    width: 20%;
+    text-align: left;
+}
+
+/* Stile per i collegamenti */
+.links a {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #0a0a0a;
+}
+
+nav {
+    background-color: #01cd01;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #ddd;
+    color: black;
+}
