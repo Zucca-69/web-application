@@ -1269,3 +1269,393 @@ PHP Warning:  Module "pdo_mysql" is already loaded in Unknown on line 0
 PHP Warning:  Module "mysqli" is already loaded in Unknown on line 0
 PHP Warning:  Module "pdo_mysql" is already loaded in Unknown on line 0
 [Fri Apr 18 11:34:08.086808 2025] [mpm_winnt:notice] [pid 7212:tid 468] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 12:38:51.836529 2025] [core:warn] [pid 13700:tid 424] AH00098: pid file C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Apr 18 12:38:51.853533 2025] [mpm_winnt:notice] [pid 13700:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 12:38:51.853533 2025] [mpm_winnt:notice] [pid 13700:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 12:38:51.853533 2025] [core:notice] [pid 13700:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 12:38:51.856533 2025] [mpm_winnt:notice] [pid 13700:tid 424] AH00418: Parent: Created child process 5856
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 5856:tid 440] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 12:39:21.507653 2025] [autoindex:error] [pid 5856:tid 1104] [client ::1:53670] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:42:43.748280 2025] [autoindex:error] [pid 5856:tid 1104] [client ::1:53816] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex (index.php,index.html) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:45:48.867015 2025] [mpm_winnt:notice] [pid 13700:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 12:45:50.883976 2025] [mpm_winnt:notice] [pid 5856:tid 440] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 12:45:50.903987 2025] [mpm_winnt:notice] [pid 13700:tid 424] AH00430: Parent: Child process 5856 exited successfully.
+[Fri Apr 18 12:45:55.675282 2025] [mpm_winnt:notice] [pid 7364:tid 480] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 12:45:55.675282 2025] [mpm_winnt:notice] [pid 7364:tid 480] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 12:45:55.675282 2025] [core:notice] [pid 7364:tid 480] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 12:45:55.678283 2025] [mpm_winnt:notice] [pid 7364:tid 480] AH00418: Parent: Created child process 4420
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 4420:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 12:46:01.502611 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:02.321922 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:02.527143 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:02.690286 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:02.855553 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:03.015982 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:03.180590 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:03.327916 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:04.448842 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53956] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:34.195669 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53980] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:34.860893 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53980] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:46:35.035392 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:53980] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:48:49.382872 2025] [autoindex:error] [pid 4420:tid 1104] [client ::1:54085] AH01276: Cannot serve directory C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/: No matching DirectoryIndex ($[SRVROOT]/index.php) found, and server-generated directory index forbidden by Options directive
+[Fri Apr 18 12:49:45.604663 2025] [mpm_winnt:notice] [pid 7364:tid 480] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 12:49:47.617958 2025] [mpm_winnt:notice] [pid 4420:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 12:49:47.636963 2025] [mpm_winnt:notice] [pid 7364:tid 480] AH00430: Parent: Child process 4420 exited successfully.
+[Fri Apr 18 13:01:02.065890 2025] [mpm_winnt:notice] [pid 11308:tid 452] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 13:01:02.066890 2025] [mpm_winnt:notice] [pid 11308:tid 452] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 13:01:02.066890 2025] [core:notice] [pid 11308:tid 452] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 13:01:02.068890 2025] [mpm_winnt:notice] [pid 11308:tid 452] AH00418: Parent: Created child process 4536
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 4536:tid 464] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 13:01:05.463540 2025] [core:error] [pid 4536:tid 1104] [client ::1:54641] AH10244: invalid URI path (/../files_web/index.php)
+[Fri Apr 18 13:03:43.513173 2025] [mpm_winnt:notice] [pid 11308:tid 452] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 13:03:45.527216 2025] [mpm_winnt:notice] [pid 4536:tid 464] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 13:03:45.546216 2025] [mpm_winnt:notice] [pid 11308:tid 452] AH00430: Parent: Child process 4536 exited successfully.
+[Fri Apr 18 13:03:47.884372 2025] [mpm_winnt:notice] [pid 6800:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 13:03:47.884372 2025] [mpm_winnt:notice] [pid 6800:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 13:03:47.884372 2025] [core:notice] [pid 6800:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 13:03:47.887372 2025] [mpm_winnt:notice] [pid 6800:tid 424] AH00418: Parent: Created child process 10764
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 10764:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 13:04:45.018195 2025] [php:error] [pid 10764:tid 1104] [client ::1:54806] script 'C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/PAGINE/index.php' not found or unable to stat
+[Fri Apr 18 13:06:04.430794 2025] [php:error] [pid 10764:tid 1104] [client ::1:49586] script 'C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/provaProgetto/inde.php' not found or unable to stat
+[Fri Apr 18 13:06:46.398659 2025] [php:error] [pid 10764:tid 1104] [client ::1:49617] script 'C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/provaProgetto/inde.php' not found or unable to stat
+[Fri Apr 18 14:56:40.352636 2025] [php:error] [pid 10764:tid 1104] [client ::1:63281] script 'C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/provaProgetto/inde.php' not found or unable to stat
+[Fri Apr 18 14:56:58.079379 2025] [php:error] [pid 10764:tid 1104] [client ::1:63295] script 'C:/Users/nicoz/Downloads/progetto_webapplication/web-application/files_web/provaProgetto/inde.php' not found or unable to stat
+[Fri Apr 18 15:00:13.389578 2025] [mpm_winnt:notice] [pid 6800:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:00:17.865016 2025] [mpm_winnt:notice] [pid 10764:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:00:17.887021 2025] [mpm_winnt:notice] [pid 6800:tid 424] AH00430: Parent: Child process 10764 exited successfully.
+[Fri Apr 18 15:00:19.615556 2025] [mpm_winnt:notice] [pid 23640:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:00:19.615556 2025] [mpm_winnt:notice] [pid 23640:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:00:19.615556 2025] [core:notice] [pid 23640:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:00:19.618557 2025] [mpm_winnt:notice] [pid 23640:tid 424] AH00418: Parent: Created child process 19944
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 19944:tid 452] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:00:48.085506 2025] [mpm_winnt:notice] [pid 23640:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:00:50.102811 2025] [mpm_winnt:notice] [pid 19944:tid 452] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:00:50.122816 2025] [mpm_winnt:notice] [pid 23640:tid 424] AH00430: Parent: Child process 19944 exited successfully.
+[Fri Apr 18 15:02:20.391493 2025] [mpm_winnt:notice] [pid 2448:tid 440] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:02:20.391493 2025] [mpm_winnt:notice] [pid 2448:tid 440] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:02:20.391493 2025] [core:notice] [pid 2448:tid 440] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:02:20.394494 2025] [mpm_winnt:notice] [pid 2448:tid 440] AH00418: Parent: Created child process 22696
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 22696:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:15:28.821280 2025] [mpm_winnt:notice] [pid 2448:tid 440] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:15:30.840761 2025] [mpm_winnt:notice] [pid 22696:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:15:30.860766 2025] [mpm_winnt:notice] [pid 2448:tid 440] AH00430: Parent: Child process 22696 exited successfully.
+[Fri Apr 18 15:18:32.376019 2025] [mpm_winnt:notice] [pid 26380:tid 448] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:18:32.376019 2025] [mpm_winnt:notice] [pid 26380:tid 448] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:18:32.376019 2025] [core:notice] [pid 26380:tid 448] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:18:32.379019 2025] [mpm_winnt:notice] [pid 26380:tid 448] AH00418: Parent: Created child process 10416
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 10416:tid 440] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:20:16.533520 2025] [mpm_winnt:notice] [pid 26380:tid 448] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:20:18.549263 2025] [mpm_winnt:notice] [pid 10416:tid 440] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:20:18.569268 2025] [mpm_winnt:notice] [pid 26380:tid 448] AH00430: Parent: Child process 10416 exited successfully.
+[Fri Apr 18 15:20:26.888795 2025] [mpm_winnt:notice] [pid 1648:tid 456] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:20:26.888795 2025] [mpm_winnt:notice] [pid 1648:tid 456] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:20:26.888795 2025] [core:notice] [pid 1648:tid 456] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:20:26.891796 2025] [mpm_winnt:notice] [pid 1648:tid 456] AH00418: Parent: Created child process 5788
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 5788:tid 440] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:23:12.760564 2025] [mpm_winnt:notice] [pid 1648:tid 456] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:23:14.761955 2025] [mpm_winnt:notice] [pid 5788:tid 440] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:23:14.781961 2025] [mpm_winnt:notice] [pid 1648:tid 456] AH00430: Parent: Child process 5788 exited successfully.
+[Fri Apr 18 15:23:50.770920 2025] [mpm_winnt:notice] [pid 23904:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:23:50.770920 2025] [mpm_winnt:notice] [pid 23904:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:23:50.770920 2025] [core:notice] [pid 23904:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:23:50.773920 2025] [mpm_winnt:notice] [pid 23904:tid 424] AH00418: Parent: Created child process 25088
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 25088:tid 436] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:30:27.824830 2025] [mpm_winnt:notice] [pid 23904:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:30:29.841868 2025] [mpm_winnt:notice] [pid 25088:tid 436] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:30:29.861873 2025] [mpm_winnt:notice] [pid 23904:tid 424] AH00430: Parent: Child process 25088 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ../ext\\mysqli (Impossibile trovare il modulo specificato), ../ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ../ext\\pdo_mysql (Impossibile trovare il modulo specificato), ../ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ../ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ../ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ../ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ../ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:30:36.651840 2025] [mpm_winnt:notice] [pid 23000:tid 452] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:30:36.651840 2025] [mpm_winnt:notice] [pid 23000:tid 452] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:30:36.651840 2025] [core:notice] [pid 23000:tid 452] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:30:36.653840 2025] [mpm_winnt:notice] [pid 23000:tid 452] AH00418: Parent: Created child process 17028
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ../ext\\mysqli (Impossibile trovare il modulo specificato), ../ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ../ext\\pdo_mysql (Impossibile trovare il modulo specificato), ../ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ../ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ../ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ../ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ../ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:30:37.034894 2025] [mpm_winnt:notice] [pid 17028:tid 472] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:31:20.130920 2025] [php:error] [pid 17028:tid 1136] [client ::1:62815] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 15:31:21.823400 2025] [php:error] [pid 17028:tid 1136] [client ::1:62815] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 15:38:22.549322 2025] [mpm_winnt:notice] [pid 23000:tid 452] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:38:24.564559 2025] [mpm_winnt:notice] [pid 17028:tid 472] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:38:24.584572 2025] [mpm_winnt:notice] [pid 23000:tid 452] AH00430: Parent: Child process 17028 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:39:47.057043 2025] [mpm_winnt:notice] [pid 23772:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:39:47.057043 2025] [mpm_winnt:notice] [pid 23772:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:39:47.057043 2025] [core:notice] [pid 23772:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:39:47.060043 2025] [mpm_winnt:notice] [pid 23772:tid 424] AH00418: Parent: Created child process 19480
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:39:47.313217 2025] [mpm_winnt:notice] [pid 19480:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:41:27.927933 2025] [mpm_winnt:notice] [pid 23772:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:41:29.950790 2025] [mpm_winnt:notice] [pid 19480:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:41:29.970371 2025] [mpm_winnt:notice] [pid 23772:tid 424] AH00430: Parent: Child process 19480 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: /ext\\mysqli (Impossibile trovare il modulo specificato), /ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: /ext\\pdo_mysql (Impossibile trovare il modulo specificato), /ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: /ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), /ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: /ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), /ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:41:36.794559 2025] [mpm_winnt:notice] [pid 1364:tid 472] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:41:36.794559 2025] [mpm_winnt:notice] [pid 1364:tid 472] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:41:36.794559 2025] [core:notice] [pid 1364:tid 472] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:41:36.796559 2025] [mpm_winnt:notice] [pid 1364:tid 472] AH00418: Parent: Created child process 2172
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: /ext\\mysqli (Impossibile trovare il modulo specificato), /ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: /ext\\pdo_mysql (Impossibile trovare il modulo specificato), /ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: /ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), /ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: /ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), /ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:41:37.050428 2025] [mpm_winnt:notice] [pid 2172:tid 456] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:44:51.037416 2025] [mpm_winnt:notice] [pid 1364:tid 472] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:44:53.039437 2025] [mpm_winnt:notice] [pid 2172:tid 456] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:44:53.059433 2025] [mpm_winnt:notice] [pid 1364:tid 472] AH00430: Parent: Child process 2172 exited successfully.
+PHP Warning:  Module "mysqli" is already loaded in Unknown on line 0
+PHP Warning:  Module "pdo_mysql" is already loaded in Unknown on line 0
+[Fri Apr 18 15:50:12.310471 2025] [mpm_winnt:notice] [pid 12880:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:50:12.310471 2025] [mpm_winnt:notice] [pid 12880:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:50:12.310471 2025] [core:notice] [pid 12880:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:50:12.313472 2025] [mpm_winnt:notice] [pid 12880:tid 424] AH00418: Parent: Created child process 8644
+Apache server interrupted...
+ is already loaded in Unknown on line 0
+PHP Warning:  Module "pdo_mysql" is already loaded in Unknown on line 0
+[Fri Apr 18 15:50:12.570673 2025] [mpm_winnt:notice] [pid 8644:tid 460] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:50:42.636290 2025] [mpm_winnt:notice] [pid 12880:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 15:50:44.664757 2025] [mpm_winnt:notice] [pid 8644:tid 460] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 15:50:44.684771 2025] [mpm_winnt:notice] [pid 12880:tid 424] AH00430: Parent: Child process 8644 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ../php/ext\\mysqli (Impossibile trovare il modulo specificato), ../php/ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ../php/ext\\pdo_mysql (Impossibile trovare il modulo specificato), ../php/ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ../php/ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ../php/ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ../php/ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ../php/ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:52:03.312439 2025] [mpm_winnt:notice] [pid 9024:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 15:52:03.312439 2025] [mpm_winnt:notice] [pid 9024:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 15:52:03.312439 2025] [core:notice] [pid 9024:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 15:52:03.314440 2025] [mpm_winnt:notice] [pid 9024:tid 424] AH00418: Parent: Created child process 24716
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ../php/ext\\mysqli (Impossibile trovare il modulo specificato), ../php/ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ../php/ext\\pdo_mysql (Impossibile trovare il modulo specificato), ../php/ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ../php/ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ../php/ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ../php/ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ../php/ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 15:52:03.567105 2025] [mpm_winnt:notice] [pid 24716:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 15:52:06.685076 2025] [php:error] [pid 24716:tid 1136] [client ::1:63793] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:06:01.234873 2025] [mpm_winnt:notice] [pid 9024:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:06:03.252659 2025] [mpm_winnt:notice] [pid 24716:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:06:03.270593 2025] [mpm_winnt:notice] [pid 9024:tid 424] AH00430: Parent: Child process 24716 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:06:19.943122 2025] [mpm_winnt:notice] [pid 18880:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:06:19.943122 2025] [mpm_winnt:notice] [pid 18880:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:06:19.943122 2025] [core:notice] [pid 18880:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:06:19.946122 2025] [mpm_winnt:notice] [pid 18880:tid 424] AH00418: Parent: Created child process 25428
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:06:20.206877 2025] [mpm_winnt:notice] [pid 25428:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:06:24.642023 2025] [php:error] [pid 25428:tid 1136] [client 127.0.0.1:64429] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:06:25.383009 2025] [php:error] [pid 25428:tid 1136] [client 127.0.0.1:64429] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:06:25.541832 2025] [php:error] [pid 25428:tid 1136] [client 127.0.0.1:64429] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:06:25.704608 2025] [php:error] [pid 25428:tid 1136] [client 127.0.0.1:64429] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:10:49.630275 2025] [php:error] [pid 25428:tid 1136] [client ::1:64631] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:12:08.601141 2025] [mpm_winnt:notice] [pid 18880:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:12:10.605351 2025] [mpm_winnt:notice] [pid 25428:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:12:10.625359 2025] [mpm_winnt:notice] [pid 18880:tid 424] AH00430: Parent: Child process 25428 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ./mysqli (Impossibile trovare il modulo specificato), ./php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ./pdo_mysql (Impossibile trovare il modulo specificato), ./php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ./php_mysqli.dll (Impossibile trovare il modulo specificato), ./php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ./php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ./php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:12:22.437266 2025] [mpm_winnt:notice] [pid 10788:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:12:22.437266 2025] [mpm_winnt:notice] [pid 10788:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:12:22.437266 2025] [core:notice] [pid 10788:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:12:22.441082 2025] [mpm_winnt:notice] [pid 10788:tid 424] AH00418: Parent: Created child process 25280
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ./mysqli (Impossibile trovare il modulo specificato), ./php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ./pdo_mysql (Impossibile trovare il modulo specificato), ./php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ./php_mysqli.dll (Impossibile trovare il modulo specificato), ./php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ./php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ./php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:12:22.814721 2025] [mpm_winnt:notice] [pid 25280:tid 452] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:12:22.817721 2025] [php:error] [pid 25280:tid 1128] [client ::1:64700] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:12:25.496530 2025] [php:error] [pid 25280:tid 1128] [client ::1:64700] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:12:43.791981 2025] [mpm_winnt:notice] [pid 10788:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:13:13.792850 2025] [mpm_winnt:notice] [pid 10788:tid 424] AH00431: Parent: Forcing termination of child process 25280
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ./ext\\mysqli (Impossibile trovare il modulo specificato), ./ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ./ext\\pdo_mysql (Impossibile trovare il modulo specificato), ./ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ./ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ./ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ./ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ./ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:13:22.282899 2025] [mpm_winnt:notice] [pid 12140:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:13:22.282899 2025] [mpm_winnt:notice] [pid 12140:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:13:22.282899 2025] [core:notice] [pid 12140:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:13:22.285899 2025] [mpm_winnt:notice] [pid 12140:tid 424] AH00418: Parent: Created child process 7540
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ./ext\\mysqli (Impossibile trovare il modulo specificato), ./ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ./ext\\pdo_mysql (Impossibile trovare il modulo specificato), ./ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_mysqli.dll' (tried: ./ext\\php_mysqli.dll (Impossibile trovare il modulo specificato), ./ext\\php_php_mysqli.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'php_pdo_mysql.dll' (tried: ./ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato), ./ext\\php_php_pdo_mysql.dll.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:13:22.549705 2025] [mpm_winnt:notice] [pid 7540:tid 448] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:13:24.114701 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:24.306738 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:24.470487 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:24.633258 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:24.791707 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:24.946938 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:25.103084 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:25.254155 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:25.421439 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:25.594757 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:25.774571 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:25.932570 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:26.280761 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:26.492830 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:13:26.834759 2025] [php:error] [pid 7540:tid 1148] [client ::1:64754] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:22:59.406235 2025] [mpm_winnt:notice] [pid 12140:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:23:01.420084 2025] [mpm_winnt:notice] [pid 7540:tid 448] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:23:01.440088 2025] [mpm_winnt:notice] [pid 12140:tid 424] AH00430: Parent: Child process 7540 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:23:28.448675 2025] [mpm_winnt:notice] [pid 9892:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:23:28.448675 2025] [mpm_winnt:notice] [pid 9892:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:23:28.448675 2025] [core:notice] [pid 9892:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:23:28.450676 2025] [mpm_winnt:notice] [pid 9892:tid 424] AH00418: Parent: Created child process 516
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:23:28.703733 2025] [mpm_winnt:notice] [pid 516:tid 464] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:23:31.304523 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:23:32.033526 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:23:32.209006 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:23:32.380094 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:23:32.551050 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:23:32.723485 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:23:35.411538 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:23:35.579080 2025] [php:error] [pid 516:tid 1136] [client ::1:65172] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:26:24.659556 2025] [mpm_winnt:notice] [pid 9892:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:26:26.685791 2025] [mpm_winnt:notice] [pid 516:tid 464] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:26:26.705766 2025] [mpm_winnt:notice] [pid 9892:tid 424] AH00430: Parent: Child process 516 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:28:50.678220 2025] [mpm_winnt:notice] [pid 11040:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:28:50.678220 2025] [mpm_winnt:notice] [pid 11040:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:28:50.678220 2025] [core:notice] [pid 11040:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:28:50.681220 2025] [mpm_winnt:notice] [pid 11040:tid 424] AH00418: Parent: Created child process 25968
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:28:50.941988 2025] [mpm_winnt:notice] [pid 25968:tid 460] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:28:51.165519 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:52.945545 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:53.584000 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:53.745986 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:53.916251 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:54.094830 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:54.276390 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:56.638284 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:57.417730 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:58.613699 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:58.787987 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:28:58.978986 2025] [php:error] [pid 25968:tid 1136] [client ::1:65423] PHP Fatal error:  Uncaught Error: Class "mysqli" not found in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:32:00.209915 2025] [mpm_winnt:notice] [pid 11040:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:32:02.231373 2025] [mpm_winnt:notice] [pid 25968:tid 460] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:32:02.249378 2025] [mpm_winnt:notice] [pid 11040:tid 424] AH00430: Parent: Child process 25968 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:32:47.031424 2025] [mpm_winnt:notice] [pid 23484:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:32:47.031424 2025] [mpm_winnt:notice] [pid 23484:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:32:47.031424 2025] [core:notice] [pid 23484:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:32:47.034424 2025] [mpm_winnt:notice] [pid 23484:tid 424] AH00418: Parent: Created child process 22068
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ext\\mysqli (Impossibile trovare il modulo specificato), ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ext\\pdo_mysql (Impossibile trovare il modulo specificato), ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:32:47.299280 2025] [mpm_winnt:notice] [pid 22068:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:32:47.328156 2025] [php:error] [pid 22068:tid 1136] [client 127.0.0.1:49214] PHP Parse error:  syntax error, unexpected variable "$sql" in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 5
+[Fri Apr 18 16:32:49.605193 2025] [php:error] [pid 22068:tid 1136] [client 127.0.0.1:49214] PHP Parse error:  syntax error, unexpected variable "$sql" in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 5
+[Fri Apr 18 16:34:33.214927 2025] [php:error] [pid 22068:tid 1128] [client ::1:49290] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:36:58.001843 2025] [php:error] [pid 22068:tid 1128] [client ::1:49398] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:36:58.179826 2025] [php:error] [pid 22068:tid 1128] [client ::1:49398] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:36:58.353830 2025] [php:error] [pid 22068:tid 1128] [client ::1:49398] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:36:58.534765 2025] [php:error] [pid 22068:tid 1128] [client ::1:49398] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:36:58.690936 2025] [php:error] [pid 22068:tid 1128] [client ::1:49398] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:2\nStack trace:\n#0 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 2
+[Fri Apr 18 16:38:09.916937 2025] [mpm_winnt:notice] [pid 23484:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:38:11.931490 2025] [mpm_winnt:notice] [pid 22068:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:38:11.950675 2025] [mpm_winnt:notice] [pid 23484:tid 424] AH00430: Parent: Child process 22068 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ./ext\\mysqli (Impossibile trovare il modulo specificato), ./ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ./ext\\pdo_mysql (Impossibile trovare il modulo specificato), ./ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:38:18.806493 2025] [mpm_winnt:notice] [pid 6600:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:38:18.806493 2025] [mpm_winnt:notice] [pid 6600:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:38:18.806493 2025] [core:notice] [pid 6600:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:38:18.809493 2025] [mpm_winnt:notice] [pid 6600:tid 424] AH00418: Parent: Created child process 11660
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ./ext\\mysqli (Impossibile trovare il modulo specificato), ./ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ./ext\\pdo_mysql (Impossibile trovare il modulo specificato), ./ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:38:19.174401 2025] [mpm_winnt:notice] [pid 11660:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:40:05.061223 2025] [mpm_winnt:notice] [pid 6600:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:40:07.068626 2025] [mpm_winnt:notice] [pid 11660:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:40:07.088646 2025] [mpm_winnt:notice] [pid 6600:tid 424] AH00430: Parent: Child process 11660 exited successfully.
+[Fri Apr 18 16:40:18.149138 2025] [mpm_winnt:notice] [pid 23996:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:40:18.149138 2025] [mpm_winnt:notice] [pid 23996:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:40:18.149138 2025] [core:notice] [pid 23996:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:40:18.151139 2025] [mpm_winnt:notice] [pid 23996:tid 424] AH00418: Parent: Created child process 11164
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 11164:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:41:21.189522 2025] [mpm_winnt:notice] [pid 23996:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:41:23.209434 2025] [mpm_winnt:notice] [pid 11164:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:41:23.229323 2025] [mpm_winnt:notice] [pid 23996:tid 424] AH00430: Parent: Child process 11164 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: .\\ext\\mysqli (Impossibile trovare il modulo specificato), .\\ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: .\\ext\\pdo_mysql (Impossibile trovare il modulo specificato), .\\ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:41:35.559354 2025] [mpm_winnt:notice] [pid 11588:tid 444] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:41:35.559354 2025] [mpm_winnt:notice] [pid 11588:tid 444] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:41:35.559354 2025] [core:notice] [pid 11588:tid 444] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:41:35.562355 2025] [mpm_winnt:notice] [pid 11588:tid 444] AH00418: Parent: Created child process 24460
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: .\\ext\\mysqli (Impossibile trovare il modulo specificato), .\\ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: .\\ext\\pdo_mysql (Impossibile trovare il modulo specificato), .\\ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:41:35.857888 2025] [mpm_winnt:notice] [pid 24460:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:41:51.865376 2025] [mpm_winnt:notice] [pid 11588:tid 444] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:41:53.872925 2025] [mpm_winnt:notice] [pid 24460:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:41:53.891930 2025] [mpm_winnt:notice] [pid 11588:tid 444] AH00430: Parent: Child process 24460 exited successfully.
+[Fri Apr 18 16:42:38.146980 2025] [mpm_winnt:notice] [pid 22172:tid 424] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:42:38.146980 2025] [mpm_winnt:notice] [pid 22172:tid 424] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:42:38.146980 2025] [core:notice] [pid 22172:tid 424] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:42:38.149980 2025] [mpm_winnt:notice] [pid 22172:tid 424] AH00418: Parent: Created child process 2136
+Apache server interrupted...
+025] [mpm_winnt:notice] [pid 2136:tid 428] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:42:59.548875 2025] [php:error] [pid 2136:tid 1100] [client ::1:49702] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'upload_on' in 'INSERT INTO' in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:27\nStack trace:\n#0 C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php(27): mysqli->prepare('INSERT INTO imm...')\n#1 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 27, referer: http://localhost/provaProgetto/index.php
+[Fri Apr 18 16:44:27.972990 2025] [php:error] [pid 2136:tid 1100] [client ::1:49798] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'upload_on' in 'INSERT INTO' in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php:27\nStack trace:\n#0 C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php(27): mysqli->prepare('INSERT INTO imm...')\n#1 {main}\n  thrown in C:\\Users\\nicoz\\Downloads\\progetto_webapplication\\web-application\\files_web\\provaProgetto\\index.php on line 27, referer: http://localhost/provaProgetto/index.php
+[Fri Apr 18 16:45:36.426045 2025] [mpm_winnt:notice] [pid 22172:tid 424] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:45:38.433385 2025] [mpm_winnt:notice] [pid 2136:tid 428] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:45:38.452522 2025] [mpm_winnt:notice] [pid 22172:tid 424] AH00430: Parent: Child process 2136 exited successfully.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mysqli' (tried: ../../php/ext\\mysqli (Impossibile trovare il modulo specificato), ../../php/ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ../../php/ext\\pdo_mysql (Impossibile trovare il modulo specificato), ../../php/ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:45:45.599389 2025] [mpm_winnt:notice] [pid 4628:tid 444] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:45:45.599389 2025] [mpm_winnt:notice] [pid 4628:tid 444] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:45:45.599389 2025] [core:notice] [pid 4628:tid 444] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:45:45.602390 2025] [mpm_winnt:notice] [pid 4628:tid 444] AH00418: Parent: Created child process 4512
+Apache server interrupted...
+able to load dynamic library 'mysqli' (tried: ../../php/ext\\mysqli (Impossibile trovare il modulo specificato), ../../php/ext\\php_mysqli.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: ../../php/ext\\pdo_mysql (Impossibile trovare il modulo specificato), ../../php/ext\\php_pdo_mysql.dll (Impossibile trovare il modulo specificato)) in Unknown on line 0
+[Fri Apr 18 16:45:45.866314 2025] [mpm_winnt:notice] [pid 4512:tid 444] AH00354: Child: Starting 64 worker threads.
+[Fri Apr 18 16:47:09.865069 2025] [mpm_winnt:notice] [pid 4628:tid 444] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri Apr 18 16:47:11.872639 2025] [mpm_winnt:notice] [pid 4512:tid 444] AH00364: Child: All worker threads have exited.
+[Fri Apr 18 16:47:11.892016 2025] [mpm_winnt:notice] [pid 4628:tid 444] AH00430: Parent: Child process 4512 exited successfully.
+[Fri Apr 18 16:47:16.586557 2025] [mpm_winnt:notice] [pid 12340:tid 452] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri Apr 18 16:47:16.586557 2025] [mpm_winnt:notice] [pid 12340:tid 452] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri Apr 18 16:47:16.586557 2025] [core:notice] [pid 12340:tid 452] AH00094: Command line: 'httpd -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application/apache/Apache24'
+[Fri Apr 18 16:47:16.589578 2025] [mpm_winnt:notice] [pid 12340:tid 452] AH00418: Parent: Created child process 23488
+[Fri Apr 18 16:47:16.848235 2025] [mpm_winnt:notice] [pid 23488:tid 428] AH00354: Child: Starting 64 worker threads.
