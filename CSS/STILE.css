@@ -64,3 +64,101 @@ nav li a:hover {
     background-color: #ddd;
     color: black;
 }
+
+ /* Stile per l'immagine in alto a destra */
+ .top-right-image {
+    position: fixed; /* Posizionamento fisso rispetto alla finestra del browser */
+    top: 0%; /* Distanza dal bordo superiore */
+    right: 0%; /* Distanza dal bordo destro */
+    width: 3.35%; /* Larghezza al 10% dello schermo */
+    z-index: 10; /* Assicura che l'immagine sia sopra altri elementi */
+}
+
+.top-right-image img {
+    width: 100%; /* Assicura che l'immagine occupi l'intera larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+}
+
+ /* Stile per l'immagine in alto a destra */
+ .top-right-carrello {
+    position: fixed; /* Posizionamento fisso rispetto alla finestra del browser */
+    top: 0%; /* Distanza dal bordo superiore */
+    right: 5%; /* Distanza dal bordo destro */
+    width: 3.30%; /* Larghezza al 10% dello schermo */
+    z-index: 10; /* Assicura che l'immagine sia sopra altri elementi */
+}
+
+.top-right-carrello img {
+    width: 100%; /* Assicura che l'immagine occupi l'intera larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+}
+
+
+
+/* STILE chi siamo ...*/
+.footer {
+    background-color: #01cd01;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-content h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* CATEGORIE  */
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Contenitore della galleria */
+    .galleria {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 colonne uguali */
+        gap: 1%; /* Spazio tra le immagini */
+        width: 100%;
+        padding: 2%;
+        box-sizing: border-box;
+    }
+
+    /* Contenitore di ogni immagine + testo */
+    .galleria-item {
+        position: relative;
+        width: 100%;
+    }
+
+    .galleria-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    /* Testo sopra l'immagine */
+    .galleria-item .testo {
+        position: absolute;
+        top: 85%; /* Rimane come hai chiesto */
+        left: 50%; /* Rimane come hai chiesto */
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 1% 2%; /* Padding in % invece di px */
+        border-radius: 5%; /* Arrotondamento in % */
+        font-size: 100%; /* Font-size in % invece di px */
+        transform: translate(-50%, -50%); /* Centrare meglio rispetto al punto */
+    }
+
+    .galleria-item img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s;
+        border: 2px solid #01cd01;
+    }

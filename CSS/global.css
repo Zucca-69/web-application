@@ -1,0 +1,40 @@
+/* Reset margini */
+body, h1, h2, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile globale */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Colore di sfondo */
+}
+
+/* Stile per i collegamenti ipertestuali */
+/* TODO
+.links a {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #0a0a0a;
+}
+*/
+
+/* Stile per la pagina Home */
+/* TODO
+.home-container {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.home-container h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.home-container p {
+    font-size: 18px;
+    color: #555;
+}
+*/
