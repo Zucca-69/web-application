@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `appartenenze` (
 -- Dump della struttura di tabella rungamedb.carrelli
 CREATE TABLE IF NOT EXISTS `carrelli` (
   `cartId` int(11) NOT NULL AUTO_INCREMENT,
-  `quantità` int(11) NOT NULL,
+  `quantita` int(11) NOT NULL,
   PRIMARY KEY (`cartId`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `carrelli` (
 -- Dump della struttura di tabella rungamedb.categorie
 CREATE TABLE IF NOT EXISTS `categorie` (
   `categoryId` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
+  `nome` varchar(35) NOT NULL,
   PRIMARY KEY (`categoryId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
@@ -108,8 +108,8 @@ CREATE TABLE IF NOT EXISTS `metodipagamento` (
 -- Dump della struttura di tabella rungamedb.prodotti
 CREATE TABLE IF NOT EXISTS `prodotti` (
   `productId` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL DEFAULT '',
-  `descrizione` varchar(50) NOT NULL DEFAULT '',
+  `nome` varchar(35) NOT NULL DEFAULT '',
+  `descrizione` varchar(100) NOT NULL DEFAULT '',
   `prezzo` float NOT NULL DEFAULT 0,
   `saga` varchar(50) DEFAULT NULL,
   `piattaforma` enum('PS4','PS5','PC','XBOX360','XBOXONE') DEFAULT NULL,
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `utenti` (
   PRIMARY KEY (`userId`),
   KEY `immagineProfilo` (`FKimmagineProfilo`) USING BTREE,
   CONSTRAINT `FK_utenti_immagini` FOREIGN KEY (`FKimmagineProfilo`) REFERENCES `immagini` (`imageId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 -- L’esportazione dei dati non era selezionata.
 
