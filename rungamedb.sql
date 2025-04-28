@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versione server:              11.7.2-MariaDB - mariadb.org binary distribution
+-- Versione server:              11.6.2-MariaDB - mariadb.org binary distribution
 -- S.O. server:                  Win64
--- HeidiSQL Versione:            12.10.0.7000
+-- HeidiSQL Versione:            12.8.0.6908
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -109,13 +109,14 @@ CREATE TABLE IF NOT EXISTS `metodipagamento` (
 CREATE TABLE IF NOT EXISTS `prodotti` (
   `productId` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(35) NOT NULL DEFAULT '',
-  `descrizione` varchar(100) NOT NULL DEFAULT '',
+  `descrizione` varchar(350) NOT NULL DEFAULT '',
   `prezzo` float NOT NULL DEFAULT 0,
   `saga` varchar(50) DEFAULT NULL,
   `piattaforma` enum('PS4','PS5','PC','XBOX360','XBOXONE') DEFAULT NULL,
   `quantitaDisponibile` int(11) NOT NULL,
   `dataUscita` date NOT NULL,
   `dataDisponibile` date DEFAULT NULL,
+  `sconto` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`productId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
@@ -123,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `prodotti` (
 
 -- Dump della struttura di tabella rungamedb.utenti
 CREATE TABLE IF NOT EXISTS `utenti` (
-  `userId` int(4) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
   `nome` char(50) NOT NULL,
   `cognome` char(35) NOT NULL,
   `dataNascita` date NOT NULL DEFAULT '0000-00-00',
