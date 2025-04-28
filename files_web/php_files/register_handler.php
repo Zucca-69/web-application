@@ -1,45 +1,11 @@
-<?php
-// session_start();
-// require_once 'db_connection.php';
+<?php 
+// Questo file gestisce la registrazione di un nuovo utente
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $nome = trim($_POST['nome']);
-//     $cognome = trim($_POST['cognome']);
-//     $dataNascita = $_POST['dataNascita'];
-//     $email = trim($_POST['email']);
-//     $username = trim($_POST['username']);
-//     $password = trim($_POST['password']);
-    
-//     // Hashiamo la password
-//     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
-//     // Data di iscrizione oggi
-//     $dataIscrizione = date('Y-m-d');
-
-//     // Codice di verifica (esempio: stringa random)
-//     $codiceVerifica = strval(rand(100000, 999999)); // codice di 6 cifre
-//     $verificato = 0; // Utente non ancora verificato
-
-//     $query = "INSERT INTO Utenti (nome, cognome, dataNascita, dataIscrizione, email, username, passwordHash, codiceVerifica, verificato) 
-//               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-//     $stmt = $conn->prepare($query);
-//     $stmt->bind_param("ssssssssi", $nome, $cognome, $dataNascita, $dataIscrizione, $email, $username, $passwordHash, $codiceVerifica, $verificato);
-
-//     if ($stmt->execute()) {
-//         // Registrazione riuscita
-//         header("Location: ../pagine/login.php?success=1");
-//         exit();
-//     } else {
-//         echo "Errore durante la registrazione: " . $stmt->error;
-//     }
-// }
-?>
-<?php
 session_start();
-require_once 'db_connection.php';
+require_once 'db_connection.php'; // Connessione al database
 
 if (isset($_POST['username'])) {
+    // Ricezione dati dal form
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
@@ -47,7 +13,7 @@ if (isset($_POST['username'])) {
     $cognome = trim($_POST['cognome']);
     $dataNascita = $_POST['dataNascita'];
 
-    // Controllo se l'utente esiste già
+    // Controlla se l'utente esiste già
     $sql_check = "SELECT userId FROM Utenti WHERE username=?";
     $stmt_check = $conn->prepare($sql_check);
     $stmt_check->bind_param('s', $username);
@@ -57,23 +23,25 @@ if (isset($_POST['username'])) {
     if ($stmt_check->num_rows > 0) {
         echo "L'utente esiste già.";
     } else {
-        // Se non esiste, lo registriamo
+        // Hash della password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $codiceVerifica = strval(rand(100000, 999999)); // codice di 6 cifre
+        // Genera codice di verifica
+        $codiceVerifica = strval(rand(100000, 999999));
         $dataIscrizione = date('Y-m-d');
         $verificato = 0;
 
+        // Inserisce nuovo utente
         $sql_insert = "INSERT INTO Utenti (nome, cognome, dataNascita, dataIscrizione, email, username, passwordHash, codiceVerifica, verificato) 
                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt_insert = $conn->prepare($sql_insert);
         $stmt_insert->bind_param("ssssssssi", $nome, $cognome, $dataNascita, $dataIscrizione, $email, $username, $hashed_password, $codiceVerifica, $verificato);
 
         if ($stmt_insert->execute()) {
-            // Invio email
+            // Invia email con codice di verifica
             $headers = "From: noreply@localhost";
             mail($email, "Benvenuto su RunGame!", "Grazie per esserti registrato!\nIl tuo codice di conferma è: $codiceVerifica", $headers);
 
-            // Redirigo a verifica
+            // Redirect alla pagina di verifica
             header("Location: ../pagine/verifica.php?utente=$username");
             exit();
         } else {
@@ -86,4 +54,3 @@ if (isset($_POST['username'])) {
     $conn->close();
 }
 ?>
-

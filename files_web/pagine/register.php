@@ -1,5 +1,6 @@
-<?php
-session_start();
+<?php 
+// Avvia la sessione per la gestione utenti
+session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -7,15 +8,17 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>RunGame - Registrati</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css"> <!-- Collegamento al file CSS -->
 </head>
 <body>
 
 <header>
+    <!-- Logo collegato alla homepage -->
     <a href="index.php"><h1>RunGame</h1></a>
 </header>
 
 <main>
+    <!-- Form di registrazione -->
     <section class="register-form">
         <h2>Registrati</h2>
         <form action="../php_files/register_handler.php" method="POST">
@@ -39,11 +42,14 @@ session_start();
 
             <button type="submit" class="btn">Registrati</button>
         </form>
+
+        <!-- Link per chi ha già un account -->
         <p>Hai già un account? <a href="login.php">Accedi</a></p>
     </section>
 </main>
 
 <footer>
+    <!-- Footer sito -->
     <p>&copy; 2025 RunGame. Tutti i diritti riservati.</p>
 </footer>
 
