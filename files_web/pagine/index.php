@@ -24,7 +24,14 @@ session_start();
         <ul class="nav-user">
             <?php if (isset($_SESSION['username'])): ?>
                 <!-- Se l'utente è loggato, mostra link al profilo e carrello -->
-                <li><a href="profile.php">Profilo</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Profilo</button>
+                        <div class="dropdown-content">
+                            <a href="profilo.php">Profilo</a>
+                            <a href="impostazioni.php">Impostazioni</a>
+                            <a href="../php_files/logout.php">Logout</a>
+                        </div>
+                </div>
                 <li><a href="cart.php">Carrello</a></li>
             <?php else: ?>
                 <!-- Se l'utente NON è loggato, mostra link a login e registrazione -->

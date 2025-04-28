@@ -77,3 +77,59 @@ nav ul {
 .nav-user {
     margin-right: 1rem;
 }
+
+/* per il dropdown quando clicchi profilo */
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Bottone del dropdown */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/* Dropdown contenuto (nascosto di default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+/* Link dentro il dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+/* Cambia colore dei link quando passi sopra */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostra il dropdown al passaggio del mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Cambia il colore del bottone al passaggio del mouse */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* fine dropdown */
