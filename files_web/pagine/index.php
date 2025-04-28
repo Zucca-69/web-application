@@ -1,0 +1,266 @@
+<?php 
+// Avvia la sessione per gestire login/logout
+session_start(); 
+?>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RunGame - home</title>
+    <!-- Colleghiamo i file CSS esterni per lo stile -->
+    <link rel="stylesheet" href="../css/STILE.css">
+    <link rel="stylesheet" href="../css/barra-navigazione.css">
+    <link rel="stylesheet" href="../css/global.css">
+    
+    <!-- Definiamo lo stile per lo slider delle immagini e i pallini -->
+     <!-- TODO: per favore mi aiuterebbe non avere il css in mezzo -->
+    <style>
+        /* Stile del contenitore dello slider */
+        .image-slider {
+          position: relative;
+          width: 50vw; /* Imposta la larghezza al 50% della finestra */
+          margin: 50px auto; /* Centra l'elemento */
+          overflow: hidden; /* Nasconde le parti fuori dal contenitore */
+        }
+        /* Stile per l'immagine nello slider */
+        .slider-image {
+          width: 100%; /* L'immagine occupa tutta la larghezza disponibile */
+          height: auto; /* Mantiene il rapporto di aspetto */
+          display: block; /* Impedisce lo spazio sotto l'immagine */
+          border-radius: 10px; /* Aggiunge bordi arrotondati */
+          opacity: 1; /* Inizialmente l'immagine è completamente visibile */
+          transition: opacity 0.5s ease; /* Effetto di dissolvenza per il passaggio tra le immagini */
+        }
+        /* Stile per le frecce di navigazione (sinistra e destra) */
+        .slider-arrow {
+          position: absolute;
+          top: 50%; /* Posiziona le frecce verticalmente al centro */
+          transform: translateY(-50%); /* Bilancia esattamente la freccia al centro */
+          font-size: 48px; /* Imposta la dimensione del carattere */
+          color: white; /* Colore delle frecce */
+          background-color: rgba(0,0,0,0.5); /* Sfondo semi-trasparente per la visibilità */
+          padding: 10px;
+          border-radius: 50%; /* Rende le frecce rotonde */
+          cursor: pointer; /* Cambia il cursore quando si passa sopra */
+          user-select: none; /* Impedisce la selezione del testo */
+        }
+        .arrow-left {
+          left: 10px; /* Posiziona la freccia a sinistra */
+        }
+        .arrow-right {
+          right: 10px; /* Posiziona la freccia a destra */
+        }
+        /* Effetto hover sulle frecce */
+        .slider-arrow:hover {
+          background-color: rgba(0,0,0,0.7); /* Aumenta la visibilità dello sfondo al passaggio del mouse */
+        }
+
+        /* Contenitore dei pallini sotto l'immagine */
+        .dots-container {
+          text-align: center; /* Allinea i pallini al centro */
+          margin-top: 10px; /* Distanza tra l'immagine e i pallini */
+        }
+
+        /* Stile dei singoli pallini */
+        .dot {
+          height: 10px;
+          width: 10px;
+          margin: 0 5px; /* Distanza tra i pallini */
+          background-color: #bbb; /* Colore iniziale dei pallini */
+          border-radius: 50%; /* Rende i pallini rotondi */
+          display: inline-block; /* Rende i pallini in linea orizzontale */
+          transition: background-color 0.3s ease; /* Transizione per l'illuminazione del pallino */
+          cursor: pointer; /* Cambia il cursore quando il mouse passa sopra */
+        }
+
+        /* Stile per il pallino attivo (illuminato) */
+        .dot.active {
+          background-color: #717171; /* Colore del pallino attivo */
+        }
+    </style>
+
+</head>
+
+
+<header>
+
+    <!-- Sezione del logo -->
+    <div class="logo">
+        <a href="index.php">  <!--  Il link alla pagina home -->
+            <img src="../MEDIA/immagini/Logo.png" width="8%" height="auto" alt="Logo"> <!--  todo: richiamo db -->
+        </a>
+    </div>
+
+    <nav>
+        <ul class="nav-user">
+            <?php if (isset($_SESSION['username'])): ?>
+                <!-- Se l'utente è loggato, mostra link al profilo e carrello -->
+                <div class="dropdown">
+                    <button class="dropbtn">Profilo</button>
+                        <div class="dropdown-content">
+                            <a href="profilo.php">Profilo</a>
+                            <a href="impostazioni.php">Impostazioni</a>
+                            <a href="../php_files/logout.php">Logout</a>
+                        </div>
+                </div>
+                <!-- Immagine del carrello in alto a destra -->
+                <div class="top-right-carrello">
+                    <a href="carrello.html">
+                        <img src="../MEDIA/immagini/carrellooooooo.jpg" alt="Immagine carrello"> 
+                    </a>
+                </div>
+            <?php else: ?>
+                <!-- Se l'utente NON è loggato, mostra link a login e registrazione -->
+                <li><a href="login.php">Accedi</a></li>
+                <li><a href="register.php">Registrati</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+</header>
+
+<body>
+
+    <!-- Immagine del profilo in alto a destra -->
+    <div class="top-right-image">
+        <a href="utenti.html">
+            <img src="../MEDIA/immagini/manca-immagine-profilo.jpg" alt="Immagine profilo"> <!--  todo: richiamo db -->
+        </a>
+    </div>
+
+    
+
+    <!-- Navigazione del sito -->
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="servizio clienti.html">Servizio clienti</a></li>
+          <li><a href="piattaforme.html">Piattaforme</a></li>
+          <li><a href="catalogo.html">Catalogo</a></li>
+          <li><a href="categorie.html">Categorie</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenitore dello slider -->
+    <div class="image-slider">
+        <!-- Freccia a sinistra -->
+        <div class="slider-arrow arrow-left" onclick="cambiaImmagine(-1)">&#8592;</div>
+        
+        <!-- Immagine principale dello slider -->
+        <img id="mainImage" class="slider-image" src="../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg" alt="Immagine">
+        
+        <!-- Freccia a destra -->
+        <div class="slider-arrow arrow-right" onclick="cambiaImmagine(1)">&#8594;</div>
+    </div>
+
+    <!-- Contenitore dei pallini di navigazione -->
+    <div class="dots-container">
+        <span class="dot" onclick="cambiaImmagine(0)"></span> <!-- Pallino 1 -->
+        <span class="dot" onclick="cambiaImmagine(1)"></span> <!-- Pallino 2 -->
+        <span class="dot" onclick="cambiaImmagine(2)"></span> <!-- Pallino 3 -->
+    </div>
+
+    <script>
+        // Array di immagini per lo slider
+        const immagini = [
+          "../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg",
+          "../MEDIA/immagini/lastchanceplay_4432243b.jpg",
+          "../MEDIA/immagini/GOWR_Review_Screenshot_13.jpg"
+        ];
+
+        let indiceCorrente = 0;  // Indice per la posizione dell'immagine corrente
+
+        // Funzione per cambiare immagine quando si clicca sulle frecce
+        function cambiaImmagine(direzione) {
+            const imgElement = document.getElementById('mainImage');  // Riferimento all'immagine corrente
+            const dots = document.querySelectorAll('.dot');  // Riferimento ai pallini
+
+            // Fase di dissolvenza dell'immagine
+            imgElement.style.opacity = 0;
+
+            // Dopo la dissolvenza, cambia immagine e riapri l'immagine con dissolvenza
+            setTimeout(() => {
+                indiceCorrente = (indiceCorrente + direzione + immagini.length) % immagini.length;  // Cambia l'indice dell'immagine
+                imgElement.src = immagini[indiceCorrente];  // Imposta la nuova immagine
+
+                // Fase di riapertura (fade-in)
+                imgElement.style.opacity = 1;
+
+                // Aggiorna i pallini di navigazione
+                aggiornaPallini();
+            }, 300); // Tempo della dissolvenza
+        }
+
+        // Funzione per aggiornare lo stato dei pallini (attivo o inattivo)
+        function aggiornaPallini() {
+            const dots = document.querySelectorAll('.dot');  // Ottieni tutti i pallini
+            dots.forEach((dot, index) => {
+                if (index === indiceCorrente) {  // Se il pallino è quello attivo
+                    dot.classList.add('active');  // Aggiungi la classe 'active'
+                } else {
+                    dot.classList.remove('active');  // Rimuovi la classe 'active' per gli altri
+                }
+            });
+        }
+
+        // Inizializza il pallino attivo al primo caricamento della pagina
+        aggiornaPallini();
+    </script>
+
+    <!-- Galleria di immagini -->
+    <div class="galleria">
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
+            <div class="testo">Sparatutto</div>
+        </div>
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 2">
+            <div class="testo">Sport</div>
+        </div>
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 3">
+            <div class="testo">Avventura</div>
+        </div>
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
+            <div class="testo">Picchiaduro</div>
+        </div>
+
+        <!-- Seconda riga di immagini -->
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg" alt="Immagine 5">
+            <div class="testo">Corse</div>
+        </div>
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/lastchanceplay_4432243b.jpg" alt="Immagine 6">
+            <div class="testo">Horror</div>
+        </div>
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/preview_screenshot2_119802-1750517926.jpg" alt="Immagine 7">
+            <div class="testo">RPG</div>
+        </div>
+        <div class="galleria-item">
+            <img src="../MEDIA/immagini/GOWR_Review_Screenshot_13.jpg" alt="Immagine 8">
+            <div class="testo">Azione</div>
+        </div>
+    </div>
+
+    <!-- Footer con informazioni sull'azienda -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Chi Siamo</h2>
+            <p>Siamo un team appassionato d'arte che si dedica a portare quadri unici e originali nelle case di tutto il mondo.
+            La nostra missione è offrire opere di alta qualità, curate con amore e attenzione, per arricchire ogni spazio
+            con bellezza ed emozione.</p>
+    
+            <p>Contattaci per qualsiasi informazione o curiosità! Siamo sempre felici di aiutarti.</p>
+    
+            <p>Email: info@tuaazienda.it | Telefono: +39 123 456 789</p>
+        </div>
+    </footer>
+
+</body>
+</html>
