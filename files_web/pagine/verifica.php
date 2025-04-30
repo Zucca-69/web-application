@@ -8,8 +8,8 @@ require_once '../php_files/db_connection.php';
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Verifica Account</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Collegamento al file CSS -->
+    <title>RunGame - Verifica Account</title>
+    <link rel="stylesheet" href="../css/autenticazione.css"> <!-- Collegamento al file CSS -->
 </head>
 <body>
 

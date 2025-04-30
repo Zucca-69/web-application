@@ -13,13 +13,16 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <title>RunGame - Impostazioni</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- collegamento dei file CSS globali + specifici -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/darkmode.css">
+    <link rel="stylesheet" href="../css/autenticazione.css">
+    <script src="../js/theme_toggle.js" defer></script>
 </head>
 <body>
 
-<header>
-    <a href="index.php"><h1>RunGame</h1></a>
-</header>
+<?php include '../php_files/header.php'; ?>
 
 <main>
     <section class="settings-form">
@@ -45,11 +48,13 @@ if (!isset($_SESSION['username'])) {
             <button type="submit" class="btn">Aggiorna Password</button>
         </form>
 
-        <!-- Cambio Tema (Placeholder) -->
+        <!-- Cambio Tema -->
         <section>
-            <h3>Cambia Tema (prossimamente)</h3>
-            <p>Presto potrai scegliere tra tema chiaro, scuro e altri colori!</p>
+            <h3>Cambia Tema</h3>
+            <button id="toggle-theme" class="btn">Attiva/disattiva Tema Scuro</button>
+            <p style="margin-top: 10px;">Il tema verrà salvato nel browser.</p>
         </section>
+
 
     </section>
 </main>

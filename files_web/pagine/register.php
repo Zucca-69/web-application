@@ -8,13 +8,18 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>RunGame - Registrati</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Collegamento al file CSS -->
+    <!-- collegamento dei file CSS globali + specifici -->
+    <link rel="stylesheet" href="../css/autenticazione.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
 
 <header>
-    <!-- Logo collegato alla homepage -->
-    <a href="index.php"><h1>RunGame</h1></a>
+    <!-- Logo che riporta alla homepage -->
+    <div class="logo">
+            <a href="index.php">
+                <img src="../MEDIA/immagini/Logo.png" alt="Logo">
+            </a>
 </header>
 
 <main>
