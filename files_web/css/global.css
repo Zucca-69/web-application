@@ -1,13 +1,14 @@
-/* Reset margini */
-body, h1, h2, p, a {
+/* Reset */
+body, h1, h2, p, a, ul, li {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Stile globale */
+/* Globale */
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Colore di sfondo */
+    background-color: #ffffff;
 }
 
 /* Stile per i collegamenti ipertestuali */

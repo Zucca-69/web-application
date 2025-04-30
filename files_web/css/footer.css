@@ -1,0 +1,18 @@
+/* Footer */
+.footer {
+    background-color: #01cd01;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.footer-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}

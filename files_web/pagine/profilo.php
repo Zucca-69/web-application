@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendita Quadri</title>
-    <link rel="stylesheet" href="../CSS/STILE.css">
+    <title>RunGame - profilo</title>
+    <!-- collegamento dei file CSS globali + specifici -->
+    <link rel="stylesheet" href="../css/global.css"> 
     <link rel="stylesheet" href="../CSS/profilo.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
 </head>
 <?php include '../php_files/header.php'; ?>
 

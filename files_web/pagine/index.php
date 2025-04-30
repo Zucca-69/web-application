@@ -9,10 +9,14 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RunGame - home</title>
-    <!-- Colleghiamo i file CSS esterni per lo stile -->
-    <link rel="stylesheet" href="../css/STILE.css">
-    <link rel="stylesheet" href="../css/barra-navigazione.css">
+    <!-- collegamento dei file CSS globali + specifici -->
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/slider.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/darkmode.css">
+    <link rel="stylesheet" href="../css/galleria.css">
+    <link rel="stylesheet" href="../css/barra-navigazione.css">
+
 </head>
 <?php include '../php_files/header_check.php'; ?>
 

@@ -1,4 +1,7 @@
 
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/darkmode.css">
+
 <header>
     <div class="navbar-container">
         <!-- Logo a sinistra -->
