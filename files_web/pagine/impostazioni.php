@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <title>RunGame - Impostazioni</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/STILE.css">
 </head>
 <body>
 

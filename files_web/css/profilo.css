@@ -1,0 +1,120 @@
+body {
+    background-color: #d3f9d8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    background-color: #01cd01;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Sezione sinistra con flexbox */
+.galleria-sinistra {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column; /* Imposta la direzione della colonna */
+    align-items: center;
+    gap: 20px; /* Distanza tra l'immagine e il paragrafo */
+}
+
+.galleria-sinistra img {
+    width: 100%; /* Immagine più piccola */
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Sezioni */
+.sezioni-contenitore {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.sezione {
+    width: 100%;
+    background-color: #01cd01;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sezione:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Titolo dentro ogni riquadro */
+.sezione-titolo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 15px;
+    text-align: left;
+    background-color: #01cd01;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Immagini dentro i riquadri */
+.sezione-img-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.sezione-img-container img {
+    width: 150px; 
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sezione-img-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Nuova sezione sotto l'immagine */
+.sezione-sotto-immagine {
+    width: 60%; /* Stessa larghezza dell'immagine sopra */
+    background-color: #01cd01;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
