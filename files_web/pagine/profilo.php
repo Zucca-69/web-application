@@ -1,3 +1,7 @@
+<?php 
+// Avvia la sessione per gestire l'immagine profilo
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -20,7 +24,7 @@
         <!-- Immagine grande a sinistra -->
         <div class="galleria-sinistra">
             <div class="immagine-principale">
-                <img id="imgGrande" src="../MEDIA/immagini/manca-immagine-profilo.jpg" alt="Immagine Grande">
+                <img id="imgGrande" src="../php_files/get_profile_img.php" alt="Immagine Grande">
             </div>
             <!-- Nuova sezione sotto l'immagine -->
             <div class="sezione-sotto-immagine">
@@ -64,6 +68,11 @@
             </div>
         </div>
     </div>
+
+    <form action="../php_files/change_profile_img.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="profile_img" accept="image/*" required>
+        <button type="submit">Carica immagine</button>
+    </form>
 
         <!-- Footer con informazioni sull'azienda -->
     <footer class="footer">

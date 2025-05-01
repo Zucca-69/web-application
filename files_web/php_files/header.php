@@ -26,7 +26,9 @@
         <div class="user-section">
                 <div class="dropdown">
                     <button class="dropbtn">
-                        <img src="../MEDIA/immagini/manca-immagine-profilo.jpg" alt="Immagine profilo" class="profile-pic">
+                        <!-- <img src="../MEDIA/immagini/manca-immagine-profilo.jpg" alt="Immagine profilo" class="profile-pic"> -->
+                        <img src="../php_files/get_profile_img.php" alt="Immagine profilo" style="width:50px; height:50px;">
+
                     </button>
                     <div class="dropdown-content">
                         <a href="profilo.php">Profilo</a>
