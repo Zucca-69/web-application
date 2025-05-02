@@ -1,0 +1,59 @@
+.image-slider {
+    position: relative;
+    width: 100%; /* Mantieni 100% per un contenitore che prende tutta la larghezza */
+    margin: 50px auto;
+    overflow: hidden;
+    text-align: center; /* Centra gli elementi figli orizzontalmente */
+}
+
+.slider-image {
+    width: 60%; /* La larghezza dell'immagine */
+    height: auto;
+    display: block; /* Assicurati che l'immagine sia un blocco, per poter usare il margine automatico */
+    margin: 0 auto; /* Centra l'immagine orizzontalmente */
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    position: relative; /* Posiziona l'immagine relativamente al suo contenitore */
+    z-index: 1; /* Assegna un valore z-index basso all'immagine */
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 200%; /* Aumentato per frecce più grandi */
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 15px; /* Aumentato per rendere il bottone più grande */
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2; /* Aggiungi un valore z-index più alto per le frecce */
+}
+
+.arrow-left { left: 15px; }  /* Aumentato margine per le frecce */
+.arrow-right { right: 15px; }
+
+.dots-container {
+    position: absolute; /* Posiziona i pallini sopra il contenitore */
+    bottom: 7%; /* Distanza dalla parte inferiore dell'immagine */
+    left: 50%;
+    transform: translateX(-50%); /* Centra orizzontalmente */
+    text-align: center;
+    margin-top: 0;
+    z-index: 3; /* Assegna un valore z-index più alto per i pallini */
+}
+
+.dot {
+    height: 12px; /* Aumentato per i punti */
+    width: 12px;  /* Aumentato per i punti */
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 6px; /* Aumentato spazio tra i punti */
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}

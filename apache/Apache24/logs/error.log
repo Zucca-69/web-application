@@ -1,0 +1,33 @@
+[Mon Apr 28 23:31:29.229280 2025] [core:warn] [pid 16536:tid 436] AH00098: pid file C:/Users/nicoz/Downloads/progetto_webapplication/web-application-1/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon Apr 28 23:31:29.301297 2025] [mpm_winnt:notice] [pid 16536:tid 436] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Mon Apr 28 23:31:29.301297 2025] [mpm_winnt:notice] [pid 16536:tid 436] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Mon Apr 28 23:31:29.301297 2025] [core:notice] [pid 16536:tid 436] AH00094: Command line: 'httpd.exe -d C:/Users/nicoz/Downloads/progetto_webapplication/web-application-1/apache/Apache24'
+[Mon Apr 28 23:31:29.303297 2025] [mpm_winnt:notice] [pid 16536:tid 436] AH00418: Parent: Created child process 9404
+[Fri May 02 18:18:08.363853 2025] [core:warn] [pid 208336:tid 464] AH00098: pid file C:/Users/Fabio/Downloads/web-application-Front-end (1)/web-application-Front-end/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 02 18:18:08.402648 2025] [mpm_winnt:notice] [pid 208336:tid 464] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri May 02 18:18:08.402648 2025] [mpm_winnt:notice] [pid 208336:tid 464] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri May 02 18:18:08.402648 2025] [core:notice] [pid 208336:tid 464] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Downloads/web-application-Front-end (1)/web-application-Front-end/apache/Apache24'
+[Fri May 02 18:18:08.405649 2025] [mpm_winnt:notice] [pid 208336:tid 464] AH00418: Parent: Created child process 208412
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 208412:tid 452] AH00354: Child: Starting 64 worker threads.
+[Fri May 02 19:11:38.726753 2025] [mpm_winnt:notice] [pid 208336:tid 464] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri May 02 19:11:40.738654 2025] [mpm_winnt:notice] [pid 208412:tid 452] AH00364: Child: All worker threads have exited.
+[Fri May 02 19:11:40.760242 2025] [mpm_winnt:notice] [pid 208336:tid 464] AH00430: Parent: Child process 208412 exited successfully.
+[Fri May 02 19:14:53.019794 2025] [mpm_winnt:notice] [pid 215036:tid 220] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri May 02 19:14:53.019794 2025] [mpm_winnt:notice] [pid 215036:tid 220] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri May 02 19:14:53.019794 2025] [core:notice] [pid 215036:tid 220] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Downloads/web-application-Front-end (1)/web-application-Front-end/apache/Apache24'
+[Fri May 02 19:14:53.022794 2025] [mpm_winnt:notice] [pid 215036:tid 220] AH00418: Parent: Created child process 213884
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 213884:tid 452] AH00354: Child: Starting 64 worker threads.
+[Fri May 02 19:18:00.876979 2025] [mpm_winnt:notice] [pid 215036:tid 220] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri May 02 19:18:02.894626 2025] [mpm_winnt:notice] [pid 213884:tid 452] AH00364: Child: All worker threads have exited.
+[Fri May 02 19:18:02.913785 2025] [mpm_winnt:notice] [pid 215036:tid 220] AH00430: Parent: Child process 213884 exited successfully.
+[Fri May 02 19:19:05.538391 2025] [mpm_winnt:notice] [pid 211708:tid 488] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri May 02 19:19:05.538391 2025] [mpm_winnt:notice] [pid 211708:tid 488] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri May 02 19:19:05.538391 2025] [core:notice] [pid 211708:tid 488] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Downloads/web-application-Front-end (1)/web-application-Front-end/apache/Apache24'
+[Fri May 02 19:19:05.541900 2025] [mpm_winnt:notice] [pid 211708:tid 488] AH00418: Parent: Created child process 203944
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 203944:tid 468] AH00354: Child: Starting 64 worker threads.
+[Fri May 02 19:28:38.324943 2025] [mpm_winnt:notice] [pid 211708:tid 488] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Fri May 02 19:28:40.352040 2025] [mpm_winnt:notice] [pid 203944:tid 468] AH00364: Child: All worker threads have exited.
+[Fri May 02 19:28:40.372080 2025] [mpm_winnt:notice] [pid 211708:tid 488] AH00430: Parent: Child process 203944 exited successfully.

@@ -1,0 +1,12 @@
+<?php
+$servername = "localhost";
+$username = "root"; //  user
+$password = "root"; // password di mysql
+$dbname = "rungamedb"; // nome del database che hai creato
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
+}
+?>
