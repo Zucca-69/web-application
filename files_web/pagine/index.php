@@ -116,6 +116,9 @@ session_start();
             <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
             <div class="testo">Picchiaduro</div>
         </div>
+
+
+        <!-- Seconda riga di immagini -->
         <div class="galleria-item">
             <img src="../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg" alt="Immagine 5">
             <div class="testo">Corse</div>
@@ -134,6 +137,7 @@ session_start();
         </div>
     </div>
 
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -142,6 +146,7 @@ session_start();
             La nostra missione è offrire opere di alta qualità, curate con amore e attenzione, per arricchire ogni spazio
             con bellezza ed emozione.</p>
             <p>Contattaci per qualsiasi informazione o curiosità! Siamo sempre felici di aiutarti.</p>
+
             <p>Email: info@tuaazienda.it | Telefono: +39 123 456 789</p>
         </div>
     </footer>
