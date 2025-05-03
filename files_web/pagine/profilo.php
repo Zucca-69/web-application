@@ -10,7 +10,7 @@ session_start();
     <title>RunGame - profilo</title>
     <!-- collegamento dei file CSS globali + specifici -->
     <link rel="stylesheet" href="../css/global.css"> 
-    <link rel="stylesheet" href="../CSS/profilo.css">
+    <link rel="stylesheet" href="../css/profilo.css">
     <link rel="stylesheet" href="../css/footer.css">
 
 </head>

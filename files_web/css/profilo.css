@@ -53,6 +53,22 @@ nav ul li a {
     border-radius: 10px;
 }
 
+.immagine-principale {
+    width: 60%;
+    max-width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.immagine-principale img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #aaa;
+}
+
 /* Sezioni */
 .sezioni-contenitore {
     flex: 1;
