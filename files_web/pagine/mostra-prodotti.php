@@ -248,41 +248,37 @@
     </style>
 </head>
 <body>
-    <div class="logo">
-        <a href="index.html">
-            <img src="../MEDIA/immagini/Logo.png" width="8%" alt="Logo">
-        </a>
-    </div>
+    <?php 
+        include '../php_files/header_check.php'; 
+        include '../php_files/db_connection.php'; 
 
-    <div class="top-right-image">
-        <a href="utenti.html">
-            <img src="../MEDIA/immagini/manca-immagine-profilo.jpg" alt="Profilo"> 
-        </a>
-    </div>
+        $productId = $_GET['productId'];
 
-    <div class="top-right-carrello">
-        <a href="carrello.html">
-            <img src="../MEDIA/immagini/carrellooooooo.jpg" alt="Carrello"> 
-        </a>
-    </div>
+        $query = "SELECT * FROM prodotti WHERE productId = $productId";
+        
+        $rawResult = $conn -> query($query);
+        $gameInfo = $rawResult->fetch_assoc();
+    
+        $query = "SELECT * FROM appartenenze 
+                    JOIN immagini ON immagini.imageId = appartenenze.imageId
+                    JOIN prodotti ON prodotti.productId = appartenenze.productId
+                    WHERE prodotti.productId = $productId";
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="servizio clienti.html">Servizio clienti</a></li>
-            <li><a href="piattaforme.html">Piattaforme</a></li>
-            <li><a href="catalogo.html">Catalogo</a></li>
-            <li><a href="categorie.html">Categorie</a></li>
-        </ul>
-    </nav>
+        $rawResult = $result->fetch_all(MYSQLI_ASSOC);
+        foreach ($rawResult as $row) {
+            
+        }
 
+        // chiudo la connessione al server una volta finite le query necessarie
+        $conn -> close();
+    ?>
+    
     <div class="container">
         <div class="galleria-sinistra">
             <div class="immagine-principale">
                 <img id="imgGrande" src="../MEDIA/immagini/lastchanceplay_4432243b.jpg" alt="Immagine Grande">
             </div>
+                
             <div class="miniature">
                 <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Miniatura 1">
                 <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Miniatura 2">
@@ -291,11 +287,33 @@
         </div>
 
         <div class="galleria-destra">
-            <div class="riquadro">Quantità</div>
-            <div class="riquadro">Titolo <br> Prezzo</div>
+
+            <div class="riquadro">
+                <p> 
+                    <?php
+                        echo $gameInfo['nome'] . '<br>' . $gameInfo['prezzo'] . '€';
+                    ?>
+                </p>
+            </div>
+
+            <div class="riquadro">
+                <p>
+                    <?php
+                        if ($gameInfo['quantitaDisponibile'] == 0 or is_null($gameInfo['quantitaDisponibile'])) {
+                            echo 'Prodotto non disponibile';
+                        } else if ($gameInfo['quantitaDisponibile'] > 10) {
+                            echo 'Disponibilità immediata';
+                        } else {
+                            echo 'Disponibili solo ' . $gameInfo['quantitaDisponibile'];
+                        }
+                    ?>
+                </p>
+            </div>
+
             <div class="riquadro" id="riquadro">
                 <span>Sparatutto</span>
             </div>
+        
             <div id="barra-richieste" class="barra-richieste">
                 <ul>
                     <li><a href="#">Richiesta 1</a></li>
@@ -309,20 +327,11 @@
     <div class="sezioni-contenitore">
         <div class="sezione">
             <div class="etichetta-sezione">DESCRIZIONE:</div>
-            <p class="testo-descrizione">Questo è un esempio di descrizione del prodot
-                to.OOOOOOOO
-                OOOOOOOOOOOOOOOO
-                OOOOOOOOOOOO
-                OOOOOOOOOO
-                OOOOOOOOOOOOOOO
-                OOOOOOOO
-                OOOOOOOOOOOOO
-                OOOOOOOOOOOOOOOOOOOOOOOOO
-                OOOOOOOOOO
-                OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-                OOOOO Può conten
-                ere informazioni dettagliate sul videogioco, come trama, modalità di gioco e piattafo
-                rme supportate.</p>
+            <p class="testo-descrizione">
+                <?php
+                    echo $gameInfo['descrizione'];
+                ?>
+            </p>
         </div>
 
         <div class="sezione">
@@ -336,6 +345,7 @@
             </div>
         </div>
 
+        <!-- consigliati -->
         <div class="sezione">
             <div class="etichetta-sezione">CONSIGLIATI:</div>
             <div class="sezione-img-container">
@@ -373,12 +383,19 @@
     <footer class="footer">
         <div class="footer-content">
             <h2>Chi Siamo</h2>
-            <p>Siamo un team appassionato d'arte che si dedica a portare quadri unici e originali nelle case di tutto il mondo.
-            La nostra missione è offrire opere di alta qualità, curate con amore e attenzione, per arricchire ogni spazio
-            con bellezza ed emozione.</p>
-            <p>Contattaci per qualsiasi informazione o curiosità! Siamo sempre felici di aiutarti.</p>
+            <p>
+                Siamo un team appassionato d'arte che si dedica a portare quadri unici e originali nelle case di tutto il mondo.
+                La nostra missione è offrire opere di alta qualità, curate con amore e attenzione, per arricchire ogni spazio
+                con bellezza ed emozione.
+            </p>
+            
+            <p>
+                Contattaci per qualsiasi informazione o curiosità! Siamo sempre felici di aiutarti.
+            </p>
 
-            <p>Email: info@tuaazienda.it | Telefono: +39 123 456 789</p>
+            <p>
+                Email: info@tuaazienda.it | Telefono: +39 123 456 789
+            </p>
         </div>
     </footer>
 </body>

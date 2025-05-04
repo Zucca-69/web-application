@@ -136,8 +136,10 @@ session_start();
             <div class="testo">RPG</div>
         </div>
         <div class="galleria-item">
-            <img src="../MEDIA/immagini/GOWR_Review_Screenshot_13.jpg" alt="Immagine 8">
-            <div class="testo">Azione</div>
+            <a href="mostra-prodotti.php?productId=1">
+                <img src="../MEDIA/immagini/GOWR_Review_Screenshot_13.jpg" alt="Immagine 8">
+                <div class="testo">Azione</div>
+            </a>
         </div>
     </div>
 
