@@ -113,19 +113,24 @@ session_start();
             </a>
         </div>
         <div class="galleria-item">
-            <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 3">
-            <div class="testo">Avventura</div>
+            <a href="mostra-prodotti.php">
+                <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
+                <div class="testo">Sparatutto</div>
+            </a>
         </div>
         <div class="galleria-item">
-            <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
-            <div class="testo">Picchiaduro</div>
+            <a href="Carrello.php">
+                <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
+                <div class="testo">Sparatutto</div>
+            </a>
         </div>
-
 
         <!-- Seconda riga di immagini -->
         <div class="galleria-item">
-            <img src="../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg" alt="Immagine 5">
-            <div class="testo">Corse</div>
+            <a href="pagamento.php">
+                <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
+                <div class="testo">Sparatutto</div>
+            </a>
         </div>
         <div class="galleria-item">
             <img src="../MEDIA/immagini/lastchanceplay_4432243b.jpg" alt="Immagine 6">

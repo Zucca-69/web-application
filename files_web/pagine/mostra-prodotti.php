@@ -248,36 +248,7 @@
     </style>
 </head>
 <body>
-    <div class="logo">
-        <a href="index.html">
-            <img src="../MEDIA/immagini/Logo.png" width="8%" alt="Logo">
-        </a>
-    </div>
-
-    <div class="top-right-image">
-        <a href="utenti.html">
-            <img src="../MEDIA/immagini/manca-immagine-profilo.jpg" alt="Profilo"> 
-        </a>
-    </div>
-
-    <div class="top-right-carrello">
-        <a href="carrello.html">
-            <img src="../MEDIA/immagini/carrellooooooo.jpg" alt="Carrello"> 
-        </a>
-    </div>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="servizio clienti.html">Servizio clienti</a></li>
-            <li><a href="piattaforme.html">Piattaforme</a></li>
-            <li><a href="catalogo.html">Catalogo</a></li>
-            <li><a href="categorie.html">Categorie</a></li>
-        </ul>
-    </nav>
-
+    <?php include '../php_files/header_check.php'; ?>
     <div class="container">
         <div class="galleria-sinistra">
             <div class="immagine-principale">
@@ -291,8 +262,8 @@
         </div>
 
         <div class="galleria-destra">
-            <div class="riquadro">Quantità</div>
             <div class="riquadro">Titolo <br> Prezzo</div>
+            <div class="riquadro">Quantità</div>
             <div class="riquadro" id="riquadro">
                 <span>Sparatutto</span>
             </div>
