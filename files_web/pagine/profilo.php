@@ -23,9 +23,19 @@ session_start();
     <div class="container">
         <!-- Immagine grande a sinistra -->
         <div class="galleria-sinistra">
-            <div class="immagine-principale">
-                <img id="imgGrande" src="../php_files/get_profile_img.php" alt="Immagine Grande">
-            </div>
+        <div class="profile-pic-wrapper">
+                    <label for="profileUpload">
+                    <div class="img.profile-pic">
+                        <img src="../php_files/get_profile_img.php" alt="Immagine profilo" class="profile-pic" />
+                    </div>
+                        <div class="overlay">
+                            <span>Cambia immagine</span>
+                        </div>
+                    </label>
+                    <input type="file" id="profileUpload" name="profile_img" onchange="this.form.submit()" hidden />
+                </div>
+            </form>
+
             <!-- Nuova sezione sotto l'immagine -->
             <div class="sezione-sotto-immagine">
                 Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
@@ -69,10 +79,6 @@ session_start();
         </div>
     </div>
 
-    <form action="../php_files/change_profile_img.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="profile_img" accept="image/*" required>
-        <button type="submit">Carica immagine</button>
-    </form>
 
         <!-- Footer con informazioni sull'azienda -->
     <footer class="footer">

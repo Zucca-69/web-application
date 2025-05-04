@@ -1,6 +1,7 @@
 
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/darkmode.css">
+<script src="../js/dropdown_botton.js" defer></script>
 
 <header>
     <div class="navbar-container">
@@ -39,7 +40,7 @@
 
                 <div class="cart-icon">
                     <a href="carrello.html">
-                        <img src="../MEDIA/immagini/carrellooooooo.jpg" alt="Carrello">
+                        <img src="../MEDIA/immagini/carrello.png" alt="Carrello">
                     </a>
                 </div>
         </div>

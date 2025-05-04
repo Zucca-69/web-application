@@ -30,6 +30,6 @@ if ($FKimmagineProfilo) {
     echo $imageData;
 } else {
     // Immagine di default
-    readfile("../img/default.png");
+    readfile("../MEDIA/immagini/manca-immagine-profilo.jpg");
 }
 ?>

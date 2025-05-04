@@ -111,9 +111,9 @@ nav li a:hover {
 }
 
 /* Mostra il dropdown al passaggio del mouse */
-.dropdown:hover .dropdown-content {
+/* .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
 
 /* Cambia il colore del bottone al passaggio del mouse */
 .dropdown:hover .dropbtn {
