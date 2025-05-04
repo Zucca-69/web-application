@@ -101,12 +101,16 @@ session_start();
     <!-- Galleria -->
     <div class="galleria">
         <div class="galleria-item">
-            <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
-            <div class="testo">Sparatutto</div>
+            <a href="contact.php">
+                <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
+                <div class="testo">Sparatutto</div>
+            </a>
         </div>
         <div class="galleria-item">
-            <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 2">
-            <div class="testo">Sport</div>
+            <a href="catalogo.php">
+                <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
+                <div class="testo">Sparatutto</div>
+            </a>
         </div>
         <div class="galleria-item">
             <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 3">
