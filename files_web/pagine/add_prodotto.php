@@ -14,24 +14,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descrizione = $_POST['descrizione'] ?? '';
     $prezzo = floatval($_POST['prezzo'] ?? 0);
     $saga = $_POST['saga'] ?? null;
-    $piattaforma = $_POST['piattaforma'] ?? null;
+    $piattaforme = $_POST['piattaforma'] ?? [];
+    $multiInsert = isset($_POST['multiInsert']) && $_POST['multiInsert'] == '1';
     $quantitaDisponibile = intval($_POST['quantitaDisponibile'] ?? 0);
     $dataUscita = $_POST['dataUscita'] ?? null;
     $dataDisponibile = $_POST['dataDisponibile'] ?? null;
     $sconto = intval($_POST['sconto'] ?? 0);
 
-    if ($nome && $descrizione && $prezzo > 0 && $quantitaDisponibile >= 0 && $dataUscita) {
+    if ($nome && $descrizione && $prezzo > 0 && $quantitaDisponibile >= 0 && $dataUscita && count($piattaforme) > 0) {
         $stmt = $conn->prepare("INSERT INTO prodotti (nome, descrizione, prezzo, saga, piattaforma, quantitaDisponibile, dataUscita, dataDisponibile, sconto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssdssisss", $nome, $descrizione, $prezzo, $saga, $piattaforma, $quantitaDisponibile, $dataUscita, $dataDisponibile, $sconto);
-        if ($stmt->execute()) {
-            $message = "✅ Prodotto inserito con successo.";
-        } else {
-            $message = "❌ Errore durante l'inserimento: " . $stmt->error;
+        foreach ($piattaforme as $piattaforma) {
+            $stmt->bind_param("ssdssisss", $nome, $descrizione, $prezzo, $saga, $piattaforma, $quantitaDisponibile, $dataUscita, $dataDisponibile, $sconto);
+            if (!$stmt->execute()) {
+                $message .= "❌ Errore per piattaforma $piattaforma: " . $stmt->error . "<br>";
+            } else {
+                $message .= "✅ Prodotto inserito per piattaforma $piattaforma.<br>";
+            }
         }
         $stmt->close();
     } else {
-        $message = "❌ Compila tutti i campi obbligatori correttamente.";
+        $message = "❌ Compila tutti i campi obbligatori correttamente e seleziona almeno una piattaforma.";
     }
+    
 }
 ?>
 
@@ -88,16 +92,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="saga">Saga</label>
         <input type="text" name="saga">
 
-        <label for="piattaforma">Piattaforma</label>
-        <select name="piattaforma">
-            <option value="">-- Nessuna --</option>
-            <option value="PS3">PS3</option>
-            <option value="PS4">PS4</option>
-            <option value="PS5">PS5</option>
-            <option value="PC">PC</option>
-            <option value="XBOX360">XBOX360</option>
-            <option value="XBOXONE">XBOXONE</option>
-        </select>
+        <label>Piattaforme*</label>
+        <div>
+            <label><input type="checkbox" name="piattaforma[]" value="PS3"> PS3</label><br>
+            <label><input type="checkbox" name="piattaforma[]" value="PS4"> PS4</label><br>
+            <label><input type="checkbox" name="piattaforma[]" value="PS5"> PS5</label><br>
+            <label><input type="checkbox" name="piattaforma[]" value="PC"> PC</label><br>
+            <label><input type="checkbox" name="piattaforma[]" value="XBOX360"> XBOX360</label><br>
+            <label><input type="checkbox" name="piattaforma[]" value="XBOXONE"> XBOXONE</label><br>
+        </div>
+
+        <label>
+            <input type="checkbox" name="multiInsert" value="1">
+            Inserisci per tutte le piattaforme selezionate
+        </label>
+
 
         <label for="quantitaDisponibile">Quantità Disponibile*</label>
         <input type="number" name="quantitaDisponibile" required>

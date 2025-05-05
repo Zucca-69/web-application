@@ -44,13 +44,24 @@ session_start();
 
             <!-- Nuova sezione sotto l'immagine -->
             <div class="sezione-sotto-immagine">
-                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
-                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
-                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
-                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
-                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
-                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
-            </div>
+            <?php if (!empty($userData)): ?>
+                <div><strong>Nome:</strong> <?= htmlspecialchars($userData['nome']) ?></div>
+                <div><strong>Cognome:</strong> <?= htmlspecialchars($userData['cognome']) ?></div>
+                <div><strong>Username:</strong> <?= htmlspecialchars($userData['username']) ?></div>
+                <div><strong>Email:</strong> <?= htmlspecialchars($userData['email']) ?></div>
+                <div><strong>Data di Nascita:</strong> <?= htmlspecialchars($userData['data_nascita']) ?></div>
+                <div>
+                    <strong>Bio:</strong><br>
+                    <form action="../php_files/update_bio.php" method="POST">
+                        <textarea name="bio" rows="4" cols="40"><?= htmlspecialchars($userData['bio']) ?></textarea><br>
+                        <button type="submit">Aggiorna Bio</button>
+                    </form>
+                </div>
+            <?php else: ?>
+                <p>Dati utente non disponibili.</p>
+            <?php endif; ?>
+        </div>
+
         </div>
 
         <!-- Sezioni a destra -->
@@ -108,3 +119,112 @@ session_start();
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+Ottimo! Ti spiego **come aggiornare la bio in tempo reale usando AJAX**, senza ricaricare la pagina.
+
+---
+
+### 🔁 Funzionalità:
+
+* L'utente scrive nella `textarea`.
+* Appena clicca su “Aggiorna Bio”, viene inviata una richiesta AJAX a `update_bio.php`.
+* La risposta appare subito (es. “Bio aggiornata con successo”), **senza refresh**.
+
+---
+
+### 🔧 Passaggi:
+
+#### 1. **Modifica il form HTML in `profilo.php`**
+
+Sostituisci il `form` nella `.sezione-sotto-immagine` con:
+
+```html
+<div>
+    <strong>Bio:</strong><br>
+    <textarea id="bio" rows="4" cols="40"><?= htmlspecialchars($userData['bio']) ?></textarea><br>
+    <button type="button" id="updateBioBtn">Aggiorna Bio</button>
+    <div id="bioStatus" style="margin-top: 10px; color: green;"></div>
+</div>
+```
+
+---
+
+#### 2. **Aggiungi lo script JavaScript in fondo a `profilo.php` (prima di `</body>`)**
+
+```html
+<script>
+document.getElementById("updateBioBtn").addEventListener("click", function() {
+    const bio = document.getElementById("bio").value;
+    const status = document.getElementById("bioStatus");
+
+    fetch("../php_files/update_bio.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "bio=" + encodeURIComponent(bio)
+    })
+    .then(response => response.text())
+    .then(data => {
+        status.textContent = "Bio aggiornata con successo!";
+        status.style.color = "green";
+    })
+    .catch(error => {
+        status.textContent = "Errore durante l'aggiornamento.";
+        status.style.color = "red";
+        console.error("Errore:", error);
+    });
+});
+</script>
+```
+
+---
+
+#### 3. **Modifica `update_bio.php` per rispondere correttamente ad AJAX**
+
+Sostituisci il `header("Location: ...")` con una semplice `echo`:
+
+```php
+<?php
+// session_start();
+// require_once("db_connection.php");
+
+// if (isset($_SESSION['user_id'], $_POST['bio'])) {
+//     $userId = $_SESSION['user_id'];
+//     $bio = trim($_POST['bio']);
+
+//     $stmt = $conn->prepare("UPDATE utenti SET bio = ? WHERE id = ?");
+//     $stmt->bind_param("si", $bio, $userId);
+
+//     if ($stmt->execute()) {
+//         echo "success";
+//     } else {
+//         echo "error";
+//     }
+
+//     $stmt->close();
+// } else {
+//     echo "invalid";
+// }
+?>
+```
+
+---
+
+### ✅ Risultato:
+
+L'utente può modificare la bio, cliccare su “Aggiorna Bio” e vedrà un messaggio conferma istantaneamente, **senza ricaricare la pagina**.
+
+Vuoi aggiungere il salvataggio automatico della bio man mano che l’utente scrive (auto-save)? -->
