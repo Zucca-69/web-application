@@ -1,7 +1,4 @@
-<?php 
-// Avvia la sessione per gestire l'immagine profilo
-session_start(); 
-?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -15,6 +12,7 @@ session_start();
 
 </head>
 <?php include '../php_files/header.php'; ?>
+<?php include '../php_files/get_user_data.php';?>
 
 <body>
 
@@ -49,13 +47,13 @@ session_start();
                 <div><strong>Cognome:</strong> <?= htmlspecialchars($userData['cognome']) ?></div>
                 <div><strong>Username:</strong> <?= htmlspecialchars($userData['username']) ?></div>
                 <div><strong>Email:</strong> <?= htmlspecialchars($userData['email']) ?></div>
-                <div><strong>Data di Nascita:</strong> <?= htmlspecialchars($userData['data_nascita']) ?></div>
+                <div><strong>Data di Nascita:</strong> <?= htmlspecialchars($userData['dataNascita']) ?></div>
                 <div>
-                    <strong>Bio:</strong><br>
+                    <!-- <strong>Bio:</strong><br>
                     <form action="../php_files/update_bio.php" method="POST">
                         <textarea name="bio" rows="4" cols="40"><?= htmlspecialchars($userData['bio']) ?></textarea><br>
                         <button type="submit">Aggiorna Bio</button>
-                    </form>
+                    </form> -->
                 </div>
             <?php else: ?>
                 <p>Dati utente non disponibili.</p>
