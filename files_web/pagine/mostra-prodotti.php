@@ -27,7 +27,7 @@
             max-width: 1200px;
         }
 
-        .galleria-sinistra {
+        .immagini-gioco {
             width: 70%;
             padding-left: 20px;
             padding-top: 20px;
@@ -59,7 +59,7 @@
             border: 2px solid #333;
         }
 
-        .galleria-destra {
+        .informazioni-gioco {
             width: 40%;
             display: flex;
             flex-direction: column;
@@ -163,11 +163,12 @@
             justify-content: space-between;
             align-items: center;
             gap: 10px;
-            flex-wrap: wrap;
+
         }
 
         .sezione-img-container img {
-            width: 16%;
+            width: 22%;
+            min-width: 100%;
             height: auto;
             border-radius: 8px;
             border: 2px solid #ccc;
@@ -254,19 +255,64 @@
 
         $productId = $_GET['productId'];
 
+        //info sul gioco
         $query = "SELECT * FROM prodotti WHERE productId = $productId";
-        
         $rawResult = $conn -> query($query);
         $gameInfo = $rawResult->fetch_assoc();
     
-        $query = "SELECT * FROM appartenenze 
-                    JOIN immagini ON immagini.imageId = appartenenze.imageId
-                    JOIN prodotti ON prodotti.productId = appartenenze.productId
-                    WHERE prodotti.productId = $productId";
+        // immagini del gioco
+        $query = "SELECT imageData, imageType FROM immagini WHERE FKproductId = $productId";
+        $rawResult = $conn->query($query);
+        
+        $immagini = [];
+        $result = $rawResult->fetch_all(MYSQLI_ASSOC);
+        foreach ($result as $row) {
+            $base64 = base64_encode($row['imageData']);
+            $immagini[] = "data:" . $row['imageType'] . ";base64," . $base64;
+        }
 
-        $rawResult = $result->fetch_all(MYSQLI_ASSOC);
-        foreach ($rawResult as $row) {
-            
+        // cerco le diverse piattaforme del gioco
+        $nome = $gameInfo['nome'];
+        $query = "SELECT productId, piattaforma FROM prodotti WHERE nome = '" . $conn->real_escape_string($nome) . "'";
+        $rawResult = $conn->query($query);
+        
+        $piattaforme = [];
+        
+        if ($rawResult && $rawResult->num_rows > 0) {
+            while ($row = $rawResult->fetch_assoc()) {
+                $piattaforme[] = [
+                    'productId' => $row['productId'],
+                    'piattaforma' => $row['piattaforma'],
+                ];
+            }
+        } else {
+            echo "errore query: " . $conn->error;
+        }
+        
+        // controllo se il gioco fa parte di una saga
+        $saga = $conn->real_escape_string($gameInfo['saga']);
+        $giochiSaga = [];
+
+        if (!empty($saga)) {
+            $query = "SELECT p.productId, i.imageData, i.imageType
+                    FROM prodotti p
+                    JOIN immagini i ON p.productId = i.FKproductId
+                    WHERE p.saga = '$saga' 
+                    AND p.productId != '$productId'
+                    GROUP BY p.productId";
+
+            $rawResult = $conn->query($query);
+
+            if ($rawResult && $rawResult->num_rows > 0) {
+                while ($row = $rawResult->fetch_assoc()) {
+                    $giochiSaga[] = [
+                        'productId' => $row['productId'],
+                        'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
+                    ];
+                }
+            } else {
+                echo "errore query: " . $conn->error;
+            }
         }
 
         // chiudo la connessione al server una volta finite le query necessarie
@@ -274,19 +320,19 @@
     ?>
     
     <div class="container">
-        <div class="galleria-sinistra">
+        <div class="immagini-gioco">
             <div class="immagine-principale">
-                <img id="imgGrande" src="../MEDIA/immagini/lastchanceplay_4432243b.jpg" alt="Immagine Grande">
+                <img id="imgGrande" src="<?php echo $immagini[0]; ?>" alt="Immagine Grande">
             </div>
                 
             <div class="miniature">
-                <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Miniatura 1">
-                <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Miniatura 2">
-                <img class="mini" src="../MEDIA/immagini/FIFA-12.jpg" alt="Miniatura 3">
+                <?php for ($i = 0; $i < 3 && isset($immagini[$i]); $i++): ?>
+                    <img class="mini" src="<?php echo $immagini[$i]; ?>" alt="Miniatura <?php echo $i + 1; ?>">
+                <?php endfor; ?>
             </div>
         </div>
 
-        <div class="galleria-destra">
+        <div class="informazioni-gioco">
 
             <div class="riquadro">
                 <p> 
@@ -296,6 +342,7 @@
                 </p>
             </div>
 
+            <!-- mostra la disponibilità di un prodotto -->
             <div class="riquadro">
                 <p>
                     <?php
@@ -310,20 +357,32 @@
                 </p>
             </div>
 
+            <!-- seleziona la piattaforma per il gioco -->
             <div class="riquadro" id="riquadro">
-                <span>Sparatutto</span>
+                <span>
+                    Piattaforma: <?php echo $gameInfo['piattaforma']; ?>
+                </span>
             </div>
-        
-            <div id="barra-richieste" class="barra-richieste">
-                <ul>
-                    <li><a href="#">Richiesta 1</a></li>
-                    <li><a href="#">Richiesta 2</a></li>
-                    <li><a href="#">Richiesta 3</a></li>
-                </ul>
-            </div>
+                        
+            <?php
+                echo '<div id="barra-richieste" class="barra-richieste"><ul>';
+                    if (count($piattaforme) > 1) {
+                        $limite = min(5, count($piattaforme));
+                        for ($i = 0; $i < $limite; $i++) {
+                            $link = "mostra-prodotti.php?productId=" . $piattaforme[$i]['productId'];
+                            $testo = htmlspecialchars($piattaforme[$i]['piattaforma'] ?? '');
+                            echo "<li><a href=\"$link\">$testo</a></li>";
+                        }
+                    } else {
+                        echo "<li>Siamo spiacenti: non ci sono altre piattaforme per questo contenuto</li>";
+                    }
+                echo '</ul></div>';
+            ?>
+
         </div>
     </div>
 
+    <!-- descrizione -->
     <div class="sezioni-contenitore">
         <div class="sezione">
             <div class="etichetta-sezione">DESCRIZIONE:</div>
@@ -334,28 +393,58 @@
             </p>
         </div>
 
-        <div class="sezione">
-            <div class="etichetta-sezione">CORRELATI:</div>
-            <div class="sezione-img-container">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 1">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 2">
-                <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 3">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 5">
-            </div>
-        </div>
+        <!-- riquadro con la saga -->
+        <?php 
+            if ($saga != NULL && !empty($giochiSaga)) {
+                echo "<div class='sezione'>
+                    <div class='etichetta-sezione'>SAGA:</div>
+                    <div class='sezione-img-container'>";
 
-        <!-- consigliati -->
-        <div class="sezione">
-            <div class="etichetta-sezione">CONSIGLIATI:</div>
-            <div class="sezione-img-container">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 1">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 2">
-                <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 3">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 5">
-            </div>
-        </div>
+                foreach ($giochiSaga as $giocoSaga) {
+                    echo "<a href='mostra-prodotti.php?productId=" . $giocoSaga['productId'] . "'>";
+                    echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
+                    echo "</a>";
+                }
+
+                echo "</div></div>";
+            }
+        ?>
+
+        <!-- riquadro per i correlati -->
+        <?php 
+            // TODO : aggiungere la query per i consigliati
+            if ($saga != NULL && !empty($giochiSaga)) {
+                echo "<div class='sezione'>
+                    <div class='etichetta-sezione'>CORRELATI:</div>
+                    <div class='sezione-img-container'>";
+
+                foreach ($giochiSaga as $giocoSaga) {
+                    echo "<a href='mostra-prodotti.php?productId=" . $giocoSaga['productId'] . "'>";
+                    echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
+                    echo "</a>";
+                }
+
+                echo "</div></div>";
+            }
+        ?>
+
+        <!-- riquadro per i consigliati -->
+        <?php 
+            // TODO : aggiungere la query per i consigliati
+            if ($saga != NULL && !empty($giochiSaga)) {
+                echo "<div class='sezione'>
+                    <div class='etichetta-sezione'>CONSIGLIATI PER TE:</div>
+                    <div class='sezione-img-container'>";
+
+                foreach ($giochiSaga as $giocoSaga) {
+                    echo "<a href='mostra-prodotti.php?productId=" . $giocoSaga['productId'] . "'>";
+                    echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
+                    echo "</a>";
+                }
+
+                echo "</div></div>";
+            }
+        ?>
     </div>
 
     <script>
