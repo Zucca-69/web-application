@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
         die("Errore nel caricamento dell'immagine.");
     }
 
-    // 1. Recupera l'immagine attuale dell'utente (se esiste)
+    // Recupera l'immagine attuale dell'utente (se esiste)
     $stmtOld = $conn->prepare("SELECT FKimmagineProfilo FROM Utenti WHERE userId = ?");
     $stmtOld->bind_param("i", $userId);
     $stmtOld->execute();
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
     $stmtOld->fetch();
     $stmtOld->close();
 
-    // 2. Parametri dell'immagine da salvare
+    // Parametri dell'immagine da salvare
     $imageData = file_get_contents($file['tmp_name']);
     $imageName = $file['name'];
     $imageType = $file['type'];
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
     $imageURL = null;
     $uploadedOn = date("Y-m-d H:i:s");
 
-    // 3. Inserisce la nuova immagine
+    // Inserisce la nuova immagine
     $stmtImg = $conn->prepare("INSERT INTO Immagini (imageData, imageName, imageType, imageSize, imageTmpName, imageError, imageURL, uploaded_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmtImg->bind_param("bssissss", $null, $imageName, $imageType, $imageSize, $imageTmpName, $imageError, $imageURL, $uploadedOn);
     $stmtImg->send_long_data(0, $imageData);
@@ -45,13 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
     $newImageId = $stmtImg->insert_id;
     $stmtImg->close();
 
-    // 4. Aggiorna l'utente con la nuova immagine
+    // Aggiorna l'utente con la nuova immagine
     $stmtUser = $conn->prepare("UPDATE Utenti SET FKimmagineProfilo = ? WHERE userId = ?");
     $stmtUser->bind_param("ii", $newImageId, $userId);
     $stmtUser->execute();
     $stmtUser->close();
 
-    // 5. Elimina la vecchia immagine se esiste
+    // Elimina la vecchia immagine se esiste
     if (!empty($oldImageId)) {
         $stmtDel = $conn->prepare("DELETE FROM Immagini WHERE imageId = ?");
         $stmtDel->bind_param("i", $oldImageId);
@@ -65,8 +65,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
 } else {
     echo "Nessun file ricevuto.";
 }
-?>
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_profile_image'])) {
+    // Rimozione immagine
+    $stmt = $conn->prepare("SELECT FKimmagineProfilo FROM Utenti WHERE userId = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $stmt->bind_result($imageId);
+    $stmt->fetch();
+    $stmt->close();
+
+    // Imposta il campo a NULL
+    $stmtUpdate = $conn->prepare("UPDATE Utenti SET FKimmagineProfilo = NULL WHERE userId = ?");
+    $stmtUpdate->bind_param("i", $userId);
+    $stmtUpdate->execute();
+    $stmtUpdate->close();
+
+    // Elimina l'immagine esistente
+    if (!empty($imageId)) {
+        $stmtDelete = $conn->prepare("DELETE FROM Immagini WHERE imageId = ?");
+        $stmtDelete->bind_param("i", $imageId);
+        $stmtDelete->execute();
+        $stmtDelete->close();
+    }
+
+    $conn->close();
+    header("Location: ../pagine/profilo.php");
+    exit();
+}
+
+?>
 
 
 <?php

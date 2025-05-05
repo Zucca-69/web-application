@@ -24,6 +24,7 @@ session_start();
         <!-- Immagine grande a sinistra -->
         <div class="galleria-sinistra">
         <div class="profile-pic-wrapper">
+        <form action="../php_files/change_profile_img.php" method="POST" enctype="multipart/form-data" id="uploadForm">
                     <label for="profileUpload">
                     <div class="img.profile-pic">
                         <img src="../php_files/get_profile_img.php" alt="Immagine profilo" class="profile-pic" />
@@ -35,9 +36,19 @@ session_start();
                     <input type="file" id="profileUpload" name="profile_img" onchange="this.form.submit()" hidden />
                 </div>
             </form>
+            <!-- Pulsante per rimuovere l'immagine -->
+            <form action="../php_files/change_profile_img.php" method="POST">
+                <input type="hidden" name="remove_profile_image" value="1" />
+                <button type="submit" class="remove-btn">Rimuovi immagine profilo</button>
+            </form>
 
             <!-- Nuova sezione sotto l'immagine -->
             <div class="sezione-sotto-immagine">
+                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
+                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
+                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
+                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
+                Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
                 Questo è un riquadro sotto l'immagine principale. La larghezza di questa sezione è la stessa dell'immagine principale. Puoi aggiungere qualsiasi contenuto qui.
             </div>
         </div>
