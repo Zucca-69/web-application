@@ -9,111 +9,131 @@
     <link rel="stylesheet" href="../css/darkmode.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
 
-    <style>
-        
-        .catalogo-title {
-            text-align: center;
-            margin-top: 30px;
-            font-size: clamp(24px, 5vw, 48px);
-            color: #01cd01;
-        }
+<style>
+    .catalogo-title {
+        text-align: center;
+        margin-top: 30px;
+        font-size: clamp(24px, 5vw, 48px);
+        color: #01cd01;
+    }
 
-        .galleria {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
+    .catalogo {
+        display: grid;
+        justify-content: center;
+        text-decoration: none;
+        color: inherit;
+        display: inline-block;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px; /* Aumentato per più spazio tra i riquadri */
+        padding: 20px 20%;
+    }
 
-        .galleria-item {
-            width: 300px;
-            background-color: #01cd01;
-            border-radius: 15px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .catalogo-item {
+        width: 100%;
+        background-color: #01cd01;
+        border-radius: 15px;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px; /* Spazio tra i riquadri */
+        transition: transform 0.2s;
+    }
 
-        .galleria-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            border: 2px solid #ccc;
-        }
+    /* link testuali disabilitati */
+    .catalogo-item a {
+        text-decoration: none;
+        color: inherit;
+        all: unset;
+        display: block;
+    }
 
-        .sezione-sotto-immagine {
-            background-color: #01cd01;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #333;
-            padding: 10px;
-            border-radius: 10px;
-            word-wrap: break-word;
-            min-height: 50px;
-        }
+    .catalogo-item img {
+        width: 95%;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+        transform: scale(1.02);
+    }
 
-        .logo, .top-right-image, .top-right-carrello {
-            margin: 10px;
-        }
+    .sottotitolo {
+        background-color: #01cd01;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+        padding: 10px;
+        border-radius: 10px;
+        word-wrap: break-word;
+        min-height: 50px;
+    }
 
-        .top-right-image, .top-right-carrello {
-            position: absolute;
-            top: 10px;
-        }
+    .logo, .top-right-image, .top-right-carrello {
+        margin: 10px;
+    }
 
-        .top-right-image {
-            right: 60px;
-        }
+    .top-right-image, .top-right-carrello {
+        position: absolute;
+        top: 10px;
+    }
 
-        .top-right-carrello {
-            right: 10px;
-        }
-    </style>
+    .top-right-image {
+        right: 60px;
+    }
+
+    .top-right-carrello {
+        right: 10px;
+    }
+</style>
+
 </head>
 
 <body>
+    <?php 
+        include '../php_files/header_check.php'; 
+        include '../php_files/db_connection.php'; 
 
-    <?php include '../php_files/header_check.php'; ?>
+        $i = 0;
+        $numGiochiPagina = 25;
+
+        $query = "SELECT p.productId, nome, i.imageData, i.imageType FROM prodotti p
+                    JOIN immagini i ON p.productId = i.FKproductId
+                    GROUP BY p.productId";
+        $rawResult = $conn->query($query);
+
+        $giochi = [];
+        if ($rawResult && $rawResult->num_rows > 0) {
+            while ($row = $rawResult->fetch_assoc()) {
+                $giochi[] = [
+                    'productId' => $row['productId'],
+                    'nome' => $row['nome'],
+                    'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
+                ];
+            }
+        } else {
+            echo "errore query: " . $conn->error;
+        }
+
+        // chiudo la connessione al server una volta finite le query necessarie
+        $conn -> close();
+    ?>
 
     <div class="catalogo-title">CATALOGO</div>
 
-    <div class="galleria">
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Sparatutto">
-            <div class="sezione-sotto-immagine">Fortnite.</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Sport">
-            <div class="sezione-sotto-immagine">Fortnite2.</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Sparatutto">
-            <div class="sezione-sotto-immagine">Fortnite.</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Sport">
-            <div class="sezione-sotto-immagine">Fortnite2.</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Sparatutto">
-            <div class="sezione-sotto-immagine">Fortnite.</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Sport">
-            <div class="sezione-sotto-immagine">Fortnite2.</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Sparatutto">
-            <div class="sezione-sotto-immagine">Fortnite.</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Sport">
-            <div class="sezione-sotto-immagine">Fortnite2.</div>
+        <div class="catalogo">
+            <?php 
+                foreach ($giochi as $gioco) {
+                    $out = "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "'>
+                                <div class='catalogo-item'>
+                                    <img src='" . $gioco['src'] . "' alt='Immagine'>
+                                    <div class='sottotitolo'>" . $gioco['nome'] . "</div> 
+                                </div>
+                            </a>";
+                    echo $out;
+                }
+            ?>
         </div>
     </div>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">

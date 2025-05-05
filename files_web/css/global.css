@@ -8,9 +8,19 @@ body, h1, h2, p, a, ul, li {
 /* Globale */
 body {
     font-family: Arial, sans-serif;
-    background-color: #929090 ;
+    background-color: #d3f9d8 ;
 
 
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Stile per i collegamenti ipertestuali */
