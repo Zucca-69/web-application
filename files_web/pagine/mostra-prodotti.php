@@ -84,6 +84,10 @@
             cursor: pointer;
         }
 
+        .riquadro p {
+            text-align: center;
+        }
+
         .riquadro:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -315,6 +319,31 @@
             }
         }
 
+        // TODO : fixa questa parte
+        // carco giochi simili per categoria
+        $query = "SELECT p.productId, c.nome as catNome FROM appartenenze a 
+                    JOIN prodotti p ON p.productId = a.FKproductId
+                    JOIN categorie c ON c.categoryId = a.FKcategoryId
+                    WHERE p.nome != '$nome'
+                    " . ($saga ? "AND p.saga != '$saga'" : "");
+
+        $rawResult = $conn->query($query);
+        
+        $correlati = [];
+        
+        if ($rawResult && $rawResult->num_rows > 0) {
+            while ($row = $rawResult->fetch_assoc()) {
+                $correlati[] = [
+                    'productId' => $row['productId'],
+                    'catNome' => $row['catNome'],
+                ];
+            }
+        } else {
+            echo "errore query: " . $conn->error;
+        }
+        echo $query;
+        print_r($correlati);
+
         // chiudo la connessione al server una volta finite le query necessarie
         $conn -> close();
     ?>
@@ -395,7 +424,7 @@
 
         <!-- riquadro con la saga -->
         <?php 
-            if ($saga != NULL && !empty($giochiSaga)) {
+            if ($saga != "NULL" && !empty($giochiSaga)) {
                 echo "<div class='sezione'>
                     <div class='etichetta-sezione'>SAGA:</div>
                     <div class='sezione-img-container'>";
@@ -413,7 +442,7 @@
         <!-- riquadro per i correlati -->
         <?php 
             // TODO : aggiungere la query per i consigliati
-            if ($saga != NULL && !empty($giochiSaga)) {
+            if ($saga != "NULL" && !empty($giochiSaga)) {
                 echo "<div class='sezione'>
                     <div class='etichetta-sezione'>CORRELATI:</div>
                     <div class='sezione-img-container'>";
@@ -431,7 +460,7 @@
         <!-- riquadro per i consigliati -->
         <?php 
             // TODO : aggiungere la query per i consigliati
-            if ($saga != NULL && !empty($giochiSaga)) {
+            if ($saga != "NULL" && !empty($giochiSaga)) {
                 echo "<div class='sezione'>
                     <div class='etichetta-sezione'>CONSIGLIATI PER TE:</div>
                     <div class='sezione-img-container'>";
