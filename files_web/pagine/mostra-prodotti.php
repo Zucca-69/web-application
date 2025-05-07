@@ -11,246 +11,8 @@
     <link rel="stylesheet" href="../css/darkmode.css">
     <link rel="stylesheet" href="../css/galleria.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
-    <style>
-        body {
-            background-color: #d3f9d8;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="../css/mostra-prodotti.css">
 
-        .container {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-
-        .immagini-gioco {
-            width: 70%;
-            padding-left: 20px;
-            padding-top: 20px;
-        }
-
-        .immagine-principale img {
-            width: 100%;
-            height: auto;
-            border: 2px solid #ccc;
-            margin-bottom: 10px;
-        }
-
-        .miniature {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .miniature img {
-            width: 30%;
-            cursor: pointer;
-            border: 1px solid #999;
-            transition: transform 0.3s, border 0.3s;
-        }
-
-        .miniature img:hover {
-            transform: scale(1.1);
-            border: 2px solid #333;
-        }
-
-        .informazioni-gioco {
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding-top: 20px;
-        }
-
-        .riquadro {
-            width: 100%;
-            height: 100px;
-            background-color: #01cd01;
-            border-radius: 15px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            color: #333;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-left: 10%;
-            cursor: pointer;
-        }
-
-        .riquadro p {
-            text-align: center;
-        }
-
-        .riquadro:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .barra-richieste {
-            display: none;
-            margin-top: 10px;
-            background-color: #f4f4f4;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-left: 20%;
-            width: auto;
-        }
-
-        .barra-richieste ul {
-            list-style: none;
-            padding: 10px;
-        }
-
-        .barra-richieste ul li {
-            margin: 10px 0;
-        }
-
-        .barra-richieste ul li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 12px;
-            transition: color 0.3s;
-        }
-
-        .barra-richieste ul li a:hover {
-            color: #01cd01;
-        }
-
-        .sezioni-contenitore {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .sezione {
-            width: 100%;
-            background-color: #01cd01;
-            border-radius: 15px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .sezione:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .etichetta-sezione {
-            font-size: 20px;
-            font-weight: bold;
-            color: #222;
-            margin-bottom: 15px;
-        }
-
-        .testo-descrizione {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        .sezione-img-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-
-        }
-
-        .sezione-img-container img {
-            width: 22%;
-            min-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid #ccc;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .sezione-img-container img:hover {
-            transform: scale(1.1);
-        }
-
-        .sezione-titolo {
-            width: 100%;
-            height: 150px;
-            background-color: #01cd01;
-            border-radius: 15px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: #333;
-            margin-top: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .sezione-titolo h1 {
-            margin: 0;
-            font-size: 32px;
-            color: #333;
-        }
-
-        .sezione-titolo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .logo {
-            padding: 10px;
-        }
-
-        .top-right-image,
-        .top-right-carrello {
-            position: absolute;
-            top: 10px;
-        }
-
-        .top-right-image {
-            right: 100px;
-        }
-
-        .top-right-carrello {
-            right: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            background-color: #f0f0f0;
-            margin: 0;
-        }
-
-        nav ul li {
-            padding: 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        nav ul li a:hover {
-            color: #01cd01;
-        }
-    </style>
 </head>
 <body>
     <?php 
@@ -260,12 +22,12 @@
         $productId = $_GET['productId'];
 
         //info sul gioco
-        $query = "SELECT * FROM prodotti WHERE productId = $productId";
+        $query = "SELECT * FROM prodotti WHERE productId = $productId;";
         $rawResult = $conn -> query($query);
         $gameInfo = $rawResult->fetch_assoc();
     
         // immagini del gioco
-        $query = "SELECT imageData, imageType FROM immagini WHERE FKproductId = $productId";
+        $query = "SELECT imageData, imageType FROM immagini WHERE FKproductId = $productId;";
         $rawResult = $conn->query($query);
         
         $immagini = [];
@@ -277,7 +39,7 @@
 
         // cerco le diverse piattaforme del gioco
         $nome = $gameInfo['nome'];
-        $query = "SELECT productId, piattaforma FROM prodotti WHERE nome = '" . $conn->real_escape_string($nome) . "'";
+        $query = "SELECT productId, piattaforma FROM prodotti WHERE nome = '" . $conn->real_escape_string($nome) . "';";
         $rawResult = $conn->query($query);
         
         $piattaforme = [];
@@ -303,7 +65,8 @@
                     JOIN immagini i ON p.productId = i.FKproductId
                     WHERE p.saga = '$saga' 
                     AND p.productId != '$productId'
-                    GROUP BY p.productId";
+                    GROUP BY p.productId;
+                ";
 
             $rawResult = $conn->query($query);
 
@@ -319,30 +82,41 @@
             }
         }
 
-        // TODO : fixa questa parte
         // carco giochi simili per categoria
-        $query = "SELECT p.productId, c.nome as catNome FROM appartenenze a 
-                    JOIN prodotti p ON p.productId = a.FKproductId
-                    JOIN categorie c ON c.categoryId = a.FKcategoryId
-                    WHERE p.nome != '$nome'
-                    " . ($saga ? "AND p.saga != '$saga'" : "");
-
-        $rawResult = $conn->query($query);
+        $query = "SELECT DISTINCT p.productId, p.nome, i.imageData, i.imageType
+                    FROM Prodotti p
+                    JOIN Appartenenze a ON p.productId = a.FKproductId
+                    JOIN Immagini i ON p.productId = i.FKproductId
+                    WHERE a.FKcategoryId IN (
+                        SELECT FKcategoryId
+                        FROM Appartenenze
+                        WHERE FKproductId = ?
+                    )
+                    AND p.productId != ?
+                    AND p.saga != (
+                        SELECT saga FROM Prodotti WHERE productId = ?
+                    )
+                    ORDER BY RAND()
+                    LIMIT 5;
+                ";
         
-        $correlati = [];
+        // Esegui la query
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("iii", $productId, $productId, $productId); // 3 volte il productId
+        $stmt->execute();
+        $result = $stmt->get_result();
         
-        if ($rawResult && $rawResult->num_rows > 0) {
-            while ($row = $rawResult->fetch_assoc()) {
-                $correlati[] = [
-                    'productId' => $row['productId'],
-                    'catNome' => $row['catNome'],
-                ];
-            }
-        } else {
-            echo "errore query: " . $conn->error;
+        // Recupera i risultati
+        $giochiConsigliati = [];
+        while ($row = $result->fetch_assoc()) {
+            // Crea il link dell'immagine base64
+            $imageSrc = "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']);
+            $giochiConsigliati[] = [
+                'productId' => $row['productId'],
+                'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
+                
+            ];
         }
-        echo $query;
-        print_r($correlati);
 
         // chiudo la connessione al server una volta finite le query necessarie
         $conn -> close();
@@ -441,15 +215,14 @@
 
         <!-- riquadro per i correlati -->
         <?php 
-            // TODO : aggiungere la query per i consigliati
-            if ($saga != "NULL" && !empty($giochiSaga)) {
+            if ($saga != "NULL" && !empty($giochiConsigliati)) {
                 echo "<div class='sezione'>
-                    <div class='etichetta-sezione'>CORRELATI:</div>
+                    <div class='etichetta-sezione'>GIOCHI SIMILI:</div>
                     <div class='sezione-img-container'>";
 
-                foreach ($giochiSaga as $giocoSaga) {
-                    echo "<a href='mostra-prodotti.php?productId=" . $giocoSaga['productId'] . "'>";
-                    echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
+                foreach ($giochiConsigliati as $giocoConsigliato) {
+                    echo "<a href='mostra-prodotti.php?productId=" . $giocoConsigliato['productId'] . "'>";
+                    echo "<img src='" . $giocoConsigliato['src'] . "' alt='Gioco saga'>";
                     echo "</a>";
                 }
 

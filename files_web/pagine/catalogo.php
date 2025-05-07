@@ -17,16 +17,15 @@
         color: #01cd01;
     }
 
+    /* layout a griglia responsive */
     .catalogo {
         display: grid;
-        justify-content: center;
-        text-decoration: none;
-        color: inherit;
-        display: inline-block;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px; /* Aumentato per più spazio tra i riquadri */
+        gap: 30px;
         padding: 20px 20%;
+        justify-content: center;
     }
+
 
     .catalogo-item {
         width: 100%;
@@ -60,6 +59,7 @@
         background-color: #01cd01;
         margin-top: 10px;
         font-weight: bold;
+        text-decoration: none;
         color: #333;
         padding: 10px;
         border-radius: 10px;

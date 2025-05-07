@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("127.0.0.1", "root", "root", "rungamedb");
+    $conn = mysqli_connect("127.0.0.1", "root", "vc-mob2-02", "rungamedb");
 
     // Get file count in table
     $sql = "SELECT COUNT(*) FROM immagini";
