@@ -217,7 +217,7 @@
         <?php 
             if ($saga != "NULL" && !empty($giochiConsigliati)) {
                 echo "<div class='sezione'>
-                    <div class='etichetta-sezione'>GIOCHI SIMILI:</div>
+                    <div class='etichetta-sezione'>GIOCHI CORRELATI:</div>
                     <div class='sezione-img-container'>";
 
                 foreach ($giochiConsigliati as $giocoConsigliato) {
