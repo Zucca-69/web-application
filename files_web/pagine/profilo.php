@@ -41,6 +41,8 @@
             </form>
 
             <!-- Nuova sezione sotto l'immagine -->
+            <!-- htmlspecialchars codifica la stringa in html elements, ciò serve ad evitare che vengano letti ed eseguiti i tag 
+             es: <b>SONOpiùBello</b> senza quel comando risulterebbe in grassetto-->
             <div class="sezione-sotto-immagine">
             <?php if (!empty($userData)): ?>
                 <div><strong>Nome:</strong> <?= htmlspecialchars($userData['nome']) ?></div>

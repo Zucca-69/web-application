@@ -59,7 +59,7 @@ nav li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #01cd01;
+    background: linear-gradient(to left, #0d0e0d, #305802);
     padding: 10px 20px;
     flex-wrap: wrap;
 }
@@ -151,7 +151,6 @@ nav li a:hover {
     border-radius: 50%;
     object-fit: cover;
     vertical-align: middle;
-    border: 2px solid white;
 }
 
 
