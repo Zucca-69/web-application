@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
 
     // Inserisce la nuova immagine
     $stmtImg = $conn->prepare("INSERT INTO Immagini (imageData, imageName, imageType, imageSize) VALUES (?, ?, ?, ?)");
-    $stmtImg->bind_param("bssissss", $null, $imageName, $imageType, $imageSize);
+    $stmtImg->bind_param("bssi", $null, $imageName, $imageType, $imageSize);
     $stmtImg->send_long_data(0, $imageData);
     $stmtImg->execute();
 

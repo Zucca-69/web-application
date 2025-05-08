@@ -14,13 +14,13 @@
 
         <!-- Navigazione principale -->
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="servizio clienti.html">Servizio clienti</a></li>
+            <li><a href="catalogo.php">Catalogo</a></li>
             <li><a href="piattaforme.html">Piattaforme</a></li>
-            <li><a href="catalogo.html">Catalogo</a></li>
             <li><a href="categorie.html">Categorie</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="servizio-clienti.html">Servizio clienti</a></li>
         </ul>
 
         <!-- Utente (login o profilo/carrello) -->
@@ -40,7 +40,7 @@
 
                 <div class="cart-icon">
                     <a href="carrello.html">
-                        <img src="../MEDIA/immagini/carrello.png" alt="Carrello">
+                        <img src="../MEDIA/immagini/carrello.jpg" alt="Carrello">
                     </a>
                 </div>
         </div>

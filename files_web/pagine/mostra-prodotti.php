@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -20,10 +22,29 @@
 <body>
     <?php 
         // script php
-        include '../php_files/header_check.php'; 
+        include '../php_files/header.php'; 
         include '../php_files/db_connection.php'; 
 
         $productId = $_GET['productId'];
+
+        // Verifica se l'utente è loggato
+        if (isset($_SESSION['userId'])) {
+            // Ottieni l'ID del prodotto dalla query string
+            $productId = $_GET['productId'];
+
+            // Connessione al database
+            include '../php_files/db_connection.php';
+
+            // Prepara la query per inserire l'interazione nel database
+            $query = $conn->prepare("INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
+                                    VALUES (?, ?, NULL, 'visualizzato', NOW())");
+
+            // Associa i parametri della query
+            $query->bind_param("ii", $_SESSION['userId'], $productId);
+
+            // Esegui la query
+            $query->execute();
+        }
 
         //info sul gioco
         $query = "SELECT * FROM prodotti WHERE productId = $productId;";
@@ -290,7 +311,7 @@
             </p>
 
             <p>
-                Email: info@tuaazienda.it | Telefono: +39 123 456 789
+                Email: info@rungame.it | Telefono: +39 123 456 789
             </p>
         </div>
     </footer>

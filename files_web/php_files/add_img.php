@@ -1,13 +1,5 @@
 <?php
-    $conn = mysqli_connect("127.0.0.1", "root", "vc-mob2-02", "rungamedb");
-
-    // Get file count in table
-    $sql = "SELECT COUNT(*) FROM immagini";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_row();
-
+    include 'db_connection.php';
 
     // Check if $_FILES count items
     if (count($_FILES) > 0) {
