@@ -1,0 +1,238 @@
+body {
+    background-color: #d3f9d8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.immagini-gioco {
+    width: 70%;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.immagine-principale img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.miniature {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.miniature img {
+    width: 30%;
+    cursor: pointer;
+    border: 1px solid #999;
+    transition: transform 0.3s, border 0.3s;
+}
+
+.miniature img:hover {
+    transform: scale(1.1);
+    border: 2px solid #333;
+}
+
+.informazioni-gioco {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.riquadro {
+    width: 100%;
+    height: 100px;
+    background-color: #01cd01;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-left: 10%;
+    cursor: pointer;
+}
+
+.riquadro p {
+    text-align: center;
+}
+
+.riquadro:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.barra-richieste {
+    display: none;
+    margin-top: 10px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20%;
+    width: auto;
+}
+
+.barra-richieste ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.barra-richieste ul li {
+    margin: 10px 0;
+}
+
+.barra-richieste ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    transition: color 0.3s;
+}
+
+.barra-richieste ul li a:hover {
+    color: #01cd01;
+}
+
+.sezioni-contenitore {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sezione {
+    width: 100%;
+    background-color: #01cd01;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sezione:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.etichetta-sezione {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.testo-descrizione {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.sezione-img-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.sezione-img-container img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sezione-img-container img:hover {
+    transform: scale(1.1);
+}
+
+.sezione-titolo {
+    width: 100%;
+    height: 150px;
+    background-color: #01cd01;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sezione-titolo h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #333;
+}
+
+.sezione-titolo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    padding: 10px;
+}
+
+.top-right-image,
+.top-right-carrello {
+    position: absolute;
+    top: 10px;
+}
+
+.top-right-image {
+    right: 100px;
+}
+
+.top-right-carrello {
+    right: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a:hover {
+    color: #01cd01;
+}

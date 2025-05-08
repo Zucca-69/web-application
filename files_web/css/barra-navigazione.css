@@ -1,0 +1,79 @@
+/* definizione variabili */
+:root { 
+    --verdeDefault:  #000000;
+    --verdeHover: #6fe66f;
+
+}
+
+/* definizione classe .barra-navigazione
+        barra in alto verde
+        non sono inclusele interazioni con essa */
+.barra-navigazione {
+    background-color: var(--verdeDefault);
+    overflow: hidden;
+}
+
+/* nasconde i punti dell'elenco di default di html */ 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* posizione opzioni barra default */ 
+ul li {
+    display: inline-block;
+}
+
+/* caratterische testo della barra default */
+ul li a { 
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* stile della barra di navigazione 
+        hover del muose */
+ul li a:hover {
+    background-color: var(--verdeHover);
+}
+
+/* definizione classe .dropdown-menu 
+        nascondi inizialmente il menu a tendina 
+        caratteristiche del testo */
+li .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--verdeDefault);
+    min-width: 160px;
+    z-index: 1;
+    padding: 0;
+}
+
+/* nasconde i punti dell'elenco di default di html */ 
+li .dropdown-menu li {
+    list-style-type: none;
+    display: block;
+}
+
+/* Mostra il menu a tendina quando si passa sopra la voce */
+li.dropdown:hover .dropdown-menu {
+    display: inline-block;
+}
+
+/* caratteristiche testo delle opzioni */
+li .dropdown-menu li a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    padding: 14px 16px;
+}
+
+li .dropdown-menu li a:hover {
+    background-color: var(--verdeHover);
+}

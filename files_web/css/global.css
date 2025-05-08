@@ -1,0 +1,15 @@
+/* Reset */
+body, h1, h2, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Globale */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #588b1d, #368a36); /*maybe the best?*/
+    /* background: radial-gradient(circle, #00ff00, #ffffff);  focus al centro */
+
+
+}
