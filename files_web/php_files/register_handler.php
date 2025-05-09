@@ -48,9 +48,3 @@ if (isset($_POST['username'])) {
             echo "Errore durante la registrazione: " . $stmt_insert->error;
         }
     }
-
-    $stmt_check->close();
-    if (isset($stmt_insert)) $stmt_insert->close();
-    $conn->close();
-}
-?>

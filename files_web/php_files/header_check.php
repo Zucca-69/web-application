@@ -14,6 +14,7 @@
 
         <!-- Navigazione principale -->
         <ul class="nav-links">
+
             <li><a href="index.php">Home</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="catalogo.php">Catalogo</a></li>
@@ -21,6 +22,7 @@
             <li><a href="categorie.html">Categorie</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li><a href="servizio-clienti.html">Servizio clienti</a></li>
+
         </ul>
 
         <!-- Utente (login o profilo/carrello) -->
