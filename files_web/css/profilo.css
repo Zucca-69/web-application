@@ -36,7 +36,7 @@ nav ul li a {
 }
 
 /* Sezione sinistra con flexbox */
-.galleria-sinistra {
+.immagine-sinistra {
     flex: 1;
     padding: 20px;
     min-width: 300px;
@@ -46,7 +46,7 @@ nav ul li a {
     gap: 20px; /* Distanza tra l'immagine e il paragrafo */
 }
 
-.galleria-sinistra img {
+.immagine-sinistra img {
     width: 100%; /* Immagine più piccola */
     height: auto;
     border: 2px solid #ccc;

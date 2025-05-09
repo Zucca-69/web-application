@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/darkmode.css">
 <script src="../js/dropdown_botton.js" defer></script>
+<script src="../js/theme_toggle.js"></script>
 
 <header>
     <div class="navbar-container">

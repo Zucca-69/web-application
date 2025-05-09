@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/slider.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/darkmode.css">
-    <link rel="stylesheet" href="../css/galleria.css">
+    <link rel="stylesheet" href="../css/categorie.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <link rel="stylesheet" href="../css/mostra-prodotti.css">
 
@@ -284,7 +284,7 @@
                 barraRichieste.style.display = (barraRichieste.style.display === "block") ? "none" : "block";
             });
 
-            // Galleria click immagini
+            // click immagini
             const miniature = document.querySelectorAll('.mini');
             const imgGrande = document.getElementById('imgGrande');
             miniature.forEach(mini => {

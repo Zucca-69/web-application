@@ -16,12 +16,14 @@ session_start();
     <link rel="stylesheet" href="../css/darkmode.css">
     <link rel="stylesheet" href="../css/categorie.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 </head>
 
 <?php include '../php_files/header.php'; ?>
 
 <body>
+    <main>
 
     <!-- Contenitore dello slider -->
     <div class="image-slider">
@@ -107,6 +109,7 @@ session_start();
         }
         echo "</div>";
     ?>
+    </main>
 
     <!-- Footer con informazioni sull'azienda -->
     <footer class="footer">

@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root"; //  user
-$password = "vc-mob2-25"; // password di mysql
+$password = "root"; // password di mysql
 $dbname = "rungamedb"; // nome del database che hai creato
 
 $conn = new mysqli($servername, $username, $password, $dbname);

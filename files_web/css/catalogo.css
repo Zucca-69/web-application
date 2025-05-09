@@ -3,6 +3,8 @@
     margin-top: 30px;
     font-size: clamp(24px, 5vw, 48px);
     color: #01cd01;
+    -webkit-text-stroke: 1px #ffffff;
+    font-weight: bold;
 }
 
 /* layout a griglia responsive */
