@@ -8,17 +8,18 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RunGame - home</title>
+    <title>RunGame - Home</title>
     <!-- collegamento dei file CSS globali + specifici -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/slider.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/darkmode.css">
-    <link rel="stylesheet" href="../css/galleria.css">
+    <link rel="stylesheet" href="../css/categorie.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
 
 </head>
-<?php include '../php_files/header_check.php'; ?>
+
+<?php include '../php_files/header.php'; ?>
 
 <body>
 
@@ -88,43 +89,24 @@ session_start();
         aggiornaPallini();
     </script>
 
-    <!-- Galleria di immagini -->
-    <div class="galleria">
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
-            <div class="testo">Sparatutto</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 2">
-            <div class="testo">Sport</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 3">
-            <div class="testo">Avventura</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
-            <div class="testo">Picchiaduro</div>
-        </div>
+    <?php 
+        include "../php_files/get_gategory_img.php";   
 
-        <!-- Seconda riga di immagini -->
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg" alt="Immagine 5">
-            <div class="testo">Corse</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/lastchanceplay_4432243b.jpg" alt="Immagine 6">
-            <div class="testo">Horror</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/preview_screenshot2_119802-1750517926.jpg" alt="Immagine 7">
-            <div class="testo">RPG</div>
-        </div>
-        <div class="galleria-item">
-            <img src="../MEDIA/immagini/GOWR_Review_Screenshot_13.jpg" alt="Immagine 8">
-            <div class="testo">Azione</div>
-        </div>
-    </div>
+        // immagine per ogni categoria
+        echo "<div class='categorie'>";
+        foreach ($infoCategorie as $c) {
+            $nome = urlencode($c['categoryName']);
+            echo "
+                <a href='catalogo.php?categoria={$nome}'>
+                    <div class='categorie-item'>
+                        <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
+                        <div class='testo'>{$c['categoryName']}</div>
+                    </div>
+                </a>
+            ";
+        }
+        echo "</div>";
+    ?>
 
     <!-- Footer con informazioni sull'azienda -->
     <footer class="footer">
@@ -136,7 +118,7 @@ session_start();
     
             <p>Contattaci per qualsiasi informazione o curiosità! Siamo sempre felici di aiutarti.</p>
     
-            <p>Email: info@tuaazienda.it | Telefono: +39 123 456 789</p>
+            <p>Email: info@rungame.it | Telefono: +39 123 456 789</p>
         </div>
     </footer>
 

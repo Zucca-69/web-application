@@ -27,14 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
     $imageName = $file['name'];
     $imageType = $file['type'];
     $imageSize = $file['size'];
-    $imageTmpName = $file['tmp_name'];
-    $imageError = $file['error'];
-    $imageURL = null;
-    $uploadedOn = date("Y-m-d H:i:s");
 
     // Inserisce la nuova immagine
-    $stmtImg = $conn->prepare("INSERT INTO Immagini (imageData, imageName, imageType, imageSize, imageTmpName, imageError, imageURL, uploaded_on) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmtImg->bind_param("bssissss", $null, $imageName, $imageType, $imageSize, $imageTmpName, $imageError, $imageURL, $uploadedOn);
+    $stmtImg = $conn->prepare("INSERT INTO Immagini (imageData, imageName, imageType, imageSize) VALUES (?, ?, ?, ?)");
+    $stmtImg->bind_param("bssi", $null, $imageName, $imageType, $imageSize);
     $stmtImg->send_long_data(0, $imageData);
     $stmtImg->execute();
 
@@ -93,43 +89,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_profile_image'
     header("Location: ../pagine/profilo.php");
     exit();
 }
-
-?>
-
-
-<?php
-// session_start();
-// require_once("db_connection.php");
-
-// if (!isset($_SESSION['userId'])) {
-//     die("Utente non autenticato.");
-// }
-// $userId = $_SESSION['userId'];
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile_img'])) {
-//     $imageData = file_get_contents($_FILES['profile_img']['tmp_name']);
-//     $mimeType = mime_content_type($_FILES['profile_img']['tmp_name']);
-
-//     // 1. Inserisci immagine nella tabella Immagini
-//     $imageSize = filesize($_FILES['profile_img']['tmp_name']);
-//     $stmtImg = $conn->prepare("INSERT INTO Immagini (imageData, imageType, imageSize, uploaded_on) VALUES (?, ?, ?, NOW())");
-//     $stmtImg->bind_param("bsi", $null, $mimeType, $imageSize);
-//     $stmtImg->send_long_data(0, $imageData);
-//     $stmtImg->execute();
-//     $imageId = $stmtImg->insert_id;
-//     $stmtImg->close();
-
-//     // 2. Collega l'immagine all'utente
-//     $stmtUser = $conn->prepare("UPDATE Utenti SET FKimmagineProfilo = ? WHERE userId = ?");
-//     $stmtUser->bind_param("ii", $imageId, $userId);
-//     $stmtUser->execute();
-//     $stmtUser->close();
-
-//     echo "Immagine aggiornata con successo.";
-//     $conn->close();
-//     header("Location: ../pagine/profilo.php"); // Redirect alla home
-//     exit();
-// } else {
-//     echo "Nessun file ricevuto.";
-// }
 ?>
