@@ -26,9 +26,9 @@
 
         <!-- Utente (login o profilo/carrello) -->
         <div class="user-section">
-            <?php if (isset($_SESSION['username'])): ?>
+            <?php if (isset($_SESSION['userId'])): ?>
                 <div class="dropdown">
-                    <button >
+                    <button class="dropbtn">
                     <img src="../php_files/get_profile_img.php" alt="Immagine profilo" style="width:50px; height:50px;">
                     </button>
                     <div class="dropdown-content">

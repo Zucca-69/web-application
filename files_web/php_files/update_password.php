@@ -3,7 +3,7 @@ session_start();
 require_once 'db_connection.php';
 
 // Se non sei loggato, ti rimando al login
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['userId'])) {
     header("Location: ../pagine/login.php");
     exit();
 }

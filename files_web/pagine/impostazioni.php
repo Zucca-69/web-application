@@ -2,7 +2,7 @@
 session_start();
 
 // Se non sei loggato, ti rimando al login
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['userId'])) {
     header("Location: login.php");
     exit();
 }

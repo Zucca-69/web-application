@@ -13,14 +13,13 @@ session_start();
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/slider.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/darkmode.css">
     <link rel="stylesheet" href="../css/categorie.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 </head>
 
-<?php include '../php_files/header.php'; ?>
+<?php include '../php_files/header_check.php'; ?>
 
 <body>
     <main>
