@@ -10,7 +10,7 @@
 
 .slider-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     border-radius: 10px;
     opacity: 1;
@@ -49,4 +49,16 @@
 
 .dot.active {
     background-color: #717171;
+}
+
+/* rende la dimensione dell'immagine fissa a 16:9 (in qualche modo) */
+.image-slider {
+    /* position: relative; */
+    width: 100%;
+    max-width: 800px; /* oppure quello che preferisci */
+    /* margin: auto; */
+    aspect-ratio: 16 / 9; /* forza proporzione 16:9 */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }

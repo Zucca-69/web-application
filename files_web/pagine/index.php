@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/categorie.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
+    <script src="../js/slider_addimage.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 </head>
@@ -24,34 +25,25 @@ session_start();
 <body>
     <main>
 
-    <!-- Contenitore dello slider -->
-    <div class="image-slider">
-        <!-- Freccia a sinistra -->
-        <div class="slider-arrow arrow-left" onclick="cambiaImmagine(-1)">&#8592;</div>
-        
-        <!-- Immagine principale dello slider -->
-        <img id="mainImage" class="slider-image" src="../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg" alt="Immagine">
-        
-        <!-- Freccia a destra -->
-        <div class="slider-arrow arrow-right" onclick="cambiaImmagine(1)">&#8594;</div>
-    </div>
+        <!-- Contenitore dello slider -->
+        <div class="image-slider">
+            <!-- Freccia a sinistra -->
+            <div class="slider-arrow arrow-left" onclick="cambiaImmagine(-1)">&#8592;</div>
+            
+            <!-- Immagine principale dello slider -->
+            <!-- <img id="mainImage" class="slider-image" src="" alt="Immagine"> -->
+            
+            <!-- Freccia a destra -->
+            <div class="slider-arrow arrow-right" onclick="cambiaImmagine(1)">&#8594;</div>
+        </div>
 
-    <!-- Contenitore dei pallini di navigazione -->
-    <div class="dots-container">
-        <span class="dot" onclick="cambiaImmagine(0)"></span> <!-- Pallino 1 -->
-        <span class="dot" onclick="cambiaImmagine(1)"></span> <!-- Pallino 2 -->
-        <span class="dot" onclick="cambiaImmagine(2)"></span> <!-- Pallino 3 -->
-    </div>
+        <!-- Contenitore dei pallini di navigazione -->
+        <div class="dots-container" id="dots-container">
+            <!-- Pallini generati dinamicamente -->
+        </div>
+
 
     <script>
-        // Array di immagini per lo slider
-        const immagini = [
-          "../MEDIA/immagini/12c39f5c-bf65-4943-866a-5c585d075038.jpeg",
-          "../MEDIA/immagini/lastchanceplay_4432243b.jpg",
-          "../MEDIA/immagini/GOWR_Review_Screenshot_13.jpg"
-        ];
-
-        let indiceCorrente = 0;  // Indice per la posizione dell'immagine corrente
 
         // Funzione per cambiare immagine quando si clicca sulle frecce
         function cambiaImmagine(direzione) {
