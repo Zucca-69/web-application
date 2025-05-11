@@ -59,7 +59,7 @@ nav li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #01cd01;
+    background: linear-gradient(to left, #0d0e0d, #305802);
     padding: 10px 20px;
     flex-wrap: wrap;
 }
@@ -111,9 +111,9 @@ nav li a:hover {
 }
 
 /* Mostra il dropdown al passaggio del mouse */
-.dropdown:hover .dropdown-content {
+/* .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
 
 /* Cambia il colore del bottone al passaggio del mouse */
 .dropdown:hover .dropbtn {
@@ -121,10 +121,6 @@ nav li a:hover {
 }
 
 /* fine dropdown */
-/* ? */
-
-
-
 .auth-link {
     color: white;
     text-decoration: none;
@@ -151,10 +147,6 @@ nav li a:hover {
     border-radius: 50%;
     object-fit: cover;
     vertical-align: middle;
-    border: 2px solid white;
-}
-
-
 
 /* Icone profilo/carrello */
 .top-right-image, .top-right-carrello {

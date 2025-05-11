@@ -40,7 +40,7 @@
 
                 <div class="cart-icon">
                     <a href="carrello.html">
-                        <img src="../MEDIA/immagini/carrello.jpg" alt="Carrello">
+                        <img src="../MEDIA/immagini/carrello.png" alt="Carrello">
                     </a>
                 </div>
         </div>
