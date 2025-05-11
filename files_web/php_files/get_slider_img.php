@@ -18,10 +18,6 @@ $stmt = $conn->prepare("
 
 ");
 
-// SELECT i.imageData, i.imageType, p.productId FROM prodotti p
-//                     JOIN immagini i ON p.productId = i.FKproductId
-//                     GROUP BY p.productId
-
 $stmt->execute();
 $stmt->store_result();
 $stmt->bind_result($imageData, $imageType, $productId);

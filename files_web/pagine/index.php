@@ -43,45 +43,7 @@ session_start();
         </div>
 
 
-    <script>
-
-        // Funzione per cambiare immagine quando si clicca sulle frecce
-        function cambiaImmagine(direzione) {
-            const imgElement = document.getElementById('mainImage');  // Riferimento all'immagine corrente
-            const dots = document.querySelectorAll('.dot');  // Riferimento ai pallini
-
-            // Fase di dissolvenza dell'immagine
-            imgElement.style.opacity = 0;
-
-            // Dopo la dissolvenza, cambia immagine e riapri l'immagine con dissolvenza
-            setTimeout(() => {
-                indiceCorrente = (indiceCorrente + direzione + immagini.length) % immagini.length;  // Cambia l'indice dell'immagine
-                imgElement.src = immagini[indiceCorrente];  // Imposta la nuova immagine
-
-                // Fase di riapertura (fade-in)
-                imgElement.style.opacity = 1;
-
-                // Aggiorna i pallini di navigazione
-                aggiornaPallini();
-            }, 300); // Tempo della dissolvenza
-        }
-
-        // Funzione per aggiornare lo stato dei pallini (attivo o inattivo)
-        function aggiornaPallini() {
-            const dots = document.querySelectorAll('.dot');  // Ottieni tutti i pallini
-            dots.forEach((dot, index) => {
-                if (index === indiceCorrente) {  // Se il pallino è quello attivo
-                    dot.classList.add('active');  // Aggiungi la classe 'active'
-                } else {
-                    dot.classList.remove('active');  // Rimuovi la classe 'active' per gli altri
-                }
-            });
-        }
-
-        // Inizializza il pallino attivo al primo caricamento della pagina
-        aggiornaPallini();
-    </script>
-
+    
     <?php 
         include "../php_files/get_gategory_img.php";   
 
