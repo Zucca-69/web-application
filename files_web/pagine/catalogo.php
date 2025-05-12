@@ -16,7 +16,7 @@
 
 <body>
     <?php 
-        include '../php_files/header.php'; 
+        include '../php_files/header_check.php'; 
         include '../php_files/db_connection.php'; 
 
         $numGiochiPagina = 25;

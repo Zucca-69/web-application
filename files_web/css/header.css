@@ -147,7 +147,7 @@ nav li a:hover {
     border-radius: 50%;
     object-fit: cover;
     vertical-align: middle;
-
+}
 /* Icone profilo/carrello */
 .top-right-image, .top-right-carrello {
     position: fixed;

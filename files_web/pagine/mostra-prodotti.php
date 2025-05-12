@@ -22,7 +22,7 @@
 <body>
     <?php 
         // script php
-        include '../php_files/header.php'; 
+        include '../php_files/header_check.php'; 
         include '../php_files/db_connection.php'; 
 
         $productId = $_GET['productId'];
@@ -217,7 +217,9 @@
             <div class="etichetta-sezione">DESCRIZIONE:</div>
             <p class="testo-descrizione">
                 <?php
-                    echo $gameInfo['descrizione'];
+                    // TODO : fixare la codifica del bd, guarda chatGPT moka
+                    // https://chatgpt.com/c/6821a003-12b4-800b-b594-a11fcc2b18ac
+                    echo htmlspecialchars($gameInfo['descrizione']);
                 ?>
             </p>
         </div>

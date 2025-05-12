@@ -22,7 +22,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <body>
 
-<?php include '../php_files/header.php'; ?>
+<?php include '../php_files/header_check.php'; ?>
 
 <main>
     <section class="settings-form">

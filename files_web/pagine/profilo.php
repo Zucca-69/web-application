@@ -1,22 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RunGame - profilo</title>
+    <title>RunGame - Profilo</title>
     <!-- collegamento dei file CSS globali + specifici -->
     <link rel="stylesheet" href="../css/global.css"> 
     <link rel="stylesheet" href="../css/profilo.css">
     <link rel="stylesheet" href="../css/footer.css">
 
 </head>
-<?php include '../php_files/header.php'; ?>
+
+<?php include '../php_files/header_check.php'; ?>
 <?php include '../php_files/get_user_data.php';?>
 
 <body>
-
-
     <!-- Contenitore principale -->
     <div class="container">
         <!-- Immagine grande a sinistra -->
@@ -42,7 +40,7 @@
 
             <!-- Nuova sezione sotto l'immagine -->
             <!-- htmlspecialchars codifica la stringa in html elements, ciò serve ad evitare che vengano letti ed eseguiti i tag 
-             es: <b>SONOpiùBello</b> senza quel comando risulterebbe in grassetto-->
+             es: il nickname <b>SONOpiùBello</b>, senza specialchar, risulterebbe in grassetto-->
             <div class="sezione-sotto-immagine">
             <?php if (!empty($userData)): ?>
                 <div><strong>Nome:</strong> <?= htmlspecialchars($userData['nome']) ?></div>
@@ -51,11 +49,13 @@
                 <div><strong>Email:</strong> <?= htmlspecialchars($userData['email']) ?></div>
                 <div><strong>Data di Nascita:</strong> <?= htmlspecialchars($userData['dataNascita']) ?></div>
                 <div>
-                    <!-- <strong>Bio:</strong><br>
+                    <!-- 
+                    <strong>Bio:</strong><br>
                     <form action="../php_files/update_bio.php" method="POST">
                         <textarea name="bio" rows="4" cols="40"><?= htmlspecialchars($userData['bio']) ?></textarea><br>
                         <button type="submit">Aggiorna Bio</button>
-                    </form> -->
+                    </form>
+                     -->
                 </div>
             <?php else: ?>
                 <p>Dati utente non disponibili.</p>
@@ -102,7 +102,7 @@
     </div>
 
 
-        <!-- Footer con informazioni sull'azienda -->
+    <!-- Footer con informazioni sull'azienda -->
     <footer class="footer">
         <div class="footer-content">
             <h2>Chi Siamo</h2>

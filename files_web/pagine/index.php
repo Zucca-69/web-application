@@ -19,7 +19,7 @@ session_start();
 
 </head>
 
-<?php include '../php_files/header.php'; ?>
+<?php include '../php_files/header_check.php'; ?>
 
 <body>
 
