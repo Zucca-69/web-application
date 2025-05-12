@@ -17,10 +17,6 @@ session_start();
     <link rel="stylesheet" href="../css/catalogo.css">
 
 </head>
-
-<?php include '../php_files/header_check.php'; ?>
-<?php include '../php_files/db_connection.php'; ?>
-
 <body>
     <?php 
         include '../php_files/header_check.php'; 
@@ -28,9 +24,11 @@ session_start();
 
         $numGiochiPagina = 25;
 
-        $query = "SELECT p.productId, nome, i.imageData, i.imageType FROM prodotti p
-                    JOIN immagini i ON p.productId = i.FKproductId
-                    GROUP BY p.productId";
+        $query = "SELECT MIN(p.productId) as productId, p.nome, i.imageData, i.imageType
+                FROM prodotti p
+                JOIN immagini i ON p.productId = i.FKproductId
+                GROUP BY p.nome";
+
         $rawResult = $conn->query($query);
 
         $giochi = [];
