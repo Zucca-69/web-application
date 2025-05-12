@@ -2,7 +2,7 @@
 session_start();
 
 // Se non sei loggato, ti rimando al login
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['userId'])) {
     header("Location: login.php");
     exit();
 }
@@ -18,7 +18,6 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/darkmode.css">
     <link rel="stylesheet" href="../css/autenticazione.css">
-    <script src="../js/theme_toggle.js" defer></script>
 </head>
 <body>
 

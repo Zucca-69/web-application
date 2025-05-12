@@ -18,7 +18,8 @@
     <!-- Contenitore principale -->
     <div class="container">
         <!-- Immagine grande a sinistra -->
-        <div class="galleria-sinistra">
+        <div class="immagine-sinistra">
+
         <div class="profile-pic-wrapper">
         <form action="../php_files/change_profile_img.php" method="POST" enctype="multipart/form-data" id="uploadForm">
                     <label for="profileUpload">

@@ -9,12 +9,10 @@
     <title>RunGame</title>
 
     <!-- fogli di stile -->
-    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/slider.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/darkmode.css">
-    <link rel="stylesheet" href="../css/galleria.css">
+    <link rel="stylesheet" href="../css/categorie.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <link rel="stylesheet" href="../css/mostra-prodotti.css">
 
@@ -25,15 +23,15 @@
         include '../php_files/header_check.php'; 
         include '../php_files/db_connection.php'; 
 
+<body>
+    <?php  
         $productId = $_GET['productId'];
 
         // Verifica se l'utente è loggato
         if (isset($_SESSION['userId'])) {
             // Ottieni l'ID del prodotto dalla query string
             $productId = $_GET['productId'];
-
-            // Connessione al database
-            include '../php_files/db_connection.php';
+            
 
             // Prepara la query per inserire l'interazione nel database
             $query = $conn->prepare("INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
@@ -286,7 +284,7 @@
                 barraRichieste.style.display = (barraRichieste.style.display === "block") ? "none" : "block";
             });
 
-            // Galleria click immagini
+            // click immagini
             const miniature = document.querySelectorAll('.mini');
             const imgGrande = document.getElementById('imgGrande');
             miniature.forEach(mini => {

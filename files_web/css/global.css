@@ -7,9 +7,33 @@ body, h1, h2, p, a, ul, li {
 
 /* Globale */
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #1e1e1e;
+    line-height: 1.6;
+
+
     background: linear-gradient(to right, #588b1d, #368a36); /*maybe the best?*/
     /* background: radial-gradient(circle, #00ff00, #ffffff);  focus al centro */
 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+main {
+    flex: 1;
+}
+
+
+:root {
+    --primary-color: #01cd01;
+    --primary-hover: #02a302;
+    --background-light: #f5fff5;
+    --text-dark: #222;
+}
+
+button, a {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
