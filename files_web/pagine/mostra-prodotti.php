@@ -18,6 +18,7 @@
 
 </head>
 <?php include '../php_files/header_check.php'; ?>
+<?php include '../php_files/db_connection.php'; ?>
 
 <body>
     <?php  
@@ -27,9 +28,7 @@
         if (isset($_SESSION['userId'])) {
             // Ottieni l'ID del prodotto dalla query string
             $productId = $_GET['productId'];
-
-            // Connessione al database
-            include '../php_files/db_connection.php';
+            
 
             // Prepara la query per inserire l'interazione nel database
             $query = $conn->prepare("INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
