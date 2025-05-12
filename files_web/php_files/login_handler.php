@@ -20,9 +20,11 @@ if (isset($_POST['nome_utente'])) {
 
     // Controllo credenziali
     if (!$hashed_password) {
-        echo "Utente non riconosciuto";
+        header("Location: ../pagine/login.php?error=utente");
+        exit();
     } elseif ($verificato == 0) {
-        echo "Account non verificato. Controlla la tua email.";
+        header("Location: ../pagine/login.php?error=verifica");
+        exit();
     } elseif (password_verify($password, $hashed_password)) {
         // Login riuscito: imposta sessione (salviamo questi dati)
         $_SESSION['acceduto'] = TRUE;
@@ -31,7 +33,7 @@ if (isset($_POST['nome_utente'])) {
         header("Location: ../pagine/index.php"); // Redirect alla home
         exit();
     } else {
-        echo "Password errata";
+        header("Location: ../pagine/login.php?error=password");
     }
 
     $conn->close();

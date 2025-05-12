@@ -1,3 +1,8 @@
+<?php 
+// Avvia la sessione per gestire login/logout
+session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -8,17 +13,16 @@
     
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/darkmode.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <link rel="stylesheet" href="../css/catalogo.css">
 
 </head>
 
+<?php include '../php_files/header_check.php'; ?>
+<?php include '../php_files/db_connection.php'; ?>
+
 <body>
     <?php 
-        include '../php_files/header.php'; 
-        include '../php_files/db_connection.php'; 
-
         $numGiochiPagina = 25;
 
         $query = "SELECT p.productId, nome, i.imageData, i.imageType FROM prodotti p
