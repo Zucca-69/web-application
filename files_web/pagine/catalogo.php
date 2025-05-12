@@ -19,11 +19,10 @@ session_start();
 </head>
 
 <?php include '../php_files/header_check.php'; ?>
+<?php include '../php_files/db_connection.php'; ?>
 
 <body>
     <?php 
-        include '../php_files/db_connection.php'; 
-
         $numGiochiPagina = 25;
 
         $query = "SELECT p.productId, nome, i.imageData, i.imageType FROM prodotti p

@@ -11,3 +11,4 @@ session_destroy();
             window.location.href = '../pagine/index.php';
         };
     </script>
+
