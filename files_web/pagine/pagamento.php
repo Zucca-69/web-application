@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Pagamento</title>
+  <title>RunGame - Aquista</title>
   <style>
     body {
       font-family: Arial, sans-serif;
