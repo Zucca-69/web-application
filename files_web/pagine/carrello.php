@@ -2,73 +2,25 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  
   <title>RunGame - Carrello</title>
+  
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/slider.css">
   <link rel="stylesheet" href="../css/darkmode.css">
   <link rel="stylesheet" href="../css/galleria.css">
   <link rel="stylesheet" href="../css/barra-navigazione.css">
-  <style>
-    .cart-container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-top: 50px;
-    }
-    h1 {
-      text-align: center;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    .total {
-      text-align: right;
-      font-size: 1.2em;
-      margin-top: 20px;
-    }
-    .checkout-btn {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      background-color: #28a745;
-      color: white;
-      font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .checkout-btn:hover {
-      background-color: #218838;
-    }
-    .qty-controls {
-      text-align: center;
-    }
-    .action-buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-    .action-buttons button {
-      padding: 6px 10px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/carrello.css">
+
 </head>
 <body>
-  <?php include '../php_files/header_check.php'; ?>
+  <?php 
+    include '../php_files/header.php'; 
+    include '../php_files/db_connection.php'; 
+    include '../php_files/get_cart.php'; 
+
+  ?>
+
   <div class="cart-container">
     <h1>Il tuo carrello</h1>
     <table>

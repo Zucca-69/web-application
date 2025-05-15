@@ -8,7 +8,9 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>RunGame - Home</title>
+
     <!-- collegamento dei file CSS globali + specifici -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/slider.css">
@@ -50,14 +52,14 @@ session_start();
         // immagine per ogni categoria
         echo "<div class='categorie'>";
         foreach ($infoCategorie as $c) {
-echo "
-    <a href='catalogo.php?categoryId={$c['categoryId']}'>
-        <div class='categorie-item'>
-            <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
-            <div class='testo'>{$c['categoryName']}</div>
-        </div>
-    </a>
-";
+            echo "
+                <a href='catalogo.php?categoryId={$c['categoryId']}'>
+                    <div class='categorie-item'>
+                        <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
+                        <div class='testo'>{$c['categoryName']}</div>
+                    </div>
+                </a>
+            ";
 
         }
         echo "</div>";
