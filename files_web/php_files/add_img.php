@@ -1,53 +1,63 @@
 <?php
-    include 'db_connection.php';
+include 'db_connection.php';
 
-    // Check if $_FILES count items
-    if (count($_FILES) > 0) {
-        // Check if file was uploaded
-        if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-            // Insert image as MySQL BLOB using file_get_contents() to read the entire file into a string
-            $imgData = file_get_contents($_FILES['userImage']['tmp_name']);
-            $imgName = $_FILES['userImage']['name'];
-            $imgType = $_FILES['userImage']['type'];
-            $imgSize = $_FILES['userImage']['size'];
-            $FKproductId = $_POST['FKproductId'];
 
-            $sql = "INSERT INTO immagini(imageData, imageName, imageType, imageSize, FKproductId) VALUES(?, ?, ?, ?, ?)";
-            $statement = $conn->prepare($sql);
-            $statement->bind_param('ssssi', $imgData, $imgName, $imgType, $imgSize, $FKproductId);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $FKproductId = $_POST['FKproductId'];
 
-            $current_id = $statement->execute() or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_connect_error());
-        } else {
-            echo "Sorry, there was an error uploading your file.";
+    // elenco dei nomi input file
+    $imageFields = ['image1', 'image2', 'image3'];
+
+    foreach ($imageFields as $fieldName) {
+        if (isset($_FILES[$fieldName]) && is_uploaded_file($_FILES[$fieldName]['tmp_name'])) {
+            $imgData = file_get_contents($_FILES[$fieldName]['tmp_name']);
+            $imgName = $_FILES[$fieldName]['name'];
+            $imgType = $_FILES[$fieldName]['type'];
+            $imgSize = $_FILES[$fieldName]['size'];
+
+            $sql = "INSERT INTO immagini (imageData, imageName, imageType, imageSize, FKproductId) 
+                    VALUES (?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('sssii', $imgData, $imgName, $imgType, $imgSize, $FKproductId);
+            $stmt->execute();
         }
-
     }
 
+    echo "Immagini caricate correttamente.";
+}
 ?>
+
 
 <HTML>
     <HEAD>
         <TITLE>PHP | Upload BLOB files in MySQL</TITLE>
         <meta charset="UTF-8">
     </HEAD>
+    <header>   
+        <div class="navbar-container">
+        <!-- Logo a sinistra -->
+        <div class="logo">
+            <a href="../pagine/index.php">
+                <img src="../MEDIA/immagini/Logo_nobg.png" alt="Logo">
+            </a>
+        </div></header>
 
     <BODY>
-        <!--- Upload the image file --->
-        <form name="frmImage" enctype="multipart/form-data" action="" method="post">
-            <div>
-                <div>
-                    <label>Upload image file:</label>
-                    <input name="userImage" type="file"/>
-                </div>
-                
-                <div>
-                    <label>productId</label>
-                    <input name="FKproductId" type= "number"/>
-                </div>
-                
-                <div>
-                    <input type="submit" value="Submit" />
-                </div>
-            </div>
+        <form name="frmImage" enctype="multipart/form-data" action="add_img.php" method="post" class="form">
+            <label>ID prodotto:</label>
+            <input type="text" name="FKproductId" required><br><br>
+
+            <label>Banner (immagine 1):</label>
+            <input type="file" name="image1" required><br><br>
+
+            <label>Gameplay / Showcase 1 (immagine 2):</label>
+            <input type="file" name="image2"><br><br>
+
+            <label>Gameplay / Showcase 2 (immagine 3):</label>
+            <input type="file" name="image3"><br><br>
+
+            <input type="submit" value="Carica Immagini">
+        </form>
+
     </BODY>
 </HTML>
