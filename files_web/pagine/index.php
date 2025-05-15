@@ -50,15 +50,15 @@ session_start();
         // immagine per ogni categoria
         echo "<div class='categorie'>";
         foreach ($infoCategorie as $c) {
-            $nome = urlencode($c['categoryName']);
-            echo "
-                <a href='catalogo.php?categoria={$nome}'>
-                    <div class='categorie-item'>
-                        <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
-                        <div class='testo'>{$c['categoryName']}</div>
-                    </div>
-                </a>
-            ";
+echo "
+    <a href='catalogo.php?categoryId={$c['categoryId']}'>
+        <div class='categorie-item'>
+            <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
+            <div class='testo'>{$c['categoryName']}</div>
+        </div>
+    </a>
+";
+
         }
         echo "</div>";
     ?>

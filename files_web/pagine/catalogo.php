@@ -24,9 +24,18 @@ session_start();
 
         $numGiochiPagina = 25;
 
+        // filtro per categoria
+        $condizioneFiltro = '';
+        if (isset($_GET['categoryId'])) {
+            $categoria = $conn->real_escape_string($_GET['categoryId']);
+            $condizioneFiltro = "WHERE a.FKcategoryId = '$categoria'";
+        }
+
         $query = "SELECT MIN(p.productId) as productId, p.nome, i.imageData, i.imageType
                 FROM prodotti p
                 JOIN immagini i ON p.productId = i.FKproductId
+                JOIN appartenenze a ON p.productId = a.FKproductId
+                $condizioneFiltro
                 GROUP BY p.nome";
 
         $rawResult = $conn->query($query);
