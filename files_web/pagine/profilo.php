@@ -11,8 +11,10 @@
 
 </head>
 
-<?php include '../php_files/header_check.php'; ?>
-<?php include '../php_files/get_user_data.php';?>
+<?php 
+    include '../php_files/header_check.php';
+    include '../php_files/get_user_data.php';
+?>
 
 <body>
     <!-- Contenitore principale -->

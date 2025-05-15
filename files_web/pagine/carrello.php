@@ -68,7 +68,7 @@
   </style>
 </head>
 <body>
-  <?php include '../php_files/header_check.php'; ?>
+  <?php include '../php_files/header.php'; ?>
   <div class="cart-container">
     <h1>Il tuo carrello</h1>
     <table>

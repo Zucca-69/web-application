@@ -5,9 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>RunGame</title>
-
     <!-- fogli di stile -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/slider.css">
@@ -15,161 +13,148 @@
     <link rel="stylesheet" href="../css/categorie.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <link rel="stylesheet" href="../css/mostra-prodotti.css">
-
 </head>
 <body>
     <?php 
-        // script php
         include '../php_files/header_check.php'; 
         include '../php_files/db_connection.php'; 
+
+        // Set longer timeout for MySQL connection
+        $conn->query("SET SESSION wait_timeout = 600");
         
         $productId = (int)$_GET['productId'];
-
-        // Verifica se l'utente è loggato
+        
+        // Track view interaction if user is logged in
         if (isset($_SESSION['userId'])) {
-            // Ottieni l'ID del prodotto dalla query string
-            $productId = (int)$_GET['productId'];
+            $query = "INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
+                     VALUES (?, ?, NULL, 'visualizzato', NOW())";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ii", $_SESSION['userId'], $productId);
+            $stmt->execute();
+            $stmt->close();
+        }
+
+        // Get recently viewed games (moved to top)
+        $giochiVisualizzati = [];
+        if (isset($_SESSION['userId'])) {
+            $query = "SELECT p.productId, i.imageData, i.imageType
+                     FROM interazioni inter
+                     JOIN prodotti p ON inter.FKproductId = p.productId
+                     JOIN immagini i ON p.productId = i.FKproductId
+                     WHERE inter.FKuserId = ?
+                     AND inter.tipologia = 'visualizzato'
+                     GROUP BY p.productId
+                     ORDER BY inter.timestamp DESC
+                     LIMIT 5";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $_SESSION['userId']);
+            $stmt->execute();
+            $result = $stmt->get_result();
             
-            // Prepara la query per inserire l'interazione nel database
-            $query = $conn->prepare("INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
-                                    VALUES (?, ?, NULL, 'visualizzato', NOW())");
-
-            // Associa i parametri della query
-            $query->bind_param("ii", $_SESSION['userId'], $productId);
-
-            // Esegui la query
-            $query->execute();
+            while ($row = $result->fetch_assoc()) {
+                $giochiVisualizzati[] = [
+                    'productId' => $row['productId'],
+                    'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
+                ];
+            }
+            $stmt->close();
         }
 
-        //info sul gioco
-        $stmt = $conn->prepare("SELECT * FROM prodotti WHERE productId = ?");
-        $stmt->bind_param("i", $productId);
-        $stmt->execute();
-        $rawResult = $stmt->get_result();
-        $gameInfo = $rawResult->fetch_assoc();
-
-        // immagini del gioco
-        $stmt = $conn->prepare("SELECT imageData, imageType FROM immagini WHERE FKproductId = ?");
-        $stmt->bind_param("i", $productId);
-        $stmt->execute();
-        $rawResult = $stmt->get_result();
-
+        // Get game info and images in a single query
+        $gameInfo = [];
         $immagini = [];
-        $result = $rawResult->fetch_all(MYSQLI_ASSOC);
-        foreach ($result as $row) {
-            $base64 = base64_encode($row['imageData']);
-            $immagini[] = "data:" . $row['imageType'] . ";base64," . $base64;
-        }
-
-        // cerco le diverse piattaforme del gioco
-        $nome = $gameInfo['nome'];
-        $stmt = $conn->prepare("SELECT productId, piattaforma FROM prodotti WHERE nome = ?");
-        $stmt->bind_param("s", $nome);
+        
+        $query = "SELECT p.*, i.imageData, i.imageType 
+                 FROM prodotti p
+                 LEFT JOIN immagini i ON p.productId = i.FKproductId
+                 WHERE p.productId = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $productId);
         $stmt->execute();
-        $rawResult = $stmt->get_result();
+        $result = $stmt->get_result();
+        
+        while ($row = $result->fetch_assoc()) {
+            if (empty($gameInfo)) {
+                $gameInfo = $row;
+            }
+            if (!empty($row['imageData'])) {
+                $immagini[] = "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']);
+            }
+        }
+        $stmt->close();
 
+        // Get platforms for the game
         $piattaforme = [];
-
-        if ($rawResult && $rawResult->num_rows > 0) {
-            while ($row = $rawResult->fetch_assoc()) {
+        if (!empty($gameInfo['nome'])) {
+            $query = "SELECT productId, piattaforma FROM prodotti WHERE nome = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("s", $gameInfo['nome']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            while ($row = $result->fetch_assoc()) {
                 $piattaforme[] = [
                     'productId' => $row['productId'],
                     'piattaforma' => $row['piattaforma'],
                 ];
             }
-        } else {
-            echo "errore query: " . $conn->error;
+            $stmt->close();
         }
 
-        // controllo se il gioco fa parte di una saga
-        $saga = $gameInfo['saga'];
+        // Get games from same saga
         $giochiSaga = [];
-
-        if (!empty($saga)) {
-            $stmt = $conn->prepare("SELECT DISTINCT p.nome, p.productId, i.imageData, i.imageType
-                                    FROM prodotti p
-                                    JOIN immagini i ON p.productId = i.FKproductId
-                                    WHERE p.saga = ? 
-                                    AND p.productId != ?
-                                    GROUP BY p.productId");
-            $stmt->bind_param("si", $saga, $productId);
+        if (!empty($gameInfo['saga'])) {
+            $query = "SELECT DISTINCT p.nome, p.productId, i.imageData, i.imageType
+                     FROM prodotti p
+                     JOIN immagini i ON p.productId = i.FKproductId
+                     WHERE p.saga = ? 
+                     AND p.productId != ?
+                     GROUP BY p.productId";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("si", $gameInfo['saga'], $productId);
             $stmt->execute();
-            $rawResult = $stmt->get_result();
-
-            if ($rawResult && $rawResult->num_rows > 0) {
-                while ($row = $rawResult->fetch_assoc()) {
-                    $giochiSaga[] = [
-                        'productId' => $row['productId'],
-                        'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
-                    ];
-                }
-            } else {
-                echo "errore query: " . $conn->error;
+            $result = $stmt->get_result();
+            
+            while ($row = $result->fetch_assoc()) {
+                $giochiSaga[] = [
+                    'productId' => $row['productId'],
+                    'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
+                ];
             }
+            $stmt->close();
         }
 
-        // carco giochi simili per categoria
-        $query = "SELECT DISTINCT p.productId, p.nome, i.imageData, i.imageType
-                    FROM Prodotti p
-                    JOIN Appartenenze a ON p.productId = a.FKproductId
-                    JOIN Immagini i ON p.productId = i.FKproductId
-                    WHERE a.FKcategoryId IN (
-                        SELECT FKcategoryId
-                        FROM Appartenenze
-                        WHERE FKproductId = ?
-                    )
-                    AND p.productId != ?
-                    AND p.saga != ?
-                    GROUP BY p.productId
-                    ORDER BY RAND()
-                    LIMIT 5;
-                ";
-
-        // Esegui la query
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("iis", $productId, $productId, $saga); // 3 parametri: id, id, saga
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        // Recupera i risultati
+        // Get recommended games
         $giochiConsigliati = [];
-        while ($row = $result->fetch_assoc()) {
-            // Crea il link dell'immagine base64
-            $imageSrc = "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']);
-            $giochiConsigliati[] = [
-                'productId' => $row['productId'],
-                'src' => $imageSrc
-            ];
-        }
-
-        // recupera i 5 giochi visualizzati più recentemente dall'utente
-        $query = "SELECT p.productId, i.imageData, i.imageType
-                FROM interazioni inter
-                JOIN prodotti p ON inter.FKproductId = p.productId
-                JOIN immagini i ON p.productId = i.FKproductId
-                WHERE inter.FKuserId = ?
-                AND inter.tipologia = 'visualizzato'
-                GROUP BY p.productId
-                ORDER BY inter.timestamp DESC
-                LIMIT 5";
-
+        $query = "SELECT DISTINCT p.productId, p.nome, i.imageData, i.imageType
+                 FROM Prodotti p
+                 JOIN Appartenenze a ON p.productId = a.FKproductId
+                 JOIN Immagini i ON p.productId = i.FKproductId
+                 WHERE a.FKcategoryId IN (
+                     SELECT FKcategoryId
+                     FROM Appartenenze
+                     WHERE FKproductId = ?
+                 )
+                 AND p.productId != ?
+                 AND (p.saga IS NULL OR p.saga != ?)
+                 GROUP BY p.productId
+                 ORDER BY RAND()
+                 LIMIT 5";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $_SESSION['userId']);
+        $stmt->bind_param("iis", $productId, $productId, $gameInfo['saga'] ?? '');
         $stmt->execute();
         $result = $stmt->get_result();
-
-        $giochiVisualizzati = [];
+        
         while ($row = $result->fetch_assoc()) {
-            $giochiVisualizzati[] = [
+            $giochiConsigliati[] = [
                 'productId' => $row['productId'],
                 'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
             ];
         }
+        $stmt->close();
 
-        // chiudo la connessione al server una volta finite le query necessarie
-        $conn -> close();
+        $conn->close();
     ?>
-
     
     <div class="container">
         <div class="immagini-gioco">
@@ -240,7 +225,7 @@
             <div class="etichetta-sezione">DESCRIZIONE:</div>
             <p class="testo-descrizione">
                 <?php
-                    // TODO : fixare la codifica del bd, guarda chatGPT moka
+                    // TODO : fixare la codifica del db, guarda chatGPT moka
                     // https://chatgpt.com/c/6821a003-12b4-800b-b594-a11fcc2b18ac
                     echo htmlspecialchars($gameInfo['descrizione']);
                 ?>
@@ -259,13 +244,10 @@
                     echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
                     echo "</a>";
                 }
-
                 echo "</div></div>";
             }
-        ?>
 
-        <!-- riquadro per i correlati -->
-        <?php 
+            // riquadro per i correlati 
             if ($saga != "NULL" && !empty($giochiConsigliati)) {
                 echo "<div class='sezione'>
                     <div class='etichetta-sezione'>GIOCHI CORRELATI:</div>
@@ -276,24 +258,22 @@
                     echo "<img src='" . $giocoConsigliato['src'] . "' alt='Gioco saga'>";
                     echo "</a>";
                 }
-
                 echo "</div></div>";
             }
-        ?>
 
-        <!-- riquadro per i consigliati -->
-        <?php 
-            echo "<div class='sezione'>
-                <div class='etichetta-sezione'>VISUALIZZATI IN PRECEDENZA:</div>
-                <div class='sezione-img-container'>";
+            // riquadro per i consigliati
+            if ($giochiVisualizzati != "NULL" && !empty($giochiVisualizzati)) {
+                echo "<div class='sezione'>
+                    <div class='etichetta-sezione'>VISUALIZZATI IN PRECEDENZA:</div>
+                    <div class='sezione-img-container'>";
 
-            foreach ($giochiVisualizzati as $giocoVisualizzato) {
-                echo "<a href='mostra-prodotti.php?productId=" . $giocoVisualizzato['productId'] . "'>";
-                echo "<img src='" . $giocoVisualizzato['src'] . "' alt='Gioco'>";
-                echo "</a>";
+                foreach ($giochiVisualizzati as $giocoVisualizzato) {
+                    echo "<a href='mostra-prodotti.php?productId=" . $giocoVisualizzato['productId'] . "'>";
+                    echo "<img src='" . $giocoVisualizzato['src'] . "' alt='Gioco'>";
+                    echo "</a>";
+                }
+                echo "</div></div>";
             }
-
-            echo "</div></div>";
         ?>
     </div>
 

@@ -28,8 +28,17 @@ session_start();
         $condizioneFiltro = '';
         if (isset($_GET['categoryId'])) {
             $categoria = $conn->real_escape_string($_GET['categoryId']);
-            $condizioneFiltro = "WHERE a.FKcategoryId = '$categoria'";
+            $condizioneFiltro = " a.FKcategoryId = '$categoria' AND";
+        } 
+        /*
+        if (isset($_GET['news'])) {
+            // inserisci 
         }
+*/
+        if ($condizioneFiltro != '') {
+            $condizioneFiltro = "WHERE " . $condizioneFiltro;
+        }
+
 
         $query = "SELECT MIN(p.productId) as productId, p.nome, i.imageData, i.imageType
                 FROM prodotti p

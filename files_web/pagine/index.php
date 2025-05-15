@@ -41,27 +41,24 @@ session_start();
         <div class="dots-container" id="dots-container">
             <!-- Pallini generati dinamicamente -->
         </div>
-
-
     
-    <?php 
-        include "../php_files/get_gategory_img.php";   
+        <?php 
+            include "../php_files/get_gategory_img.php";   
 
-        // immagine per ogni categoria
-        echo "<div class='categorie'>";
-        foreach ($infoCategorie as $c) {
-echo "
-    <a href='catalogo.php?categoryId={$c['categoryId']}'>
-        <div class='categorie-item'>
-            <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
-            <div class='testo'>{$c['categoryName']}</div>
-        </div>
-    </a>
-";
-
-        }
-        echo "</div>";
-    ?>
+            // immagine per ogni categoria
+            echo "<div class='categorie'>";
+            foreach ($infoCategorie as $c) {
+                echo "
+                    <a href='catalogo.php?categoryId={$c['categoryId']}'>
+                        <div class='categorie-item'>
+                            <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
+                            <div class='testo'>{$c['categoryName']}</div>
+                        </div>
+                    </a>
+                ";
+            }
+            echo "</div>";
+        ?>
     </main>
 
     <!-- Footer con informazioni sull'azienda -->
