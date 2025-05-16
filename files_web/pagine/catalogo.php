@@ -1,8 +1,3 @@
-<?php 
-// Avvia la sessione per gestire login/logout
-session_start(); 
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -19,6 +14,7 @@ session_start();
 </head>
 <body>
     <?php 
+        session_start(); 
         include '../php_files/header_check.php'; 
         include '../php_files/db_connection.php'; 
 
