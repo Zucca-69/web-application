@@ -20,19 +20,29 @@
 
         $numGiochiPagina = 25;
 
-        // filtro per categoria
-        $condizioneFiltro = '';
+        // condizioni del filtro
+        $condizioniFiltro = [];
+
+        // filtro categoria
         if (isset($_GET['categoryId'])) {
             $categoria = $conn->real_escape_string($_GET['categoryId']);
-            $condizioneFiltro = " a.FKcategoryId = '$categoria' AND";
-        } 
-        /*
-        if (isset($_GET['news'])) {
-            // inserisci 
+            $condizioniFiltro[] = "a.FKcategoryId = '$categoria'";
         }
-*/
-        if ($condizioneFiltro != '') {
-            $condizioneFiltro = "WHERE " . $condizioneFiltro;
+
+        // filtra nouve uscite
+        if (isset($_GET['news']) && $_GET['news'] == '1') {
+            $condicondizioniFiltrotions[] = "a.dataUscita BETWEEN (SELECT NOW() - INTERVAL 1 MONTH;)";
+        }
+
+        // Add more filters as needed
+        // if (isset($_GET['anotherFilter'])) {
+        //     $conditions[] = "your_condition_here";
+        // }
+
+        // Build the final WHERE clause
+        $condizioneFiltro = '';
+        if (!empty($conditions)) {
+            $condizioneFiltro = "WHERE " . implode(" AND ", $conditions);
         }
 
 
@@ -42,6 +52,8 @@
                 JOIN appartenenze a ON p.productId = a.FKproductId
                 $condizioneFiltro
                 GROUP BY p.nome";
+
+        echo $query;
 
         $rawResult = $conn->query($query);
 

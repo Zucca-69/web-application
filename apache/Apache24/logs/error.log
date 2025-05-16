@@ -31,3 +31,7 @@ pm_winnt:notice] [pid 23596:tid 440] AH00354: Child: Starting 64 worker threads.
 [Mon May 12 08:40:26.947161 2025] [mpm_winnt:notice] [pid 8508:tid 488] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
 [Mon May 12 08:40:26.947161 2025] [core:notice] [pid 8508:tid 488] AH00094: Command line: 'httpd.exe -d C:/Users/Didattica/Desktop/Benini_Damian_5bi/repo/web-application/apache/Apache24'
 [Mon May 12 08:40:26.949764 2025] [mpm_winnt:notice] [pid 8508:tid 488] AH00418: Parent: Created child process 13100
+[Fri May 16 09:01:15.206779 2025] [mpm_winnt:notice] [pid 3380:tid 484] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri May 16 09:01:15.206779 2025] [mpm_winnt:notice] [pid 3380:tid 484] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri May 16 09:01:15.206779 2025] [core:notice] [pid 3380:tid 484] AH00094: Command line: 'httpd.exe -d C:/Users/Didattica/Desktop/Benini_Damian_5bi/repo/web-application/apache/Apache24'
+[Fri May 16 09:01:15.210011 2025] [mpm_winnt:notice] [pid 3380:tid 484] AH00418: Parent: Created child process 12888

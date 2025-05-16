@@ -33,46 +33,26 @@
           <th>Azioni</th>
         </tr>
       </thead>
+
       <tbody id="cart-items">
-        <tr data-price="15.00">
-          <td>Maglietta Bianca</td>
-          <td class="qty">1</td>
-          <td>€15.00</td>
-          <td class="line-total">€0.00</td>
-          <td class="qty-controls">
-            <div class="action-buttons">
-              <button onclick="changeQty(this, 1)">+</button>
-              <button onclick="removeItem(this)">🗑️</button>
-              <button onclick="changeQty(this, -1)">−</button>
-            </div>
-          </td>
-        </tr>
-        <tr data-price="15.00">
-          <td>Maglietta Bianca</td>
-          <td class="qty">2</td>
-          <td>€15.00</td>
-          <td class="line-total">€0.00</td>
-          <td class="qty-controls">
-            <div class="action-buttons">
-              <button onclick="changeQty(this, 1)">+</button>
-              <button onclick="removeItem(this)">🗑️</button>
-              <button onclick="changeQty(this, -1)">−</button>
-            </div>
-          </td>
-        </tr>
-        <tr data-price="40.00">
-          <td>Jeans Blu</td>
-          <td class="qty">1</td>
-          <td>€40.00</td>
-          <td class="line-total">€0.00</td>
-          <td class="qty-controls">
-            <div class="action-buttons">
-              <button onclick="changeQty(this, 1)">+</button>
-              <button onclick="removeItem(this)">🗑️</button>
-              <button onclick="changeQty(this, -1)">−</button>
-            </div>
-          </td>
-        </tr>
+        <?php
+          foreach ($cartItems as $prodotto) :
+          echo '<tr data-price=' . $prodotto['prezzo'] . '>';
+            // <td>Maglietta Bianca</td>
+            // <td class="qty">1</td>
+            // <td>€15.00</td>
+        ?>
+            <td class="line-total">€0.00</td>
+            <td class="qty-controls">
+              <div class="action-buttons">
+                <button onclick="changeQty(this, 1)">+</button>
+                <button onclick="removeItem(this)">🗑️</button>
+                <button onclick="changeQty(this, -1)">−</button>
+              </div>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+
       </tbody>
     </table>
     <div class="total">
