@@ -141,8 +141,10 @@ session_start();
             <div class="testo">RPG</div>
         </div>
         <div class="galleria-item">
-            <img src="../MEDIA/immagini/GOWR_Review_Screenshot_13.jpg" alt="Immagine 8">
-            <div class="testo">Azione</div>
+            <a href="add_prodotto.php">
+                <img src="../MEDIA/immagini/sparatutto2021.jpg.800x400_q70_crop-smart_upscale-True.jpg" alt="Immagine 1">
+                <div class="testo">Sparatutto</div>
+            </a>
         </div>
     </div>
 

@@ -12,13 +12,6 @@
     <link rel="stylesheet" href="../css/galleria.css">
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <style>
-        body {
-            background-color: #d3f9d8;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
         .container {
             display: flex;
             justify-content: space-between;
@@ -245,6 +238,46 @@
         nav ul li a:hover {
             color: #01cd01;
         }
+
+        .quantita-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quantita-text {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .quantita-btn {
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: white;
+            color: #01cd01;
+            border: 2px solid #01cd01;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .quantita-btn:hover {
+            background-color: #01cd01;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .quantita-btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .titolo-prezzo {
+            font-size: 32px;
+            text-align: center;
+            line-height: 1.3;
+        }
     </style>
 </head>
 <body>
@@ -262,8 +295,24 @@
         </div>
 
         <div class="galleria-destra">
-            <div class="riquadro">Titolo <br> Prezzo</div>
-            <div class="riquadro">Quantità</div>
+            <div class="riquadro">
+                <div class="titolo-prezzo">
+                    Titolo <br> Prezzo
+                </div>
+            </div>
+            <div class="riquadro">
+                <div class="quantita-container">
+                    <div class="quantita-text">Quantità</div>
+                    <div class="quantita-btn-container">
+                        <button class="quantita-btn" onclick="cambiaQuantita(-1)">−</button>
+                        <span id="quantita">1</span>
+                        <button class="quantita-btn" onclick="cambiaQuantita(1)">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="riquadro" onclick="aggiungiAlCarrello()">
+                <span class="quantita-text">Aggiungi al carrello</span>
+            </div>
             <div class="riquadro" id="riquadro">
                 <span>Sparatutto</span>
             </div>
@@ -273,48 +322,6 @@
                     <li><a href="#">Richiesta 2</a></li>
                     <li><a href="#">Richiesta 3</a></li>
                 </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="sezioni-contenitore">
-        <div class="sezione">
-            <div class="etichetta-sezione">DESCRIZIONE:</div>
-            <p class="testo-descrizione">Questo è un esempio di descrizione del prodot
-                to.OOOOOOOO
-                OOOOOOOOOOOOOOOO
-                OOOOOOOOOOOO
-                OOOOOOOOOO
-                OOOOOOOOOOOOOOO
-                OOOOOOOO
-                OOOOOOOOOOOOO
-                OOOOOOOOOOOOOOOOOOOOOOOOO
-                OOOOOOOOOO
-                OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-                OOOOO Può conten
-                ere informazioni dettagliate sul videogioco, come trama, modalità di gioco e piattafo
-                rme supportate.</p>
-        </div>
-
-        <div class="sezione">
-            <div class="etichetta-sezione">CORRELATI:</div>
-            <div class="sezione-img-container">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 1">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 2">
-                <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 3">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 5">
-            </div>
-        </div>
-
-        <div class="sezione">
-            <div class="etichetta-sezione">CONSIGLIATI:</div>
-            <div class="sezione-img-container">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 1">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 2">
-                <img src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 3">
-                <img src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
-                <img src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 5">
             </div>
         </div>
     </div>
@@ -338,19 +345,27 @@
                 });
             });
         });
+
+        // Controllo quantità
+        function cambiaQuantita(valore) {
+            const span = document.getElementById("quantita");
+            let quantita = parseInt(span.textContent);
+            quantita = Math.max(1, quantita + valore); // evita valori minori di 1
+            span.textContent = quantita;
+        }
+
+        // Funzione per aggiungere al carrello
+        function aggiungiAlCarrello() {
+            const quantita = document.getElementById("quantita").textContent;
+            const titoloPrezzo = document.querySelector(".titolo-prezzo").textContent.split('\n');
+            const titolo = titoloPrezzo[0].trim();
+            const prezzo = titoloPrezzo[1].trim();
+            
+            // Reindirizza alla pagina del carrello con i parametri
+            window.location.href = "carrello.php?titolo=" + encodeURIComponent(titolo) + 
+                                 "&prezzo=" + encodeURIComponent(prezzo) + 
+                                 "&quantita=" + encodeURIComponent(quantita);
+        }
     </script>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h2>Chi Siamo</h2>
-            <p>Siamo un team appassionato d'arte che si dedica a portare quadri unici e originali nelle case di tutto il mondo.
-            La nostra missione è offrire opere di alta qualità, curate con amore e attenzione, per arricchire ogni spazio
-            con bellezza ed emozione.</p>
-            <p>Contattaci per qualsiasi informazione o curiosità! Siamo sempre felici di aiutarti.</p>
-
-            <p>Email: info@tuaazienda.it | Telefono: +39 123 456 789</p>
-        </div>
-    </footer>
 </body>
 </html>

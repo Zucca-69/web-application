@@ -1,0 +1,99 @@
+[Fri May 02 22:52:36.398735 2025] [core:warn] [pid 231216:tid 456] AH00098: pid file C:/Users/Fabio/Desktop/u/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 02 22:52:37.091800 2025] [mpm_winnt:notice] [pid 231216:tid 456] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri May 02 22:52:37.091800 2025] [mpm_winnt:notice] [pid 231216:tid 456] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri May 02 22:52:37.091800 2025] [core:notice] [pid 231216:tid 456] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Fri May 02 22:52:37.094828 2025] [mpm_winnt:notice] [pid 231216:tid 456] AH00418: Parent: Created child process 222156
+[Fri May 02 22:52:37.353065 2025] [mpm_winnt:notice] [pid 222156:tid 460] AH00354: Child: Starting 64 worker threads.
+[Sat May 03 17:46:05.195246 2025] [core:warn] [pid 240284:tid 504] AH00098: pid file C:/Users/Fabio/Desktop/u/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sat May 03 17:46:05.228072 2025] [mpm_winnt:notice] [pid 240284:tid 504] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Sat May 03 17:46:05.228072 2025] [mpm_winnt:notice] [pid 240284:tid 504] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Sat May 03 17:46:05.228072 2025] [core:notice] [pid 240284:tid 504] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Sat May 03 17:46:05.232071 2025] [mpm_winnt:notice] [pid 240284:tid 504] AH00418: Parent: Created child process 242068
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 242068:tid 508] AH00354: Child: Starting 64 worker threads.
+[Sat May 03 17:46:14.903884 2025] [mpm_winnt:notice] [pid 240284:tid 504] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sat May 03 17:46:16.926726 2025] [mpm_winnt:notice] [pid 242068:tid 508] AH00364: Child: All worker threads have exited.
+[Sat May 03 17:46:16.946939 2025] [mpm_winnt:notice] [pid 240284:tid 504] AH00430: Parent: Child process 242068 exited successfully.
+[Sat May 03 17:46:18.280104 2025] [mpm_winnt:notice] [pid 203412:tid 456] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Sat May 03 17:46:18.280104 2025] [mpm_winnt:notice] [pid 203412:tid 456] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Sat May 03 17:46:18.280104 2025] [core:notice] [pid 203412:tid 456] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Sat May 03 17:46:18.283103 2025] [mpm_winnt:notice] [pid 203412:tid 456] AH00418: Parent: Created child process 242516
+[Sat May 03 17:46:18.562435 2025] [mpm_winnt:notice] [pid 242516:tid 488] AH00354: Child: Starting 64 worker threads.
+[Sun May 04 11:09:34.278741 2025] [core:warn] [pid 243436:tid 456] AH00098: pid file C:/Users/Fabio/Desktop/u/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun May 04 11:09:34.308159 2025] [mpm_winnt:notice] [pid 243436:tid 456] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Sun May 04 11:09:34.308159 2025] [mpm_winnt:notice] [pid 243436:tid 456] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Sun May 04 11:09:34.308159 2025] [core:notice] [pid 243436:tid 456] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Sun May 04 11:09:34.310164 2025] [mpm_winnt:notice] [pid 243436:tid 456] AH00418: Parent: Created child process 251832
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 251832:tid 460] AH00354: Child: Starting 64 worker threads.
+[Sun May 04 13:51:13.732252 2025] [php:error] [pid 251832:tid 1164] [client ::1:56526] script 'C:/Users/Fabio/Desktop/u/web-application/files_web/pagine/cantact.php' not found or unable to stat, referer: http://localhost/pagine/index.php
+[Sun May 04 13:51:39.308054 2025] [php:error] [pid 251832:tid 1168] [client ::1:56527] script 'C:/Users/Fabio/Desktop/u/web-application/files_web/pagine/cantact.php' not found or unable to stat, referer: http://localhost/pagine/index.php
+[Sun May 04 17:07:10.367602 2025] [php:error] [pid 251832:tid 1120] [client ::1:57696] script 'C:/Users/Fabio/Desktop/u/web-application/files_web/pagine/mostra-prodotto.php' not found or unable to stat, referer: http://localhost/pagine/index.php
+[Sun May 04 17:07:24.176066 2025] [php:error] [pid 251832:tid 1104] [client ::1:57702] script 'C:/Users/Fabio/Desktop/u/web-application/files_web/pagine/mostra-prodotto.php' not found or unable to stat, referer: http://localhost/pagine/index.php
+[Sun May 04 17:07:26.745993 2025] [php:error] [pid 251832:tid 1104] [client ::1:57702] script 'C:/Users/Fabio/Desktop/u/web-application/files_web/pagine/mostra-prodotto.php' not found or unable to stat, referer: http://localhost/pagine/index.php
+[Sun May 04 21:12:17.982274 2025] [mpm_winnt:notice] [pid 243436:tid 456] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sun May 04 21:12:31.756059 2025] [mpm_winnt:notice] [pid 251832:tid 460] AH00364: Child: All worker threads have exited.
+[Sun May 04 21:16:00.261860 2025] [core:warn] [pid 301608:tid 508] AH00098: pid file C:/Users/Fabio/Desktop/u/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun May 04 21:16:00.293282 2025] [mpm_winnt:notice] [pid 301608:tid 508] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Sun May 04 21:16:00.293282 2025] [mpm_winnt:notice] [pid 301608:tid 508] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Sun May 04 21:16:00.293282 2025] [core:notice] [pid 301608:tid 508] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Sun May 04 21:16:00.296282 2025] [mpm_winnt:notice] [pid 301608:tid 508] AH00418: Parent: Created child process 281932
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 281932:tid 468] AH00354: Child: Starting 64 worker threads.
+[Sun May 04 22:10:31.184810 2025] [mpm_winnt:notice] [pid 301608:tid 508] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sun May 04 22:10:33.200226 2025] [mpm_winnt:notice] [pid 281932:tid 468] AH00364: Child: All worker threads have exited.
+[Sun May 04 22:10:33.222765 2025] [mpm_winnt:notice] [pid 301608:tid 508] AH00430: Parent: Child process 281932 exited successfully.
+[Sun May 04 22:21:38.504314 2025] [mpm_winnt:notice] [pid 308300:tid 508] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Sun May 04 22:21:38.504314 2025] [mpm_winnt:notice] [pid 308300:tid 508] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Sun May 04 22:21:38.504314 2025] [core:notice] [pid 308300:tid 508] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Sun May 04 22:21:38.507319 2025] [mpm_winnt:notice] [pid 308300:tid 508] AH00418: Parent: Created child process 309848
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 309848:tid 500] AH00354: Child: Starting 64 worker threads.
+[Sun May 04 22:22:32.539546 2025] [mpm_winnt:notice] [pid 308300:tid 508] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sun May 04 22:23:07.279503 2025] [mpm_winnt:notice] [pid 309848:tid 500] AH00362: Child: Waiting 30 more seconds for 1 worker threads to finish.
+[Sun May 04 22:23:20.182714 2025] [mpm_winnt:notice] [pid 309848:tid 500] AH00364: Child: All worker threads have exited.
+[Tue May 06 18:37:57.646448 2025] [core:warn] [pid 377096:tid 508] AH00098: pid file C:/Users/Fabio/Desktop/u/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue May 06 18:37:57.678409 2025] [mpm_winnt:notice] [pid 377096:tid 508] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Tue May 06 18:37:57.678409 2025] [mpm_winnt:notice] [pid 377096:tid 508] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Tue May 06 18:37:57.678409 2025] [core:notice] [pid 377096:tid 508] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Tue May 06 18:37:57.681412 2025] [mpm_winnt:notice] [pid 377096:tid 508] AH00418: Parent: Created child process 376044
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 376044:tid 460] AH00354: Child: Starting 64 worker threads.
+[Tue May 06 21:14:03.600262 2025] [mpm_winnt:notice] [pid 377096:tid 508] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Tue May 06 21:14:05.608865 2025] [mpm_winnt:notice] [pid 376044:tid 460] AH00364: Child: All worker threads have exited.
+[Tue May 06 21:14:05.646771 2025] [mpm_winnt:notice] [pid 377096:tid 508] AH00430: Parent: Child process 376044 exited successfully.
+[Sat May 10 01:12:01.469554 2025] [mpm_winnt:notice] [pid 476952:tid 484] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Sat May 10 01:12:01.469554 2025] [mpm_winnt:notice] [pid 476952:tid 484] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Sat May 10 01:12:01.469554 2025] [core:notice] [pid 476952:tid 484] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Sat May 10 01:12:01.472557 2025] [mpm_winnt:notice] [pid 476952:tid 484] AH00418: Parent: Created child process 473772
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 473772:tid 452] AH00354: Child: Starting 64 worker threads.
+[Sat May 10 01:12:11.055453 2025] [php:error] [pid 473772:tid 1152] [client ::1:50127] PHP Fatal error:  Uncaught mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php:7\nStack trace:\n#0 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php(7): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'rungamedb')\n#1 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\pagine\\add_prodotto.php(3): require_once('C:\\\\Users\\\\Fabio\\\\...')\n#2 {main}\n  thrown in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php on line 7, referer: http://localhost/pagine/index.php
+[Sat May 10 01:12:43.230622 2025] [mpm_winnt:notice] [pid 476952:tid 484] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sat May 10 01:12:45.240916 2025] [mpm_winnt:notice] [pid 473772:tid 452] AH00364: Child: All worker threads have exited.
+[Sat May 10 01:12:45.260161 2025] [mpm_winnt:notice] [pid 476952:tid 484] AH00430: Parent: Child process 473772 exited successfully.
+[Sat May 10 01:12:54.355037 2025] [mpm_winnt:notice] [pid 479008:tid 212] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Sat May 10 01:12:54.355037 2025] [mpm_winnt:notice] [pid 479008:tid 212] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Sat May 10 01:12:54.355037 2025] [core:notice] [pid 479008:tid 212] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Sat May 10 01:12:54.359038 2025] [mpm_winnt:notice] [pid 479008:tid 212] AH00418: Parent: Created child process 476940
+Apache server shutdown initiated...
+pm_winnt:notice] [pid 476940:tid 460] AH00354: Child: Starting 64 worker threads.
+[Sat May 10 01:13:09.718242 2025] [php:error] [pid 476940:tid 1148] [client ::1:50159] PHP Fatal error:  Uncaught mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php:7\nStack trace:\n#0 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php(7): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'rungamedb')\n#1 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\pagine\\add_prodotto.php(3): require_once('C:\\\\Users\\\\Fabio\\\\...')\n#2 {main}\n  thrown in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php on line 7, referer: http://localhost/pagine/index.php
+[Sat May 10 01:13:50.003759 2025] [mpm_winnt:notice] [pid 479008:tid 212] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Sat May 10 01:14:11.722371 2025] [mpm_winnt:notice] [pid 476940:tid 460] AH00364: Child: All worker threads have exited.
+[Mon May 12 22:30:29.861951 2025] [core:warn] [pid 58684:tid 456] AH00098: pid file C:/Users/Fabio/Desktop/u/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon May 12 22:30:29.892710 2025] [mpm_winnt:notice] [pid 58684:tid 456] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Mon May 12 22:30:29.892710 2025] [mpm_winnt:notice] [pid 58684:tid 456] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Mon May 12 22:30:29.892710 2025] [core:notice] [pid 58684:tid 456] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Mon May 12 22:30:29.895801 2025] [mpm_winnt:notice] [pid 58684:tid 456] AH00418: Parent: Created child process 58720
+[Mon May 12 22:30:30.161184 2025] [mpm_winnt:notice] [pid 58720:tid 488] AH00354: Child: Starting 64 worker threads.
+[Mon May 12 22:30:39.992917 2025] [php:error] [pid 58720:tid 1156] [client ::1:52909] PHP Fatal error:  Uncaught mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php:7\nStack trace:\n#0 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php(7): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'rungamedb')\n#1 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\pagine\\add_prodotto.php(3): require_once('C:\\\\Users\\\\Fabio\\\\...')\n#2 {main}\n  thrown in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php on line 7, referer: http://localhost/pagine/index.php
+[Fri May 16 16:54:08.432296 2025] [core:warn] [pid 64692:tid 488] AH00098: pid file C:/Users/Fabio/Desktop/u/web-application/apache/Apache24/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 16 16:54:08.882464 2025] [mpm_winnt:notice] [pid 64692:tid 488] AH00455: Apache/2.4.63 (Win64) PHP/8.4.4 configured -- resuming normal operations
+[Fri May 16 16:54:08.882464 2025] [mpm_winnt:notice] [pid 64692:tid 488] AH00456: Apache Lounge VS17 Server built: Feb  3 2025 10:10:51
+[Fri May 16 16:54:08.882464 2025] [core:notice] [pid 64692:tid 488] AH00094: Command line: 'httpd.exe -d C:/Users/Fabio/Desktop/u/web-application/apache/Apache24'
+[Fri May 16 16:54:08.885591 2025] [mpm_winnt:notice] [pid 64692:tid 488] AH00418: Parent: Created child process 189832
+[Fri May 16 16:54:09.160215 2025] [mpm_winnt:notice] [pid 189832:tid 460] AH00354: Child: Starting 64 worker threads.
+[Fri May 16 16:54:38.875918 2025] [php:error] [pid 189832:tid 1160] [client ::1:50462] PHP Fatal error:  Uncaught mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php:7\nStack trace:\n#0 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php(7): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'rungamedb')\n#1 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\pagine\\add_prodotto.php(3): require_once('C:\\\\Users\\\\Fabio\\\\...')\n#2 {main}\n  thrown in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php on line 7, referer: http://localhost/pagine/index.php
+[Fri May 16 16:54:44.801904 2025] [php:error] [pid 189832:tid 1160] [client ::1:50505] PHP Fatal error:  Uncaught mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php:7\nStack trace:\n#0 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php(7): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'rungamedb')\n#1 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\pagine\\add_prodotto.php(3): require_once('C:\\\\Users\\\\Fabio\\\\...')\n#2 {main}\n  thrown in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php on line 7, referer: http://localhost/pagine/index.php
+[Fri May 16 20:31:09.690822 2025] [php:error] [pid 189832:tid 1112] [client ::1:51851] PHP Fatal error:  Uncaught mysqli_sql_exception: The server requested authentication method unknown to the client [auth_gssapi_client] in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php:7\nStack trace:\n#0 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php(7): mysqli->__construct('localhost', 'root', Object(SensitiveParameterValue), 'rungamedb')\n#1 C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\pagine\\add_prodotto.php(3): require_once('C:\\\\Users\\\\Fabio\\\\...')\n#2 {main}\n  thrown in C:\\Users\\Fabio\\Desktop\\u\\web-application\\files_web\\php_files\\db_connection.php on line 7, referer: http://localhost/pagine/index.php

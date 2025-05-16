@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contattaci - GameStore</title>
   <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/slider.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/galleria.css">
+  <link rel="stylesheet" href="../css/barra-navigazione.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-
     .contact-container {
       max-width: 1000px;
       margin: 0 auto;
@@ -22,7 +19,7 @@
 
     h1 {
       text-align: center;
-      color: #d32f2f;
+      color: rgb(0, 0, 0);
       margin-bottom: 30px;
     }
 
@@ -52,17 +49,18 @@
     }
 
     .contact-form button {
-      background-color: #d32f2f;
+      background-color: #01cd01;
       color: white;
       border: none;
       padding: 12px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      transition: transform 0.2s ease-in-out;
     }
 
     .contact-form button:hover {
-      background-color: #b71c1c;
+      transform: scale(1.05);
     }
 
     .links-social ul {
@@ -75,7 +73,7 @@
     }
 
     .links-social a {
-      color: #d32f2f;
+      color: #01cd01;
       text-decoration: none;
     }
 
@@ -85,9 +83,9 @@
   </style>
 </head>
 <body>
-    <?php include '../php_files/header_check.php'; ?>
+  <?php include '../php_files/header_check.php'; ?>
   <div class="contact-container">
-    <h1>Contattaci</h1>
+    <h1>CONTATTACI</h1>
 
     <div class="contact-info">
       <h2>📞 Informazioni di Contatto</h2>
@@ -118,6 +116,5 @@
       </ul>
     </div>
   </div>
-
 </body>
 </html>
