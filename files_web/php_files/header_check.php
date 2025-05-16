@@ -56,3 +56,4 @@
         </div>
     </div>
 </header>
+<div class="header-divider"></div>
