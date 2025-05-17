@@ -23,43 +23,56 @@
 
   <div class="cart-container">
     <h1>Il tuo carrello</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Prodotto</th>
-          <th>Quantità</th>
-          <th>Prezzo</th>
-          <th>Totale</th>
-          <th>Azioni</th>
-        </tr>
-      </thead>
 
-      <tbody id="cart-items">
         <?php
-          foreach ($cartItems as $prodotto) :
-          echo '<tr data-price=' . $prodotto['prezzo'] . '>';
-            // <td>Maglietta Bianca</td>
-            // <td class="qty">1</td>
-            // <td>€15.00</td>
-        ?>
-            <td class="line-total">€0.00</td>
-            <td class="qty-controls">
-              <div class="action-buttons">
-                <button onclick="changeQty(this, 1)">+</button>
-                <button onclick="removeItem(this)">🗑️</button>
-                <button onclick="changeQty(this, -1)">−</button>
-              </div>
+        // verifico che cartItem esista
+        $cartItems = $cartItems ?? [];
+
+        // mostra i prodotti nel carrello
+        if (empty($cartItems)) : ?> 
+          <tr>
+            <td colspan="5">
+              Il tuo carrello è vuoto, <a href = 'catalogo.php'>VAI AL CATALOGO</a>!
             </td>
           </tr>
-        <?php endforeach; ?>
+          <?php else: ?>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Prodotto</th>
+                    <th>Quantità</th>
+                    <th>Prezzo</th>
+                    <th>Totale</th>
+                    <th>Azioni</th>
+                  </tr>
+                </thead>
 
-      </tbody>
-    </table>
-    <div class="total">
-      <strong>Totale Carrello: €<span id="total">0.00</span></strong>
-    </div>
-    <button class="checkout-btn">Procedi al Checkout</button>
-  </div>
+                <tbody id="cart-items">
+
+            <?php foreach ($cartItems as $prodotto) : ?>
+              <tr data-price="<?php echo htmlspecialchars($prodotto['prezzo']); ?>">
+                <td><?php echo htmlspecialchars($prodotto['nome']); ?></td>
+                <td class="qty"><?php echo htmlspecialchars($prodotto['quantita']); ?></td>
+                <td>€<?php echo number_format($prodotto['prezzo'], 2); ?></td>
+                <td class="line-total">€<?php echo number_format($prodotto['prezzo'] * $prodotto['quantita'], 2); ?></td>
+                <td class="qty-controls">
+                  <div class="action-buttons">
+                    <button onclick="changeQty(this, 1)">+</button>
+                    <button onclick="removeItem(this)">🗑️</button>
+                    <button onclick="changeQty(this, -1)">−</button>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <div class="total">
+          <strong>Totale Carrello: €<span id="total">0.00</span></strong>
+        </div>
+        <button class="checkout-btn">Procedi al Checkout</button>
+      </div>
+      <?php endif; ?>
 
   <script>
     function updateCartTotal() {

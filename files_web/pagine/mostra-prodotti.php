@@ -257,27 +257,6 @@
             ?>
         </div>
 
-        <script>
-            // Mostra/nasconde la barra delle richieste
-            document.addEventListener("DOMContentLoaded", function () {
-                const riquadro = document.getElementById('riquadro');
-                const barraRichieste = document.getElementById('barra-richieste');
-                riquadro.addEventListener('click', function () {
-                    barraRichieste.style.display = (barraRichieste.style.display === "block") ? "none" : "block";
-                });
-
-                // click immagini
-                const miniature = document.querySelectorAll('.mini');
-                const imgGrande = document.getElementById('imgGrande');
-                miniature.forEach(mini => {
-                    mini.addEventListener('click', () => {
-                        imgGrande.src = mini.src;
-                        imgGrande.alt = mini.alt;
-                    });
-                });
-            });
-        </script>
-
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
@@ -297,5 +276,47 @@
                 </p>
             </div>
         </footer>
+
+        <script>
+            // Mostra/nasconde la barra delle richieste
+            document.addEventListener("DOMContentLoaded", function () {
+                const riquadro = document.getElementById('riquadro');
+                const barraRichieste = document.getElementById('barra-richieste');
+                riquadro.addEventListener('click', function () {
+                    barraRichieste.style.display = (barraRichieste.style.display === "block") ? "none" : "block";
+                });
+
+                // Galleria click immagini
+                const miniature = document.querySelectorAll('.mini');
+                const imgGrande = document.getElementById('imgGrande');
+                miniature.forEach(mini => {
+                    mini.addEventListener('click', () => {
+                        imgGrande.src = mini.src;
+                        imgGrande.alt = mini.alt;
+                    });
+                });
+            });
+
+            // Controllo quantità
+            function cambiaQuantita(valore) {
+                const span = document.getElementById("quantita");
+                let quantita = parseInt(span.textContent);
+                quantita = Math.max(1, quantita + valore); // evita valori minori di 1
+                span.textContent = quantita;
+            }
+
+            // Funzione per aggiungere al carrello
+            function aggiungiAlCarrello() {
+                const quantita = document.getElementById("quantita").textContent;
+                const titoloPrezzo = document.querySelector(".titolo-prezzo").textContent.split('\n');
+                const titolo = titoloPrezzo[0].trim();
+                const prezzo = titoloPrezzo[1].trim();
+                
+                // Reindirizza alla pagina del carrello con i parametri
+                window.location.href = "carrello.php?titolo=" + encodeURIComponent(titolo) + 
+                                    "&prezzo=" + encodeURIComponent(prezzo) + 
+                                    "&quantita=" + encodeURIComponent(quantita);
+            }
+        </script>
     </body>
 </html>
