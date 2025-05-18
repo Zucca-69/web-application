@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         // Crea nuovo link
         const a = document.createElement("a");
-        a.href = `mostra-prodotti.php?productId=${immagine.productId}`;
+        a.href = `mostra-prodotti.php?productId=${immagine.productId}&piattaforma=${immagine.piattaforma}`;
         a.classList.add("slider-link");
 
         // Crea immagine dentro al link

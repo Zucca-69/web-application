@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="cart-icon">
-                    <a href="carrello.html">
+                    <a href="carrello.php">
                         <img src="../MEDIA/immagini/carrello.png" alt="Carrello">
                     </a>
                 </div>

@@ -31,7 +31,7 @@ session_start();
             <div class="slider-arrow arrow-left" onclick="cambiaImmagine(-1)">&#8592;</div>
             
             <!-- Immagine principale dello slider -->
-            <!-- <img id="mainImage" class="slider-image" src="" alt="Immagine"> -->
+            
             
             <!-- Freccia a destra -->
             <div class="slider-arrow arrow-right" onclick="cambiaImmagine(1)">&#8594;</div>

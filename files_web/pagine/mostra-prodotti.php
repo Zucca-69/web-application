@@ -24,13 +24,11 @@
         include '../php_files/db_connection.php'; 
  
         $productId = $_GET['productId'];
+        $piattaforma = $_GET['piattaforma'] ;
 
         // Verifica se l'utente è loggato
         if (isset($_SESSION['userId'])) {
-            // Ottieni l'ID del prodotto dalla query string
-            $productId = $_GET['productId'];
             
-
             // Prepara la query per inserire l'interazione nel database
             $query = $conn->prepare("INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
                                     VALUES (?, ?, NULL, 'visualizzato', NOW())");
@@ -43,7 +41,7 @@
         }
 
         //info sul gioco
-        $query = "SELECT * FROM prodotti WHERE productId = $productId;";
+        $query = "SELECT * FROM prodotti WHERE productId = $productId LIMIT 1";
         $rawResult = $conn -> query($query);
         $gameInfo = $rawResult->fetch_assoc();
     
@@ -63,11 +61,11 @@
         $query = "SELECT productId, piattaforma FROM prodotti WHERE nome = '" . $conn->real_escape_string($nome) . "';";
         $rawResult = $conn->query($query);
         
-        $piattaforme = [];
+        $giochiPiattaforme = [];
         
         if ($rawResult && $rawResult->num_rows > 0) {
             while ($row = $rawResult->fetch_assoc()) {
-                $piattaforme[] = [
+                $giochiPiattaforme[] = [
                     'productId' => $row['productId'],
                     'piattaforma' => $row['piattaforma'],
                 ];
@@ -81,7 +79,7 @@
         $giochiSaga = [];
 
         if (!empty($saga)) {
-            $query = "SELECT p.productId, i.imageData, i.imageType
+            $query = "SELECT p.productId, i.imageData, i.imageType, p.piattaforma
                     FROM prodotti p
                     JOIN immagini i ON p.productId = i.FKproductId
                     WHERE p.saga = '$saga' 
@@ -95,7 +93,8 @@
                 while ($row = $rawResult->fetch_assoc()) {
                     $giochiSaga[] = [
                         'productId' => $row['productId'],
-                        'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
+                        'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']),
+                        'piattaforma' => $row['piattaforma']
                     ];
                 }
             } else {
@@ -104,7 +103,7 @@
         }
 
         // carco giochi simili per categoria
-        $query = "SELECT DISTINCT p.productId, p.nome, i.imageData, i.imageType
+        $query = "SELECT DISTINCT p.productId, p.nome, i.imageData, i.imageType, p.piattaforma
                     FROM Prodotti p
                     JOIN Appartenenze a ON p.productId = a.FKproductId
                     JOIN Immagini i ON p.productId = i.FKproductId
@@ -135,7 +134,8 @@
             $imageSrc = "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']);
             $giochiConsigliati[] = [
                 'productId' => $row['productId'],
-                'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
+                'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']),
+                'piattaforma' => $row['piattaforma']
                 
             ];
         }
@@ -185,19 +185,17 @@
             <!-- seleziona la piattaforma per il gioco -->
             <div class="riquadro" id="riquadro">
                 <span>
-                    Piattaforma: <?php echo $gameInfo['piattaforma']; ?>
+                    Piattaforma: <?php echo $piattaforma; ?>
                 </span>
             </div>
                         
             <?php
                 echo '<div id="barra-richieste" class="barra-richieste"><ul>';
-                    if (count($piattaforme) > 1) {
-                        $limite = min(5, count($piattaforme));
-                        for ($i = 0; $i < $limite; $i++) {
-                            $link = "mostra-prodotti.php?productId=" . $piattaforme[$i]['productId'];
-                            $testo = htmlspecialchars($piattaforme[$i]['piattaforma'] ?? '');
-                            echo "<li><a href=\"$link\">$testo</a></li>";
-                        }
+                    // mostra tutte le piattaforme per quel gioco
+                    if (count($giochiPiattaforme) > 1) {
+                    foreach ($giochiPiattaforme as $giocoPiattaforma) {
+                        echo "<li><a href='mostra-prodotti.php?productId=" . $giocoPiattaforma['productId'] . "&piattaforma=" . $giocoPiattaforma['piattaforma'] ."'>" . $giocoPiattaforma['piattaforma'] . "</a></li>";
+                    }
                     } else {
                         echo "<li>Siamo spiacenti: non ci sono altre piattaforme per questo contenuto</li>";
                     }
@@ -220,58 +218,53 @@
             </p>
         </div>
 
-        <!-- riquadro con la saga -->
-        <?php 
+        <?php
+            // riquadro con la saga
             if ($saga != "NULL" && !empty($giochiSaga)) {
                 echo "<div class='sezione'>
                     <div class='etichetta-sezione'>SAGA:</div>
                     <div class='sezione-img-container'>";
 
-                foreach ($giochiSaga as $giocoSaga) {
-                    echo "<a href='mostra-prodotti.php?productId=" . $giocoSaga['productId'] . "'>";
-                    echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
-                    echo "</a>";
-                }
+            foreach ($giochiSaga as $giocoSaga) {
+                echo "<a href='mostra-prodotti.php?productId=" . $giocoSaga['productId'] . "&piattaforma=" . $giocoSaga['piattaforma'] . "'>";
+                echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
+                echo "</a>";
+            }
 
                 echo "</div></div>";
             }
-        ?>
 
-        <!-- riquadro per i correlati -->
-        <?php 
-            if ($saga != "NULL" && !empty($giochiConsigliati)) {
+            // riquadro per i correlati
+            if (!empty($giochiConsigliati)) {
                 echo "<div class='sezione'>
                     <div class='etichetta-sezione'>GIOCHI CORRELATI:</div>
                     <div class='sezione-img-container'>";
 
                 foreach ($giochiConsigliati as $giocoConsigliato) {
-                    echo "<a href='mostra-prodotti.php?productId=" . $giocoConsigliato['productId'] . "'>";
+                    echo "<a href='mostra-prodotti.php?productId=" . $giocoConsigliato['productId'] . "&piattaforma=" . $giocoConsigliato['piattaforma'] . "'>";
                     echo "<img src='" . $giocoConsigliato['src'] . "' alt='Gioco saga'>";
                     echo "</a>";
                 }
 
+
                 echo "</div></div>";
             }
-        ?>
 
-        <!-- riquadro per i consigliati -->
-        <?php 
-            // TODO : aggiungere la query per i consigliati
-            if ($saga != "NULL" && !empty($giochiSaga)) {
+            // riquadro per la cronologia
+            if (!empty($giochiVisualizzati)) {
                 echo "<div class='sezione'>
-                    <div class='etichetta-sezione'>CONSIGLIATI PER TE:</div>
+                    <div class='etichetta-sezione'>VISUALIZZATI IN PRECEDENZA:</div>
                     <div class='sezione-img-container'>";
 
-                foreach ($giochiSaga as $giocoSaga) {
-                    echo "<a href='mostra-prodotti.php?productId=" . $giocoSaga['productId'] . "'>";
-                    echo "<img src='" . $giocoSaga['src'] . "' alt='Gioco saga'>";
+                foreach ($giochiVisualizzati as $giocoVisualizzato) {
+                    echo "<a href='mostra-prodotti.php?productId=" . $giocoVisualizzato['productId'] . "&piattaforma=" . $giocoVisualizzato['piattaforma'] . "'>";
+                    echo "<img src='" . $giocoVisualizzato['src'] . "' alt='Gioco'>";
                     echo "</a>";
                 }
 
                 echo "</div></div>";
             }
         ?>
-    </div>
 
     <script>
         // Mostra/nasconde la barra delle richieste

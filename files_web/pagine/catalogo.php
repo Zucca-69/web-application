@@ -25,7 +25,7 @@ session_start();
     <?php 
         $numGiochiPagina = 25;
 
-        $query = "SELECT p.productId, nome, i.imageData, i.imageType FROM prodotti p
+        $query = "SELECT p.productId, p.piattaforma, nome, i.imageData, i.imageType FROM prodotti p
                     JOIN immagini i ON p.productId = i.FKproductId
                     GROUP BY p.productId";
         $rawResult = $conn->query($query);
@@ -35,6 +35,7 @@ session_start();
             while ($row = $rawResult->fetch_assoc()) {
                 $giochi[] = [
                     'productId' => $row['productId'],
+                    'piattaforma' => $row['piattaforma'],
                     'nome' => $row['nome'],
                     'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData'])
                 ];
@@ -52,7 +53,7 @@ session_start();
         <div class="catalogo">
             <?php 
                 foreach ($giochi as $gioco) {
-                    $out = "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "'>
+                    $out = "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "&piattaforma=" . $gioco['piattaforma'] ."'>
                                 <div class='catalogo-item'>
                                     <img src='" . $gioco['src'] . "' alt='Immagine'>
                                     <div class='sottotitolo'>" . $gioco['nome'] . "</div> 
