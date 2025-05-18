@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("../php_files/db_connection.php");
+include '../php_files/header_check.php'; 
 
 // (FACOLTATIVO) Controllo utente admin
 // if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
@@ -14,24 +15,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descrizione = $_POST['descrizione'] ?? '';
     $prezzo = floatval($_POST['prezzo'] ?? 0);
     $saga = $_POST['saga'] ?? null;
-    $piattaforma = $_POST['piattaforma'] ?? null;
+    $piattaforme = $_POST['piattaforma'] ?? [];
+    $multiInsert = isset($_POST['multiInsert']) && $_POST['multiInsert'] == '1';
     $quantitaDisponibile = intval($_POST['quantitaDisponibile'] ?? 0);
     $dataUscita = $_POST['dataUscita'] ?? null;
     $dataDisponibile = $_POST['dataDisponibile'] ?? null;
     $sconto = intval($_POST['sconto'] ?? 0);
 
-    if ($nome && $descrizione && $prezzo > 0 && $quantitaDisponibile >= 0 && $dataUscita) {
+    if ($nome && $descrizione && $prezzo > 0 && $quantitaDisponibile >= 0 && $dataUscita && count($piattaforme) > 0) {
         $stmt = $conn->prepare("INSERT INTO prodotti (nome, descrizione, prezzo, saga, piattaforma, quantitaDisponibile, dataUscita, dataDisponibile, sconto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssdssisss", $nome, $descrizione, $prezzo, $saga, $piattaforma, $quantitaDisponibile, $dataUscita, $dataDisponibile, $sconto);
-        if ($stmt->execute()) {
-            $message = "✅ Prodotto inserito con successo.";
-        } else {
-            $message = "❌ Errore durante l'inserimento: " . $stmt->error;
+        foreach ($piattaforme as $piattaforma) {
+            $stmt->bind_param("ssdssisss", $nome, $descrizione, $prezzo, $saga, $piattaforma, $quantitaDisponibile, $dataUscita, $dataDisponibile, $sconto);
+            if (!$stmt->execute()) {
+                $message .= "❌ Errore per piattaforma $piattaforma: " . $stmt->error . "<br>";
+            } else {
+                $message .= "✅ Prodotto inserito per piattaforma $piattaforma.<br>";
+            }
         }
         $stmt->close();
     } else {
-        $message = "❌ Compila tutti i campi obbligatori correttamente.";
+        $message = "❌ Compila tutti i campi obbligatori correttamente e seleziona almeno una piattaforma.";
     }
+    
 }
 ?>
 
@@ -39,221 +44,102 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Aggiungi Prodotto</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <style>
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3f37c9;
-            --success-color: #4cc9f0;
-            --error-color: #f72585;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: #f5f7fa;
-            color: var(--dark-color);
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        h1 {
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 2.2rem;
-        }
-
+        
         form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            max-width: 600px;
         }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
         label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--secondary-color);
+            margin-top: 15px;
+            font-weight: bold;
         }
-
         input, textarea, select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 16px;
-            transition: var(--transition);
+            padding: 8px;
         }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
         button {
-            grid-column: span 2;
-            background-color: var(--primary-color);
+            margin-top: 20px;
+            padding: 10px;
+            background: green;
             color: white;
             border: none;
-            padding: 14px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: var(--border-radius);
             cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
         }
-
-        button:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
         .message {
-            margin-top: 25px;
-            padding: 15px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .success {
-            background-color: rgba(76, 201, 240, 0.2);
-            color: #1a936f;
-            border: 1px solid #4cc9f0;
-        }
-
-        .error {
-            background-color: rgba(247, 37, 133, 0.2);
-            color: #d00000;
-            border: 1px solid var(--error-color);
-        }
-
-        .required::after {
-            content: " *";
-            color: var(--error-color);
-        }
-
-        @media (max-width: 768px) {
-            form {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-group.full-width, button {
-                grid-column: span 1;
-            }
-            
-            body {
-                padding: 20px 10px;
-            }
-            
-            .container {
-                padding: 20px;
-            }
+            margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Admin: Aggiungi Prodotto</h1>
+   <div class="contact-container"> 
+    <h1>Admin: Aggiungi Prodotto</h1>
+    <div class="section">    
+    <form method="POST">
+        <label for="nome">Nome*</label>
+        <input type="text" name="nome" required>
 
-        <form method="POST">
-            <div class="form-group full-width">
-                <label for="nome" class="required">Nome</label>
-                <input type="text" name="nome" required>
-            </div>
+        <label for="descrizione">Descrizione*</label>
+        <textarea name="descrizione" rows="5" required></textarea>
 
-            <div class="form-group full-width">
-                <label for="descrizione" class="required">Descrizione</label>
-                <textarea name="descrizione" rows="5" required></textarea>
-            </div>
+        <label for="prezzo">Prezzo (€)*</label>
+        <input type="number" step="0.01" name="prezzo" required>
 
-            <div class="form-group">
-                <label for="prezzo" class="required">Prezzo (€)</label>
-                <input type="number" step="0.01" name="prezzo" required>
-            </div>
+        <label for="saga">Saga</label>
+        <input type="text" name="saga">
 
-            <div class="form-group">
-                <label for="sconto">Sconto (%)</label>
-                <input type="number" name="sconto" min="0" max="100" value="0">
-            </div>
+        <label>Piattaforme*</label>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PS3"> PS3
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PS4"> PS4
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PS5"> PS5
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PC"> PC
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="XBOX360"> XBOX360
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="XBOXONE"> XBOXONE
+            </label>
+        </div>
 
-            <div class="form-group">
-                <label for="saga">Saga</label>
-                <input type="text" name="saga">
-            </div>
+        <label>
+            <input type="checkbox" name="multiInsert" value="1">
+            Inserisci per tutte le piattaforme selezionate
+        </label>
 
-            <div class="form-group">
-                <label for="piattaforma">Piattaforma</label>
-                <select name="piattaforma">
-                    <option value="">-- Nessuna --</option>
-                    <option value="PS3">PS3</option>
-                    <option value="PS4">PS4</option>
-                    <option value="PS5">PS5</option>
-                    <option value="PC">PC</option>
-                    <option value="XBOX360">XBOX360</option>
-                    <option value="XBOXONE">XBOXONE</option>
-                </select>
-            </div>
 
-            <div class="form-group">
-                <label for="quantitaDisponibile" class="required">Quantità Disponibile</label>
-                <input type="number" name="quantitaDisponibile" required>
-            </div>
+        <label for="quantitaDisponibile">Quantità Disponibile*</label>
+        <input type="number" name="quantitaDisponibile" required>
 
-            <div class="form-group">
-                <label for="dataUscita" class="required">Data Uscita</label>
-                <input type="date" name="dataUscita" required>
-            </div>
+        <label for="dataUscita">Data Uscita*</label>
+        <input type="date" name="dataUscita" required>
 
-            <div class="form-group">
-                <label for="dataDisponibile">Data Disponibile</label>
-                <input type="date" name="dataDisponibile">
-            </div>
+        <label for="dataDisponibile">Data Disponibile</label>
+        <input type="date" name="dataDisponibile">
 
-            <button type="submit">Aggiungi Prodotto</button>
-        </form>
+        <label for="sconto">Sconto (%)</label>
+        <input type="number" name="sconto" min="0" max="100" value="0">
 
-        <?php if ($message): ?>
-            <div class="message <?= strpos($message, '✅') !== false ? 'success' : 'error' ?>">
-                <?= htmlspecialchars($message) ?>
-            </div>
-        <?php endif; ?>
+
+        <button type="submit">Aggiungi Prodotto</button>
+    </form>
     </div>
+
+    <?php if ($message): ?>
+        <div class="message"><?= htmlspecialchars($message) ?></div>
+    <?php endif; ?>
+   </div>
 </body>
 </html>

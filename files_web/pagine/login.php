@@ -1,6 +1,22 @@
 <?php 
 // Avvia la sessione per gestire login dell'utente
 session_start(); 
+
+
+$error = $_GET['error'] ?? '';
+$message = '';
+
+switch ($error) {
+    case 'utente':
+        $message = '❌ Utente non riconosciuto.';
+        break;
+    case 'verifica':
+        $message = '⚠️ Account non verificato. Controlla la tua email.';
+        break;
+    case 'password':
+        $message = '❌ Password errata.';
+        break;
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,12 +55,18 @@ session_start();
             <button type="submit" class="btn">Accedi</button>
         </form>
         <p>Non hai un account? <a href="register.php">Registrati</a></p>
-    </section>
 
-    <!-- Messaggio di successo dopo verifica account -->
-    <?php if (isset($_GET['verificato'])): ?>
-        <p class="success">Account verificato! Ora puoi accedere.</p>
-    <?php endif; ?>
+        <!-- Messaggio di successo dopo verifica account -->
+        <?php if (isset($_GET['verificato'])): ?>
+            <p class="success">Account verificato! Ora puoi accedere.</p>
+        <?php endif; ?>
+
+        <?php if ($message): ?>
+            <div class="message"><?= htmlspecialchars($message) ?></div>
+        <?php endif; ?>
+
+    </section>
+    
 </main>
 
 <footer>

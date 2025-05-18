@@ -1,11 +1,17 @@
 /* Footer */
 .footer {
-    background-color: #01cd01;
+    background: linear-gradient(to left, #163a16, #305802);
+;
     color: white;
     text-align: center;
     padding: 40px 20px;
     margin-top: 50px;
-}
+    top: calc( 100vh - 100px );
+    position: sticky;
+    
+    /* Questo comportamento rende il footer "appiccicoso" ma lo blocca in una posizione che non considera quanto spazio occupa il contenuto della pagina.
+    Quindi se la pagina è corta, il footer si piazza a metà schermo, e se la pagina è lunga, non resta in fondo come dovrebbe.*/
+} 
 
 .footer-content h2 {
     font-size: 28px;

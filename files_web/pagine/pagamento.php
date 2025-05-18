@@ -2,15 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Pagamento</title>
-  <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/slider.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/darkmode.css">
-    <link rel="stylesheet" href="../css/galleria.css">
-    <link rel="stylesheet" href="../css/barra-navigazione.css">
+  <title>RunGame - Aquista</title>
   <style>
-    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
     .payment-container {
       max-width: 800px;
       margin: 50px auto;
@@ -42,9 +42,7 @@
 
     input[type="text"],
     input[type="email"],
-    input[type="number"],
-    select,
-    input[type="password"] {
+    input[type="number"] {
       width: 100%;
       padding: 14px;
       margin-top: 6px;
@@ -94,10 +92,6 @@
     .confirm-btn:hover {
       background-color: #218838;
     }
-
-    .payment-method-fields {
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
@@ -115,47 +109,21 @@
     <label>Indirizzo</label>
     <input type="text" placeholder="Via Roma 123, Milano">
 
-    <!-- Dropdown tipo di pagamento -->
-    <div class="section-title">Tipo di pagamento</div>
-    <label for="tipoPagamento">Seleziona metodo di pagamento</label>
-    <select id="tipoPagamento">
-      <option value="carta" selected>Carta di credito / debito</option>
-      <option value="paypal">PayPal</option>
-      <option value="visa">Visa</option>
-      <option value="mastercard">Mastercard</option>
-      <option value="poste">Poste Italiane</option>
-    </select>
-
-    <!-- Metodo di pagamento - solo per carta -->
     <div class="section-title">Metodo di pagamento</div>
-    <div class="payment-method-fields" id="cartaFields">
-      <label>Numero carta</label>
-      <input type="text" placeholder="1234 5678 9012 3456">
+    <label>Numero carta</label>
+    <input type="text" placeholder="1234 5678 9012 3456">
 
-      <div class="row">
-        <div>
-          <label>Scadenza</label>
-          <input type="text" placeholder="MM/AA">
-        </div>
-        <div>
-          <label>CVV</label>
-          <input type="text" placeholder="123">
-        </div>
+    <div class="row">
+      <div>
+        <label>Scadenza</label>
+        <input type="text" placeholder="MM/AA">
+      </div>
+      <div>
+        <label>CVV</label>
+        <input type="text" placeholder="123">
       </div>
     </div>
 
-    <!-- Metodo di pagamento - PayPal -->
-    <div class="payment-method-fields" id="paypalFields" style="display: none;">
-      <label>Indirizzo Email PayPal</label>
-      <input type="email" placeholder="email@paypal.com">
-    </div>
-
-    <!-- Aggiungi il campo password -->
-    <div class="section-title">Sicurezza</div>
-    <label for="password">Inserisci la tua password per completare il pagamento</label>
-    <input type="password" id="password" placeholder="Password" required>
-
-    <!-- Riepilogo ordine -->
     <div class="section-title">Riepilogo ordine</div>
     <div class="order-summary">
       <p>Maglietta Bianca ×2 — €30.00</p>
@@ -166,31 +134,6 @@
 
     <button class="confirm-btn">Conferma ordine</button>
   </div>
-
-  <script>
-    const tipoPagamento = document.getElementById('tipoPagamento');
-    const cartaFields = document.getElementById('cartaFields');
-    const paypalFields = document.getElementById('paypalFields');
-
-    function aggiornaMetodoPagamento() {
-      if (tipoPagamento.value === 'carta') {
-        cartaFields.style.display = 'block';
-        paypalFields.style.display = 'none';
-      } else if (tipoPagamento.value === 'paypal') {
-        cartaFields.style.display = 'none';
-        paypalFields.style.display = 'block';
-      } else if (tipoPagamento.value === 'visa' || tipoPagamento.value === 'mastercard' || tipoPagamento.value === 'poste') {
-        cartaFields.style.display = 'block';
-        paypalFields.style.display = 'none';
-      }
-    }
-
-    // Al cambio del valore nel dropdown
-    tipoPagamento.addEventListener('change', aggiornaMetodoPagamento);
-
-    // Imposta lo stato iniziale
-    window.addEventListener('DOMContentLoaded', aggiornaMetodoPagamento);
-  </script>
 
 </body>
 </html>

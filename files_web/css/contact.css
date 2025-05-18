@@ -1,0 +1,81 @@
+/* Contenitore principale della sezione contatti, centrato con margine automatico e padding interno */
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Stile per il titolo principale (h1) della pagina */
+h1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+}
+
+/* Box generici per informazioni, form di contatto e link social */
+.contact-info, .contact-form, .links-social {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px; /* Angoli arrotondati */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+/* Stile per i paragrafi dentro la sezione informazioni di contatto */
+.contact-info p {
+  line-height: 1.6; /* Spaziatura verticale tra le righe */
+}
+
+/* Il form viene visualizzato in colonna (layout verticale) */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input e textarea del form: margine, padding, bordo e arrotondamento */
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Bottone di invio del form: colore, padding, arrotondamento, effetto hover */
+.contact-form button {
+  background-color: #01cd01;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease-in-out; /* Animazione al passaggio del mouse */
+}
+
+/* Effetto di ingrandimento leggero quando si passa sopra il bottone */
+.contact-form button:hover {
+  transform: scale(1.05);
+}
+
+/* Rimuove i puntini dalla lista nei link social */
+.links-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Distanza verticale tra i link social */
+.links-social li {
+  margin: 8px 0;
+}
+
+/* Stile dei link social: colore personalizzato e senza sottolineatura */
+.links-social a {
+  color: #01cd01;
+  text-decoration: none;
+}
+
+/* Aggiunge sottolineatura al passaggio del mouse */
+.links-social a:hover {
+  text-decoration: underline;
+}

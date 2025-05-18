@@ -52,5 +52,6 @@ if (isset($_POST['username'])) {
     $stmt_check->close();
     if (isset($stmt_insert)) $stmt_insert->close();
     $conn->close();
-}
+    }
 ?>
+
