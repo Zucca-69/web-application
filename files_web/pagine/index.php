@@ -52,7 +52,7 @@ session_start();
         foreach ($infoCategorie as $c) {
             $nome = urlencode($c['categoryName']);
             echo "
-                <a href='catalogo.php?categoria={$nome}'>
+                <a href='catalogo.php?categoryId={$c['categoryId']}'>
                     <div class='categorie-item'>
                         <img src='{$c['categoryImg']}' alt='Immagine {$c['categoryName']}'>
                         <div class='testo'>{$c['categoryName']}</div>

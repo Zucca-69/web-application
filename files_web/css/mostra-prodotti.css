@@ -1,10 +1,3 @@
-body {
-    background-color: #d3f9d8;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 .container {
     display: flex;
     justify-content: space-between;
@@ -196,43 +189,29 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.logo {
-    padding: 10px;
-}
-
-.top-right-image,
-.top-right-carrello {
-    position: absolute;
-    top: 10px;
-}
-
-.top-right-image {
-    right: 100px;
-}
-
-.top-right-carrello {
-    right: 20px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: #f0f0f0;
-    margin: 0;
-}
-
-nav ul li {
-    padding: 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
+.quantita-text {
+    font-size: 18px;
     color: #333;
 }
 
-nav ul li a:hover {
+.quantita-btn {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: white;
     color: #01cd01;
+    border: 2px solid #01cd01;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.quantita-btn:hover {
+    background-color: #01cd01;
+    color: white;
+    transform: scale(1.1);
+}
+
+.quantita-btn-container {
+    display: flex;
+    gap: 20px;
 }

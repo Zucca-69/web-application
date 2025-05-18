@@ -18,7 +18,6 @@
 
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="news.php">News</a></li>
             <li><a href="catalogo.php">Catalogo</a></li>
             <li><a href="catalogo.php?piattaforma=">Piattaforme</a></li>
             <li><a href="catalogo.php?categoria=">Categorie</a></li>

@@ -21,7 +21,7 @@ if (!isset($_SESSION['userId'])) {
 </head>
 <body>
 
-<?php include '../php_files/header_check.php'; ?>
+<?php include '../php_files/header.php'; ?>
 
 <main>
     <section class="settings-form">

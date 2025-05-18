@@ -1,5 +1,3 @@
-<?php session_start() ?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -16,45 +14,86 @@
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <link rel="stylesheet" href="../css/mostra-prodotti.css">
 
+    <!-- sto impazzeno non so cosa fare -->
+    <!-- vecchi -->
+    <script src="../js/seleziona_quantita.js" defer></script>
+    <script src="../js/dropdown_platforms.js" defer></script>
+
+    <!-- nuovo --> 
+    <script src="../js/product_functions.js" defer></script>
 </head>
 <body>
     <?php 
-        // script php
+        // setup della pagina
+        session_start();
         include '../php_files/header_check.php'; 
-        include '../php_files/db_connection.php'; 
+        include '../php_files/db_connection.php';
+        include '../php_files/cart_actions_handler.php'; 
+        include '../php_files/get_history.php';
  
         $productId = $_GET['productId'];
         $piattaforma = $_GET['piattaforma'] ;
 
-        // Verifica se l'utente è loggato
+        // se l'utente è loggato, aggiungi il gioco alla cronologia e controlla se il prodotto è già nel carrello
         if (isset($_SESSION['userId'])) {
+            $query = "INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
+                    VALUES (?, ?, NULL, 'visualizzato', NOW())";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ii", $_SESSION['userId'], $productId);
+            $stmt->execute();
+            $stmt->close();
+
+            $qtaCarello = 0;
+            $inCart = false;
+
+            // controllo se il prodotto è già nel carrello dell'utente
+            $query = "SELECT c.quantita 
+                    FROM interazioni i
+                    JOIN carrelli c ON i.FKcartId = c.cartId
+                    WHERE i.tipologia = 'carrello'
+                    AND i.FKuserId = ?
+                    AND i.FKproductId = ?
+                    ORDER BY i.timestamp DESC
+                    LIMIT 1";
             
-            // Prepara la query per inserire l'interazione nel database
-            $query = $conn->prepare("INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
-                                    VALUES (?, ?, NULL, 'visualizzato', NOW())");
-
-            // Associa i parametri della query
-            $query->bind_param("ii", $_SESSION['userId'], $productId);
-
-            // Esegui la query
-            $query->execute();
+            // prepared statement per il carrello dell'utente
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("ii", $_SESSION['userId'], $productId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows > 0) {
+                $cartItem = $result->fetch_assoc();
+                $qtaCarello = $cartItem['quantita'];
+                $inCart = true;
+            }
+            $stmt->close();
         }
 
-        //info sul gioco
-        $query = "SELECT * FROM prodotti WHERE productId = $productId LIMIT 1";
-        $rawResult = $conn -> query($query);
-        $gameInfo = $rawResult->fetch_assoc();
-    
-        // immagini del gioco
-        $query = "SELECT imageData, imageType FROM immagini WHERE FKproductId = $productId;";
-        $rawResult = $conn->query($query);
-        
+        // info sul gioco selezionato
+        $gameInfo = [];
         $immagini = [];
-        $result = $rawResult->fetch_all(MYSQLI_ASSOC);
-        foreach ($result as $row) {
-            $base64 = base64_encode($row['imageData']);
-            $immagini[] = "data:" . $row['imageType'] . ";base64," . $base64;
+        
+        $query = "SELECT p.*, i.imageData, i.imageType 
+                FROM prodotti p
+                LEFT JOIN immagini i ON p.productId = i.FKproductId
+                WHERE p.productId = ?";
+
+        // prepared statement le info del gioco
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $productId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        while ($row = $result->fetch_assoc()) {
+            if (empty($gameInfo)) {
+                $gameInfo = $row;
+            }
+            if (!empty($row['imageData'])) {
+                $immagini[] = "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']);
+            }
         }
+        $stmt->close();
 
         // cerco le diverse piattaforme del gioco
         $nome = $gameInfo['nome'];
@@ -73,65 +112,59 @@
         } else {
             echo "errore query: " . $conn->error;
         }
-        
-        // controllo se il gioco fa parte di una saga
+
+        // ottieni i giochi della saga
         $saga = $conn->real_escape_string($gameInfo['saga']);
         $giochiSaga = [];
-
         if (!empty($saga)) {
             $query = "SELECT p.productId, i.imageData, i.imageType, p.piattaforma
                     FROM prodotti p
                     JOIN immagini i ON p.productId = i.FKproductId
-                    WHERE p.saga = '$saga' 
-                    AND p.productId != '$productId'
-                    GROUP BY p.productId;
-                ";
+                    WHERE p.saga = ? 
+                    AND p.productId != ?
+                    GROUP BY p.productId
+                    ORDER BY RAND()";
 
-            $rawResult = $conn->query($query);
-
-            if ($rawResult && $rawResult->num_rows > 0) {
-                while ($row = $rawResult->fetch_assoc()) {
-                    $giochiSaga[] = [
-                        'productId' => $row['productId'],
-                        'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']),
-                        'piattaforma' => $row['piattaforma']
-                    ];
-                }
-            } else {
-                echo "errore query: " . $conn->error;
+            // prepared statement per giochi della stessa saga
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("si", $gameInfo['saga'], $productId);
+            $stmt->execute();
+            $rawResult = $stmt->get_result();
+            
+            while ($row = $rawResult->fetch_assoc()) {
+                $giochiSaga[] = [
+                    'productId' => $row['productId'],
+                    'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']),
+                    'piattaforma' => $row['piattaforma']
+                ];
             }
+            $stmt->close();
         }
 
-        // carco giochi simili per categoria
-        $query = "SELECT DISTINCT p.productId, p.nome, i.imageData, i.imageType, p.piattaforma
-                    FROM Prodotti p
-                    JOIN Appartenenze a ON p.productId = a.FKproductId
-                    JOIN Immagini i ON p.productId = i.FKproductId
-                    WHERE a.FKcategoryId IN (
-                        SELECT FKcategoryId
-                        FROM Appartenenze
-                        WHERE FKproductId = ?
-                    )
-                    AND p.productId != ?
-                    AND p.saga != (
-                        SELECT saga FROM Prodotti WHERE productId = ?
-                    )
-                    GROUP BY p.productId
-                    ORDER BY RAND()
-                    LIMIT 5;
-                ";
-        
-        // Esegui la query
+        // giochi simili per categoria
+        $giochiConsigliati = [];
+        $query = "SELECT p.productId, p.nome, i.imageData, i.imageType, p.piattaforma
+                FROM Prodotti p
+                JOIN Appartenenze a ON p.productId = a.FKproductId
+                JOIN Immagini i ON p.productId = i.FKproductId
+                WHERE a.FKcategoryId IN (
+                    SELECT FKcategoryId
+                    FROM Appartenenze
+                    WHERE FKproductId = ?
+                )
+                AND p.productId != ?
+                AND (p.saga IS NULL OR p.saga != ?)
+                GROUP BY p.productId
+                ORDER BY RAND()
+                LIMIT 5";
+
+        // prepared statement per giochi della stessa categorie
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("iii", $productId, $productId, $productId); // 3 volte il productId
+        $stmt->bind_param("iis", $productId, $productId, $gameInfo['saga']);
         $stmt->execute();
         $result = $stmt->get_result();
         
-        // Recupera i risultati
-        $giochiConsigliati = [];
         while ($row = $result->fetch_assoc()) {
-            // Crea il link dell'immagine base64
-            $imageSrc = "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']);
             $giochiConsigliati[] = [
                 'productId' => $row['productId'],
                 'src' => "data:" . $row['imageType'] . ";base64," . base64_encode($row['imageData']),
@@ -139,11 +172,13 @@
                 
             ];
         }
+        $stmt->close();
 
-        // chiudo la connessione al server una volta finite le query necessarie
-        $conn -> close();
+        $conn->close();
+
     ?>
-    
+   
+    <!-- immagini a sinistra -->
     <div class="container">
         <div class="immagini-gioco">
             <div class="immagine-principale">
@@ -181,6 +216,44 @@
                     ?>
                 </p>
             </div>
+
+            <!-- azioni sul carrello -->
+            <?php if (isset($_SESSION['userId'])) : ?>
+                <!-- per utenti loggati -->
+                <!-- cabia qta -->
+                <?php if ($inCart) : ?>
+                    <div class="riquadro">
+                        <div class="quantita-container">
+                            <div class="quantita-text">Quantità nel carrello</div>
+                            <div class="quantita-btn-container">
+                                <form method="post">
+                                    <input type="hidden" name="cart_action" value="update">
+                                    <input type="hidden" name="productId" value="<?= $productId ?>">
+                                    <input type="hidden" name="piattaforma" value="<?= $piattaforma ?>">
+                                    <button type="button" onclick="updateCart(-1)">−</button>
+                                    <span id="quantita"><?= $qtaCarello ?></span>
+                                    <button type="button" onclick="updateCart(1)">+</button>
+                                    <button type="button" onclick="removeFromCart(<?= $productId ?>, '<?= $piattaforma ?>')">Rimuovi</button>
+                                    <input type="hidden" name="quantity" id="quantityInput" value="<?= $qtaCarello ?>">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <?php else : ?>
+                    <div class="riquadro">
+                        <button id="addToCartBtn" class="quantita-text" 
+                                data-product-id="<?= $productId ?>" 
+                                data-piattaforma="<?= $piattaforma ?>">
+                            Aggiungi al carrello
+                        </button>
+                    </div>
+                <?php endif ?>
+                <!-- utente non loggato -->
+                <?php else : ?>
+                    <div class="riquadro">
+                        <a href="login.php">Accedi per aggiungere un prodotto al carrello!</a>
+                    </div>
+            <?php endif ?>
 
             <!-- seleziona la piattaforma per il gioco -->
             <div class="riquadro" id="riquadro">
@@ -265,27 +338,7 @@
                 echo "</div></div>";
             }
         ?>
-
-    <script>
-        // Mostra/nasconde la barra delle richieste
-        document.addEventListener("DOMContentLoaded", function () {
-            const riquadro = document.getElementById('riquadro');
-            const barraRichieste = document.getElementById('barra-richieste');
-            riquadro.addEventListener('click', function () {
-                barraRichieste.style.display = (barraRichieste.style.display === "block") ? "none" : "block";
-            });
-
-            // click immagini
-            const miniature = document.querySelectorAll('.mini');
-            const imgGrande = document.getElementById('imgGrande');
-            miniature.forEach(mini => {
-                mini.addEventListener('click', () => {
-                    imgGrande.src = mini.src;
-                    imgGrande.alt = mini.alt;
-                });
-            });
-        });
-    </script>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

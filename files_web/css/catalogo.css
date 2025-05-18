@@ -74,3 +74,27 @@
 .top-right-carrello {
     right: 10px;
 }
+
+.sezione {
+    width: 30%;
+    align-self: center;
+    background-color: #01cd01;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sezione:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.testo-nessun-gioco {
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}

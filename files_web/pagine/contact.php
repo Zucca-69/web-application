@@ -1,23 +1,16 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RunGame - Contattaci</title>
+  <title>Contattaci - GameStore</title>
   <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/slider.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/darkmode.css">
+  <link rel="stylesheet" href="../css/galleria.css">
+  <link rel="stylesheet" href="../css/barra-navigazione.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-
     .contact-container {
       max-width: 1000px;
       margin: 0 auto;
@@ -26,7 +19,7 @@ session_start();
 
     h1 {
       text-align: center;
-      color: #d32f2f;
+      color: rgb(0, 0, 0);
       margin-bottom: 30px;
     }
 
@@ -56,17 +49,18 @@ session_start();
     }
 
     .contact-form button {
-      background-color: #d32f2f;
+      background-color: #01cd01;
       color: white;
       border: none;
       padding: 12px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      transition: transform 0.2s ease-in-out;
     }
 
     .contact-form button:hover {
-      background-color: #b71c1c;
+      transform: scale(1.05);
     }
 
     .links-social ul {
@@ -79,7 +73,7 @@ session_start();
     }
 
     .links-social a {
-      color: #d32f2f;
+      color: #01cd01;
       text-decoration: none;
     }
 
@@ -89,13 +83,13 @@ session_start();
   </style>
 </head>
 <body>
-    <?php include '../php_files/header_check.php'; ?>
+  <?php include '../php_files/header_check.php'; ?>
   <div class="contact-container">
-    <h1>Contattaci</h1>
+    <h1>CONTATTACI</h1>
 
     <div class="contact-info">
       <h2>📞 Informazioni di Contatto</h2>
-      <p><strong>Email:</strong> assistenza@gamestore.it</p>
+      <p><strong>Email:</strong> assistenza@rungame.it</p>
       <p><strong>Telefono:</strong> +39 0123 456 789</p>
       <p><strong>Orari di Assistenza:</strong> Lun–Ven, 9:00 – 18:00</p>
       <p><strong>Indirizzo:</strong> Via dei Videogiochi 42, 20100 Milano (MI)</p>
@@ -122,6 +116,5 @@ session_start();
       </ul>
     </div>
   </div>
-
 </body>
 </html>

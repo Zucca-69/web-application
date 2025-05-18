@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>RunGame - Profilo</title>
-    <!-- collegamento dei file CSS globali + specifici -->
+
     <link rel="stylesheet" href="../css/global.css"> 
     <link rel="stylesheet" href="../css/profilo.css">
     <link rel="stylesheet" href="../css/footer.css">
 
 </head>
 
-<?php include '../php_files/header.php'; ?>
-<?php include '../php_files/get_user_data.php';?>
+<?php 
+    include '../php_files/header.php';
+    include '../php_files/get_user_data.php';
+    include '../php_files/get_history.php'; 
+    include '../php_files/get_suggested_products.php'; 
+?>
 
 <body>
     <!-- Contenitore principale -->
@@ -67,41 +72,57 @@
 
         <!-- Sezioni a destra -->
         <div class="sezioni-contenitore">
-            <div class="sezione">
-                <div class="sezione-titolo">CARRELLO</div>
-                <div class="sezione-img-container">
-                    <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 1">
-                    <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 2">
-                    <img class="mini" src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 3">
-                    <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 4">
-                    <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 5">
-                </div>
-            </div>
 
-            <div class="sezione">
-                <div class="sezione-titolo">CONSIGLIATI</div>
-                <div class="sezione-img-container">
-                    <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 6">
-                    <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 7">
-                    <img class="mini" src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 8">
-                    <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 9">
-                    <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 10">
-                </div>
-            </div>
+            <!-- carrello -->
+            <div class='sezione'>
+                <div class='sezione-titolo'>CARRELLO</div>
+                <div class='sezione-img-container'>
+                    <?php
+                        if (!empty($giochiCarrello)) {
+                            foreach ($giochiCarrello as $giocoCarrello) {
+                                echo "<a href='mostra-prodotti.php?productId=" . $giocoCarrello['productId'] ."&piattaforma=".$giocoCarrello['piattaforma'] . "'>";
+                                echo "<img src='" . $giocoCarrello['src'] . "' alt='Gioco'>";
+                                echo "</a>";
+                            }
+                        } else {
+                            echo "<p style= 'align-text:left'>Il tuo carrello è vuoto, <a href=catalogo.php>AQUISTA UN PRODOTTO</a></p>";
+                        }
 
-            <div class="sezione">
-                <div class="sezione-titolo">CRONOLOGIA</div>
-                <div class="sezione-img-container">
-                    <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 6">
-                    <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 7">
-                    <img class="mini" src="../MEDIA/immagini/FIFA-12.jpg" alt="Immagine 8">
-                    <img class="mini" src="../MEDIA/immagini/tekken-8-anteprima-06.webp" alt="Immagine 9">
-                    <img class="mini" src="../MEDIA/immagini/uncharted-golden-abyss-leap-of-faith-1080p-wallpaper_bbgm.1280.webp" alt="Immagine 10">
-                </div>
-            </div>
+                echo "</div></div>";
+                    
+                // consigliati
+                if (!empty($giochiConsigliati)) {
+                    echo "<div class='sezione'>
+                        <div class='sezione-titolo'>GIOCHI CONSIGLIATI PER TE</div>
+                        <div class='sezione-img-container'>";
+
+                    foreach ($giochiConsigliati as $gioco) {
+                        echo "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "&piattaforma=" . $gioco['piattaforma'] . "'>";
+                        echo "<img src='" . $gioco['src'] . "' alt='" . htmlspecialchars($gioco['nome']) . "'>";
+                        echo "</a>";
+                    }
+
+                    echo "</div></div>";
+}
+
+                // cronologia
+                if (!empty($giochiVisualizzati)) {
+                    echo "<div class='sezione'>
+                        <div class='sezione-titolo'>CRONOLOGIA</div>
+                        <div class='sezione-img-container'>";
+
+                    foreach ($giochiVisualizzati as $giocoVisualizzato) {
+                        echo "<a href='mostra-prodotti.php?productId=" . $giocoVisualizzato['productId'] ."&piattaforma=".$giocoVisualizzato['piattaforma'] . "'>";
+                        echo "<img src='" . $giocoVisualizzato['src'] . "' alt='Gioco'>";
+                        echo "</a>";
+                    }
+
+                    echo "</div></div>";
+                }
+
+            ?>
         </div>
     </div>
-
 
     <!-- Footer con informazioni sull'azienda -->
     <footer class="footer">

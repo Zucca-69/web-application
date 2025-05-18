@@ -1,7 +1,3 @@
-<?php 
-// Avvia la sessione per gestire login/logout
-session_start(); 
-?>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -17,17 +13,46 @@ session_start();
     <link rel="stylesheet" href="../css/catalogo.css">
 
 </head>
-
-<?php include '../php_files/header_check.php'; ?>
-<?php include '../php_files/db_connection.php'; ?>
-
 <body>
+
     <?php 
+        session_start(); 
+        include '../php_files/header_check.php'; 
+        include '../php_files/db_connection.php'; 
+    ?>
+
+    <div class="catalogo-title">CATALOGO</div>
+
+    <?php
         $numGiochiPagina = 25;
 
-        $query = "SELECT p.productId, p.piattaforma, nome, i.imageData, i.imageType FROM prodotti p
-                    JOIN immagini i ON p.productId = i.FKproductId
-                    GROUP BY p.productId";
+        // condizioni del filtro
+        $condizioniFiltro = [];
+
+        // filtro categoria
+        if (isset($_GET['categoryId'])) {
+            $categoria = $conn->real_escape_string($_GET['categoryId']);
+            $condizioniFiltro[] = "a.FKcategoryId = '$categoria'";
+        }
+
+        // filtra nuove uscite
+        if (isset($_GET['news']) && $_GET['news'] == '1') {
+            $condizioniFiltro[] = "dataUscita BETWEEN (SELECT NOW() - INTERVAL 1 MONTH) AND NOW()";
+        }
+
+        // Build the final WHERE clause
+        $condizioneFiltro = '';
+        if (!empty($condizioniFiltro)) {
+            $condizioneFiltro = "WHERE " . implode(" AND ", $condizioniFiltro);
+        }
+
+        $query = "SELECT MIN(p.productId) as productId, p.nome,p.piattaforma, i.imageData, i.imageType
+                FROM prodotti p
+                JOIN immagini i ON p.productId = i.FKproductId
+                JOIN appartenenze a ON p.productId = a.FKproductId
+                $condizioneFiltro
+                GROUP BY p.nome";
+
         $rawResult = $conn->query($query);
 
         $giochi = [];
@@ -41,28 +66,25 @@ session_start();
                 ];
             }
         } else {
-            echo "errore query: " . $conn->error;
+            echo "<div class='sezione'><div class='testo-nessun-gioco'> Siamo spiacenti, non abbiamo prodotti che riespettano i tuoi parametri di ricerca. </div></div>";
         }
 
         // chiudo la connessione al server una volta finite le query necessarie
         $conn -> close();
     ?>
 
-    <div class="catalogo-title">CATALOGO</div>
-
-        <div class="catalogo">
-            <?php 
-                foreach ($giochi as $gioco) {
-                    $out = "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "&piattaforma=" . $gioco['piattaforma'] ."'>
-                                <div class='catalogo-item'>
-                                    <img src='" . $gioco['src'] . "' alt='Immagine'>
-                                    <div class='sottotitolo'>" . $gioco['nome'] . "</div> 
-                                </div>
-                            </a>";
-                    echo $out;
-                }
-            ?>
-        </div>
+    <div class="catalogo">
+        <?php 
+            foreach ($giochi as $gioco) {
+                $out = "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "&piattaforma=" . $gioco['piattaforma'] . "'>
+                            <div class='catalogo-item'>
+                                <img src='" . $gioco['src'] . "' alt='Immagine'>
+                                <div class='sottotitolo'>" . $gioco['nome'] . "</div> 
+                            </div>
+                        </a>";
+                echo $out;
+            }
+        ?>
     </div>
     
     <!-- Footer -->
