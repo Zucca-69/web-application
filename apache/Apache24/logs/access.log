@@ -75,3 +75,17 @@
 127.0.0.1 - - [16/May/2025:09:41:21 +0200] "GET /MEDIA/immagini/Logo_nobg.png HTTP/1.1" 200 52873
 127.0.0.1 - - [16/May/2025:09:41:21 +0200] "GET /php_files/get_profile_img.php HTTP/1.1" 200 11323
 127.0.0.1 - - [16/May/2025:09:41:21 +0200] "GET /favicon.ico HTTP/1.1" 404 196
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /pagine/index.php HTTP/1.1" 200 3777
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /css/global.css HTTP/1.1" 200 773
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /css/footer.css HTTP/1.1" 200 465
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /css/slider.css HTTP/1.1" 200 1255
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /css/categorie.css HTTP/1.1" 200 627
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /css/barra-navigazione.css HTTP/1.1" 304 -
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /js/slider_addimage.js HTTP/1.1" 304 -
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /css/header.css HTTP/1.1" 304 -
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /css/darkmode.css HTTP/1.1" 304 -
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /js/dropdown_botton.js HTTP/1.1" 304 -
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /js/theme_toggle.js HTTP/1.1" 304 -
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /MEDIA/immagini/Logo_nobg.png HTTP/1.1" 200 52873
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /php_files/get_slider_img.php HTTP/1.1" 200 882
+127.0.0.1 - - [18/May/2025:09:12:50 +0200] "GET /favicon.ico HTTP/1.1" 404 196

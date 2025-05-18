@@ -13,11 +13,16 @@
 
 </head>
 <body>
+
     <?php 
         session_start(); 
         include '../php_files/header_check.php'; 
         include '../php_files/db_connection.php'; 
+    ?>
 
+    <div class="catalogo-title">CATALOGO</div>
+
+    <?php
         $numGiochiPagina = 25;
 
         // condizioni del filtro
@@ -29,22 +34,16 @@
             $condizioniFiltro[] = "a.FKcategoryId = '$categoria'";
         }
 
-        // filtra nouve uscite
+        // filtra nuove uscite
         if (isset($_GET['news']) && $_GET['news'] == '1') {
-            $condicondizioniFiltrotions[] = "a.dataUscita BETWEEN (SELECT NOW() - INTERVAL 1 MONTH;)";
+            $condizioniFiltro[] = "dataUscita BETWEEN (SELECT NOW() - INTERVAL 1 MONTH) AND NOW()";
         }
-
-        // Add more filters as needed
-        // if (isset($_GET['anotherFilter'])) {
-        //     $conditions[] = "your_condition_here";
-        // }
 
         // Build the final WHERE clause
         $condizioneFiltro = '';
-        if (!empty($conditions)) {
-            $condizioneFiltro = "WHERE " . implode(" AND ", $conditions);
+        if (!empty($condizioniFiltro)) {
+            $condizioneFiltro = "WHERE " . implode(" AND ", $condizioniFiltro);
         }
-
 
         $query = "SELECT MIN(p.productId) as productId, p.nome, i.imageData, i.imageType
                 FROM prodotti p
@@ -52,8 +51,6 @@
                 JOIN appartenenze a ON p.productId = a.FKproductId
                 $condizioneFiltro
                 GROUP BY p.nome";
-
-        echo $query;
 
         $rawResult = $conn->query($query);
 
@@ -67,28 +64,25 @@
                 ];
             }
         } else {
-            echo "errore query: " . $conn->error;
+            echo "<div class='sezione'><div class='testo-nessun-gioco'> Siamo spiacenti, non abbiamo prodotti che riespettano i tuoi parametri di ricerca. </div></div>";
         }
 
         // chiudo la connessione al server una volta finite le query necessarie
         $conn -> close();
     ?>
 
-    <div class="catalogo-title">CATALOGO</div>
-
-        <div class="catalogo">
-            <?php 
-                foreach ($giochi as $gioco) {
-                    $out = "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "'>
-                                <div class='catalogo-item'>
-                                    <img src='" . $gioco['src'] . "' alt='Immagine'>
-                                    <div class='sottotitolo'>" . $gioco['nome'] . "</div> 
-                                </div>
-                            </a>";
-                    echo $out;
-                }
-            ?>
-        </div>
+    <div class="catalogo">
+        <?php 
+            foreach ($giochi as $gioco) {
+                $out = "<a href='mostra-prodotti.php?productId=" . $gioco['productId'] . "'>
+                            <div class='catalogo-item'>
+                                <img src='" . $gioco['src'] . "' alt='Immagine'>
+                                <div class='sottotitolo'>" . $gioco['nome'] . "</div> 
+                            </div>
+                        </a>";
+                echo $out;
+            }
+        ?>
     </div>
     
     <!-- Footer -->

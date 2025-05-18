@@ -17,14 +17,16 @@
 
     <body>
         <?php 
+            $productId = (int)$_GET['productId'];
+
+            // setup page
             session_start();
             include '../php_files/header_check.php'; 
-            include '../php_files/db_connection.php'; 
+            include '../php_files/db_connection.php';
+            include '../php_files/cart_actions_handler.php'; 
             include '../php_files/get_history.php';
-            
-            $productId = (int)$_GET['productId'];
-            
-            // se l'utente è loggato, aggiungi il gioco alla cronologia
+                        
+            // se l'utente è loggato, aggiungi il gioco alla cronologia e controlla se il prodotto è già nel carrello
             if (isset($_SESSION['userId'])) {
                 $query = "INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
                         VALUES (?, ?, NULL, 'visualizzato', NOW())";
@@ -32,7 +34,34 @@
                 $stmt->bind_param("ii", $_SESSION['userId'], $productId);
                 $stmt->execute();
                 $stmt->close();
-            }
+
+// Initialize cart variables
+$qtaCarello = 0;
+$inCart = false;
+
+// Check if user is logged in and product is in their cart
+    $query = "SELECT c.quantita 
+              FROM interazioni i
+              JOIN carrelli c ON i.FKcartId = c.cartId
+              WHERE i.tipologia = 'carrello'
+              AND i.FKuserId = ?
+              AND i.FKproductId = ?
+              ORDER BY i.timestamp DESC
+              LIMIT 1";
+    
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $_SESSION['userId'], $productId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+        $cartItem = $result->fetch_assoc();
+        $qtaCarello = $cartItem['quantita'];
+        $inCart = true;
+    }
+    $stmt->close();
+}
+            
 
             // info sul gioco selezionato
             $gameInfo = [];
@@ -170,6 +199,83 @@
                         ?>
                     </p>
                 </div>
+
+                <!-- azioni sul carrello -->
+                <?php if (isset($_SESSION['userId'])) : ?>
+                    <!-- per utenti loggati -->
+                    <!-- cabia qta -->
+                    <?php if ($inCart) : ?>
+                        <div class="riquadro">
+                            <div class="quantita-container">
+                                <div class="quantita-text">Quantità nel carrello</div>
+                                <div class="quantita-btn-container">
+                                    <form method="post">
+                                        <!-- effettive azioni -->
+                                        <input type="hidden" name="cart_action" value="update">
+                                        <button type="button" onclick="updateCart(-1)">−</button>
+                                        <span id="quantita"><?= $qtaCarello ?></span>
+                                        <button type="button" onclick="updateCart(1)">+</button>
+                                        <button type="button" onclick="removeFromCart()">Rimuovi</button>
+                                        <input type="hidden" name="quantity" id="quantityInput" value="<?= $qtaCarello ?>">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- aggiunhi al carrello -->
+                    <?php else : ?>
+                        <div class="riquadro" onclick="addToCart()">
+                            <span class="quantita-text">Aggiungi al carrello</span>
+                        </div>
+                    <?php endif ?>
+
+                <!-- utente non loggato -->
+                <?php else : ?>
+                    <div class="riquadro">
+                        <a href="login.php">Accedi per aggiungere un prodotto al carrello!</a>
+                    </div>
+                <?php endif ?>
+
+                <script>
+                    function updateCart(change) {
+                        const quantitySpan = document.getElementById("quantita");
+                        const quantityInput = document.getElementById("quantityInput");
+                        let currentQty = parseInt(quantitySpan.textContent);
+                        let newQty = currentQty + change;
+                        
+                        // Don't allow quantities less than 1
+                        if (newQty < 1) newQty = 1;
+                        
+                        // Update display
+                        quantitySpan.textContent = newQty;
+                        quantityInput.value = newQty;
+                        
+                        // Submit form
+                        document.querySelector('form').submit();
+                    }
+
+                    function addToCart() {
+                        const form = document.createElement('form');
+                        form.method = 'post';
+                        form.innerHTML = `
+                            <input type="hidden" name="cart_action" value="add">
+                            <input type="hidden" name="quantity" value="1">
+                        `;
+                        document.body.appendChild(form);
+                        form.submit();
+                    }
+
+                    function removeFromCart() {
+                        if (confirm("Rimuovere questo prodotto dal carrello?")) {
+                            const form = document.createElement('form');
+                            form.method = 'post';
+                            form.innerHTML = `
+                                <input type="hidden" name="cart_action" value="remove">
+                            `;
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                    }
+                </script>
 
                 <!-- seleziona la piattaforma per il gioco -->
                 <div class="riquadro" id="riquadro">

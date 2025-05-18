@@ -236,3 +236,31 @@ nav ul li a {
 nav ul li a:hover {
     color: #01cd01;
 }
+
+
+.quantita-text {
+    font-size: 18px;
+    color: #333;
+}
+
+.quantita-btn {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #01cd01;
+    border: 2px solid #01cd01;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.quantita-btn:hover {
+    background-color: #01cd01;
+    color: white;
+    transform: scale(1.1);
+}
+
+.quantita-btn-container {
+    display: flex;
+    gap: 20px;
+}
