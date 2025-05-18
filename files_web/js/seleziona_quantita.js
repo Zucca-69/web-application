@@ -29,9 +29,11 @@ function addToCart() {
 }
 
 let addToCartBtn = document.getElementById("addToCartBtn");
-addToCartBtn.addEventListener('click', function() {
+if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', function() {
     addToCart();
 });
+}
 
 function removeFromCart() {
     if (confirm("Rimuovere questo prodotto dal carrello?")) {

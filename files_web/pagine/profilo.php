@@ -125,19 +125,6 @@
     </div>
 
     <!-- Footer con informazioni sull'azienda -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h2>Chi Siamo</h2>
-            <p>Siamo un team appassionato d'arte che si dedica a portare quadri unici e originali nelle case di tutto il mondo.
-            La nostra missione è offrire opere di alta qualità, curate con amore e attenzione, per arricchire ogni spazio
-            con bellezza ed emozione.</p>
-    
-            <p>Contattaci per qualsiasi informazione o curiosità! Siamo sempre felici di aiutarti.</p>
-    
-            <p>Email: info@rungame.it | Telefono: +39 123 456 789</p>
-        </div>
-    </footer>
-
-
+<?php include '../php_files/footer.php'; ?>
 </body>
 </html>

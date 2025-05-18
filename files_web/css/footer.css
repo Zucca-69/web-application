@@ -1,6 +1,7 @@
 /* Footer */
 .footer {
-    background: linear-gradient(to left, #163a16, #305802);
+    /* background: linear-gradient(to left, #163a16, #305802); old */
+    background: linear-gradient(to left, #1f891f, #1f891f);
 ;
     color: white;
     text-align: center;
