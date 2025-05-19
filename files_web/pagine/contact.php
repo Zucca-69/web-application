@@ -1,3 +1,7 @@
+<?php 
+// Avvia la sessione per gestire login/logout
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>

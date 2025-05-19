@@ -41,7 +41,6 @@
         <!-- Navigazione principale -->
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="news.php">News</a></li>
             <li><a href="catalogo.php">Catalogo</a></li>
 
             <!-- Dropdown Piattaforme -->
@@ -64,7 +63,6 @@
                 </div>
             </li>
 
-            <li><a href="contact.php">Contattaci</a></li>
             <li><a href="contact.php">Contattaci</a></li>
         </ul>
 
