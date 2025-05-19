@@ -45,10 +45,10 @@ if (isset($_POST['cart_action']) && isset($_SESSION['userId'])) {
                 
                 // 2. Create new interaction
                 $query = "INSERT INTO interazioni 
-                          (FKuserId, FKproductId, FKcartId, tipologia, timestamp)
-                          VALUES (?, ?, ?, 'carrello', NOW())";
+                          (FKuserId, FKproductId, FKpiattaforma, FKcartId, tipologia, timestamp)
+                          VALUES (?, ?, ?, ?, 'carrello', NOW())";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param("iii", $userId, $productId, $cartId);
+                $stmt->bind_param("iisi", $userId, $productId, $piattaforma, $cartId);
                 $stmt->execute();
             }
             break;
@@ -122,6 +122,88 @@ if (isset($_POST['cart_action']) && isset($_SESSION['userId'])) {
                 $stmt->execute();
             }
         break;
+case 'checkout':
+    // Start transaction for atomic operations
+    $conn->begin_transaction();
+    
+    try {
+        // Recupera tutti i prodotti nel carrello dell'utente
+        $query = "SELECT i.FKcartId, i.FKproductId, c.quantita, p.quantitaDisponibile, p.nome
+                  FROM interazioni i
+                  JOIN carrelli c ON i.FKcartId = c.cartId
+                  JOIN prodotti p ON i.FKproductId = p.productId
+                  WHERE i.tipologia = 'carrello' AND i.FKuserId = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $outOfStockItems = [];
+        
+        while ($row = $result->fetch_assoc()) {
+            $cartId = $row['FKcartId'];
+            $productId = $row['FKproductId'];
+            $quantita = $row['quantita'];
+            $available = $row['quantitaDisponibile'];
+            $productName = $row['nome'];
+
+            // Check stock availability
+            if ($available < $quantita) {
+                $outOfStockItems[] = [
+                    'name' => $productName,
+                    'requested' => $quantita,
+                    'available' => $available
+                ];
+                continue;
+            }
+
+            // Reduce product quantity
+            $updateQuery = "UPDATE prodotti SET quantitaDisponibile = quantitaDisponibile - ? 
+                            WHERE productId = ?";
+            $updateStmt = $conn->prepare($updateQuery);
+            $updateStmt->bind_param("ii", $quantita, $productId);
+            $updateStmt->execute();
+
+            // Create order record (you'll need to create this table)
+            // $orderQuery = "INSERT INTO ordini (FKuserId, FKproductId, quantita, data_ordine, stato)
+            //                VALUES (?, ?, ?, NOW(), 'completato')";
+            // $orderStmt = $conn->prepare($orderQuery);
+            // $orderStmt->bind_param("iii", $userId, $productId, $quantita);
+            // $orderStmt->execute();
+
+            // Remove interaction
+            $deleteQuery = "DELETE FROM interazioni WHERE FKcartId = ?";
+            $deleteStmt = $conn->prepare($deleteQuery);
+            $deleteStmt->bind_param("i", $cartId);
+            $deleteStmt->execute();
+
+            // Remove cart
+            $deleteCartQuery = "DELETE FROM carrelli WHERE cartId = ?";
+            $deleteCartStmt = $conn->prepare($deleteCartQuery);
+            $deleteCartStmt->bind_param("i", $cartId);
+            $deleteCartStmt->execute();
+        }
+
+        if (!empty($outOfStockItems)) {
+            // Handle out of stock items
+            $_SESSION['out_of_stock'] = $outOfStockItems;
+            $conn->rollback();
+            header("Location: carrello.php?error=out_of_stock");
+            exit();
+        }
+
+        $conn->commit();
+        $_SESSION['checkout_success'] = true;
+        header("Location: ../php_files/checkout_succes.php");
+        exit();
+
+    } catch (Exception $e) {
+        $conn->rollback();
+        $_SESSION['checkout_error'] = $e->getMessage();
+        header("Location: carrello.php?error=checkout_failed");
+        exit();
+    }
+    break;
     }
 
     

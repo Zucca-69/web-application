@@ -32,10 +32,10 @@
 
         // se l'utente è loggato, aggiungi il gioco alla cronologia e controlla se il prodotto è già nel carrello
         if (isset($_SESSION['userId'])) {
-            $query = "INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, tipologia, timestamp) 
-                    VALUES (?, ?, NULL, 'visualizzato', NOW())";
+            $query = "INSERT INTO interazioni (FKuserId, FKproductId, FKcartId, FKpiattaforma, tipologia, timestamp) 
+                    VALUES (?, ?, NULL, ?, 'visualizzato', NOW())";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("ii", $_SESSION['userId'], $productId);
+            $stmt->bind_param("iis", $_SESSION['userId'], $productId, $piattaforma);
             $stmt->execute();
             $stmt->close();
 

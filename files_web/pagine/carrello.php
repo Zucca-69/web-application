@@ -29,6 +29,27 @@
     <h1>Il tuo carrello</h1>
 
         <?php
+
+        // Show checkout errors if any
+if (isset($_GET['error'])) {
+    echo '<div class="error-message">';
+    switch ($_GET['error']) {
+        case 'out_of_stock':
+            echo '<h3>Alcuni prodotti non sono disponibili nella quantità richiesta:</h3>';
+            foreach ($_SESSION['out_of_stock'] as $item) {
+                echo "<p>{$item['name']} - Richiesti: {$item['requested']}, Disponibili: {$item['available']}</p>";
+            }
+            unset($_SESSION['out_of_stock']);
+            break;
+        case 'checkout_failed':
+            echo '<p>Si è verificato un errore durante il checkout: ' . htmlspecialchars($_SESSION['checkout_error']) . '</p>';
+            unset($_SESSION['checkout_error']);
+            break;
+    }
+    echo '</div>';
+}
+
+
         // verifico che cartItem esista
         $giochiCarrello = $giochiCarrello ?? [];
 
@@ -102,12 +123,15 @@
             </tbody>
         </table>
 
-        <!-- calcolo il costo totale -->
-        <div class="total">
-          <strong>Totale Carrello: €<span id="total">0.00</span></strong>
-        </div>
-        <button class="checkout-btn">Procedi al Checkout</button>
-      </div>
+<!-- calcolo il costo totale -->
+<div class="total">
+  <strong>Totale Carrello: €<span id="total">0.00</span></strong>
+  <form method="post" id="checkout-form">
+      <input type="hidden" name="cart_action" value="checkout">
+      <input type="hidden" name="redirect" value="checkout-success.php"> <!-- Change this to a success page -->
+      <button type="submit" class="checkout-btn">Procedi al Checkout</button>
+  </form>
+</div>
       <?php endif; ?>
 </body>
 </html>
