@@ -57,9 +57,9 @@
 .riquadro {
     width: 100%;
     height: 100px;
-    background-color: #01cd01;
+    background-color: #ddd;
     border-radius: 15px;
-    border: 1px solid #ddd;
+    border: 4px solid #01cd01;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
@@ -131,9 +131,9 @@
 /* Stile base per ogni sezione: colore, bordi arrotondati e ombra */
 .sezione {
     width: 100%;
-    background-color: #01cd01;
+    background-color: #ddd;
     border-radius: 15px;
-    border: 1px solid #ddd;
+    border: 4px solid #01cd01;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
