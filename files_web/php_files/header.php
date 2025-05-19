@@ -1,27 +1,71 @@
 
 <link rel="stylesheet" href="../css/header.css">
 <link rel="stylesheet" href="../css/darkmode.css">
-<script src="../js/dropdown_botton.js" defer></script>
+<script src="../js/dropdown_botton.js" ></script>
 <script src="../js/theme_toggle.js"></script>
+
+<?php
+    include_once 'db_connection.php';
+
+    // Recupero delle piattaforme uniche
+    $resultPiattaforme = $conn->query("SELECT DISTINCT piattaforma FROM prodotti ORDER BY piattaforma ASC");
+    $piattaforme = [];
+    while ($row = $resultPiattaforme->fetch_assoc()) {
+        if (!empty($row['piattaforma'])) {
+            $piattaforme[] = $row['piattaforma'];
+        }
+    }
+
+    // Recupero delle categorie
+    $resultCategorie = $conn->query("
+        SELECT DISTINCT c.categoryId, c.nome
+        FROM categorie c
+        JOIN appartenenze a ON c.categoryId = a.FKcategoryId
+        ORDER BY c.nome ASC
+    ");
+    $categorie = [];
+    while ($row = $resultCategorie->fetch_assoc()) {
+        $categorie[] = $row;
+    }
+?>
 
 <header>
     <div class="navbar-container">
         <!-- Logo a sinistra -->
         <div class="logo">
             <a href="index.php">
-                <img src="../MEDIA/immagini/Logo_nobg.png" alt="Logo">
+                <img src="../MEDIA/immagini/Logo.png" alt="Logo">
             </a>
         </div>
 
         <!-- Navigazione principale -->
         <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
-            <li><a href="news.html">News</a></li>
+            <li><a href="news.php">News</a></li>
             <li><a href="catalogo.php">Catalogo</a></li>
-            <li><a href="piattaforme.html">Piattaforme</a></li>
-            <li><a href="categorie.html">Categorie</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="servizio-clienti.html">Servizio clienti</a></li>
+
+            <!-- Dropdown Piattaforme -->
+            <li class="dropdown">
+                <button class="dropbtn">Piattaforme</button>
+                <div class="dropdown-content">
+                    <?php foreach ($piattaforme as $piattaforma): ?>
+                        <a href="catalogo.php?piattaforma=<?= urlencode($piattaforma) ?>"><?= htmlspecialchars($piattaforma) ?></a>
+                    <?php endforeach; ?>
+                </div>
+            </li>
+
+            <!-- Dropdown Categorie -->
+            <li class="dropdown">
+                <button class="dropbtn">Categorie</button>
+                <div class="dropdown-content">
+                    <?php foreach ($categorie as $categoria): ?>
+                        <a href="catalogo.php?categoryId=<?= $categoria['categoryId'] ?>"><?= htmlspecialchars($categoria['nome']) ?></a>
+                    <?php endforeach; ?>
+                </div>
+            </li>
+
+            <li><a href="contact.php">Contattaci</a></li>
+            <li><a href="contact.php">Contattaci</a></li>
         </ul>
 
         <!-- Utente (login o profilo/carrello) -->
@@ -40,10 +84,11 @@
                 </div>
 
                 <div class="cart-icon">
-                    <a href="carrello.html">
+                    <a href="carrello.php">
                         <img src="../MEDIA/immagini/carrello.png" alt="Carrello">
                     </a>
                 </div>
         </div>
     </div>
 </header>
+<div class="header-divider"></div>

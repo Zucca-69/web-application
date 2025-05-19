@@ -1,24 +1,28 @@
-/* Footer */
+/* === Footer === */
 .footer {
-    background: linear-gradient(to left, #163a16, #305802);
-;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 50px;
-    /* top: calc( 100vh - 100px );
-    position: sticky;*/
-    
-    /* Questo comportamento rende il footer "appiccicoso" ma lo blocca in una posizione che non considera quanto spazio occupa il contenuto della pagina.
-    Quindi se la pagina è corta, il footer si piazza a metà schermo, e se la pagina è lunga, non resta in fondo come dovrebbe.   (detto da chatgpt, sembrerebbe brutto)*/
-} 
+    /* Sfondo con gradiente da sinistra a destra (modificato rispetto al vecchio verde più scuro) */
+    background: linear-gradient(to left, #1f891f, #1f891f);
 
-.footer-content h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    color: white; /* Colore del testo */
+    text-align: center; /* Centra il contenuto orizzontalmente */
+    padding: 40px 20px; /* Spaziatura interna (verticale e orizzontale) */
+    margin-top: 50px; /* Spazio sopra il footer */
+
+    top: calc(100vh - 100px); /* Posiziona il footer rispetto all'altezza della viewport */
+    position: sticky; 
+    /* Il footer resta "appiccicato" in una certa posizione, ma NON è l'ideale se vuoi un footer sempre in fondo alla pagina.
+       Se il contenuto della pagina è corto, può apparire a metà schermo. 
+       Se è lungo, non resta fisso in basso. */
 }
 
+/* === Titolo del footer === */
+.footer-content h2 {
+    font-size: 28px; /* Dimensione del titolo */
+    margin-bottom: 20px; /* Spazio sotto il titolo */
+}
+
+/* === Paragrafi del footer === */
 .footer-content p {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 16px; /* Dimensione del testo */
+    margin-bottom: 10px; /* Spazio tra i paragrafi */
 }

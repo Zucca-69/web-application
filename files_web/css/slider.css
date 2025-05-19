@@ -1,11 +1,12 @@
-/* Slider */
+/* Contenitore dello slider con posizione relativa e dimensioni */
 .image-slider {
     position: relative;
-    width: 50vw;
-    margin: 50px auto;
-    overflow: hidden;
+    width: 50vw; /* larghezza al 50% della viewport */
+    margin: 50px auto; /* margine verticale e centratura orizzontale */
+    overflow: hidden; /* nasconde le parti fuori dal contenitore */
 }
 
+/* Immagine dello slider: dimensioni 100%, bordi arrotondati, transizione opacità */
 .slider-image {
     width: 100%;
     height: 100%;
@@ -15,26 +16,32 @@
     transition: opacity 0.5s ease;
 }
 
+/* Frecce di navigazione posizionate assolutamente al centro verticale */
 .slider-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 48px;
-    background: rgba(0,0,0,0.5);
+    font-size: 48px; /* dimensione icona */
+    background: rgba(0,0,0,0.5); /* sfondo semitrasparente nero */
     color: white;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 50%; /* forma circolare */
     cursor: pointer;
 }
 
+/* Posizionamento freccia sinistra */
 .arrow-left { left: 10px; }
+
+/* Posizionamento freccia destra */
 .arrow-right { right: 10px; }
 
+/* Contenitore dei puntini sotto lo slider con centratura */
 .dots-container {
     text-align: center;
     margin-top: 10px;
 }
 
+/* Puntini di navigazione: forma rotonda, colore grigio chiaro, margine e cursore pointer */
 .dot {
     height: 10px;
     width: 10px;
@@ -45,18 +52,19 @@
     cursor: pointer;
 }
 
+/* Puntino attivo con colore più scuro */
 .dot.active {
     background-color: #717171;
 }
 
-/* rende la dimensione dell'immagine fissa a 16:9 (in qualche modo) */
+/* Versione aggiornata del contenitore slider con proporzione fissa 16:9 */
 .image-slider {
     /* position: relative; */
-    width: 100%;
-    max-width: 800px; /* oppure quello che preferisci */
+    width: 100%; /* piena larghezza disponibile */
+    max-width: 800px; /* larghezza massima fissa */
     /* margin: auto; */
     aspect-ratio: 16 / 9; /* forza proporzione 16:9 */
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 12px; /* angoli arrotondati */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); /* ombra leggera */
 }
