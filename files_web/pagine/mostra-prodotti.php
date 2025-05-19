@@ -59,7 +59,6 @@
             $stmt->execute();
             $result = $stmt->get_result();
 
-            print_r($result);
             
             if ($result->num_rows > 0) {
                 $cartItem = $result->fetch_assoc();

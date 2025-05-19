@@ -37,7 +37,7 @@
         <!-- Logo a sinistra -->
         <div class="logo">
             <a href="index.php">
-                <img src="../MEDIA/immagini/Logo.png" alt="Logo">
+                <img src="../MEDIA/immagini/Logo_nobg.png" alt="Logo">
             </a>
         </div>
 
