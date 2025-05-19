@@ -1,3 +1,4 @@
+/* Stile base per il body: colore sfondo, font, nessun margine e padding */
 body {
     background-color: #d3f9d8;
     font-family: Arial, sans-serif;
@@ -5,6 +6,7 @@ body {
     padding: 0;
 }
 
+/* Stile per la lista di navigazione: nessuno stile lista, flex layout */
 nav ul {
     list-style: none;
     padding: 0;
@@ -13,46 +15,51 @@ nav ul {
     gap: 20px;
     background-color: #01cd01;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* permette di andare a capo su schermi piccoli */
 }
 
+/* Stile per gli elementi della lista nella nav, con padding */
 nav ul li {
     padding: 10px;
 }
 
+/* Link nella nav: senza sottolineatura, colore scuro e grassetto */
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
 }
 
+/* Contenitore principale con flexbox, allinea e centra gli elementi con gap */
 .container {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* permette il wrapping su schermi piccoli */
 }
 
-/* Sezione sinistra con flexbox */
+/* Sezione sinistra con layout colonna e spaziatura */
 .immagine-sinistra {
     flex: 1;
     padding: 20px;
     min-width: 300px;
     display: flex;
-    flex-direction: column; /* Imposta la direzione della colonna */
+    flex-direction: column; /* imposta i figli in colonna */
     align-items: center;
-    gap: 20px; /* Distanza tra l'immagine e il paragrafo */
+    gap: 20px; /* spazio tra immagine e testo */
 }
 
+/* Immagine sinistra: piena larghezza, bordi e angoli arrotondati */
 .immagine-sinistra img {
-    width: 100%; /* Immagine più piccola */
+    width: 100%;
     height: auto;
     border: 2px solid #ccc;
     border-radius: 10px;
 }
 
+/* Contenitore immagine principale con dimensioni e centratura */
 .immagine-principale {
     width: 60%;
     max-width: 300px;
@@ -62,6 +69,7 @@ nav ul li a {
     align-items: center;
 }
 
+/* Immagine principale: piena larghezza, bordi arrotondati e bordo */
 .immagine-principale img {
     width: 100%;
     height: auto;
@@ -69,13 +77,14 @@ nav ul li a {
     border: 2px solid #aaa;
 }
 
-/* Sezioni */
+/* Contenitore per le sezioni con flessibilità e padding */
 .sezioni-contenitore {
     flex: 1;
     padding: 20px;
     min-width: 300px;
 }
 
+/* Stile per ogni sezione: colore, bordo arrotondato, ombra, margine e padding */
 .sezione {
     width: 100%;
     background-color: #01cd01;
@@ -87,12 +96,13 @@ nav ul li a {
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Hover sulla sezione: ingrandimento leggero e ombra più evidente */
 .sezione:hover {
     transform: scale(1.03);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Titolo dentro ogni riquadro */
+/* Titolo dentro ogni sezione: font, colore, padding e background */
 .sezione-titolo {
     font-size: 20px;
     font-weight: bold;
@@ -104,7 +114,7 @@ nav ul li a {
     margin-bottom: 10px;
 }
 
-/* Immagini dentro i riquadri */
+/* Contenitore immagini nelle sezioni con flex-wrap e gap */
 .sezione-img-container {
     display: flex;
     flex-wrap: wrap;
@@ -112,6 +122,7 @@ nav ul li a {
     justify-content: center;
 }
 
+/* Immagini nelle sezioni: dimensioni fisse, bordi arrotondati, cursore pointer e transizione */
 .sezione-img-container img {
     width: 150px; 
     height: auto;
@@ -121,24 +132,27 @@ nav ul li a {
     transition: transform 0.3s ease-in-out;
 }
 
+/* Hover sulle immagini: effetto zoom */
 .sezione-img-container img:hover {
     transform: scale(1.1);
 }
 
-/* Nuova sezione sotto l'immagine */
+/* Sezione sotto l'immagine principale, con stesso width e stile simile */
 .sezione-sotto-immagine {
-    width: 60%; /* Stessa larghezza dell'immagine sopra */
+    width: 60%;
     background-color: #01cd01;
     border-radius: 15px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
 }
+
+/* Margine tra i div dentro la sezione sotto immagine */
 .sezione-sotto-immagine div {
     margin-bottom: 10px;
 }
 
-/* per la bio attualmente disabilitata */
+/* Parte disabilitata per la bio con textarea e button */
 /* .sezione-sotto-immagine textarea {
     width: 100%;
     border-radius: 5px;
@@ -156,17 +170,18 @@ nav ul li a {
 }
 */
 
-/* per cambiare immagine profilo con un hover sull'immagine grande */
+/* Wrapper per immagine profilo con posizione relativa per overlay */
 .profile-pic-wrapper {
     position: relative;
     width: 100%;         /* prende tutta la larghezza disponibile */
-    max-width: 300px;    /* come l'immagine precedente */
+    max-width: 300px;    /* dimensione massima */
     overflow: hidden;
     cursor: pointer;
     margin: 0 auto;
-    border-radius: 10px; /* NON tondo, angoli smussati */
+    border-radius: 10px; /* angoli smussati */
 }
 
+/* Immagine profilo: larghezza piena, bordi arrotondati e bordo */
 .profile-pic-wrapper img.profile-pic {
     width: 100%;
     height: auto;
@@ -179,6 +194,7 @@ nav ul li a {
     position: relative;
 }
 
+/* Overlay semi-trasparente sopra immagine profilo, nascosto di default */
 .profile-pic-wrapper .overlay {
     z-index: 0;
     position: absolute;
@@ -196,9 +212,10 @@ nav ul li a {
     opacity: 0;
     transition: 0.3s ease;
     border-radius: 10px;
-    pointer-events: none; /* opzionale, evita che l'overlay blocchi i click */
+    pointer-events: none; /* evita che l'overlay blocchi i click */
 }
 
+/* Mostra overlay al passaggio del mouse sul wrapper */
 .profile-pic-wrapper:hover .overlay {
     opacity: 1;
 }

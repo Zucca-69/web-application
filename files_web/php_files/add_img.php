@@ -30,34 +30,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <HTML>
     <HEAD>
-        <TITLE>PHP | Upload BLOB files in MySQL</TITLE>
+        <TITLE>Add Immagine Admin</TITLE>
         <meta charset="UTF-8">
     </HEAD>
     <header>   
         <div class="navbar-container">
         <!-- Logo a sinistra -->
-        <div class="logo">
-            <a href="../pagine/index.php">
-                <img src="../MEDIA/immagini/Logo_nobg.png" alt="Logo">
-            </a>
-        </div></header>
+         <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/contact.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/darkmode.css">
+        <link rel="stylesheet" href="../css/galleria.css">
+        <link rel="stylesheet" href="../css/barra-navigazione.css">
+        </header>
 
     <BODY>
-        <form name="frmImage" enctype="multipart/form-data" action="add_img.php" method="post" class="form">
-            <label>ID prodotto:</label>
-            <input type="text" name="FKproductId" required><br><br>
+        <?php include '../php_files/header_check.php'; ?>
+        <div class="contact-container">
+            
+                <h1>Admin: Aggiungi Immagini</h1>
+                <form name="frmImage" enctype="multipart/form-data" action="add_img.php" method="post" class="form">
+                    <label>ID prodotto:</label>
+                    <input type="text" name="FKproductId" required><br><br>
 
-            <label>Banner (immagine 1):</label>
-            <input type="file" name="image1" required><br><br>
+                    <label>Banner (immagine 1):</label>
+                    <input type="file" name="image1" required><br><br>
 
-            <label>Gameplay / Showcase 1 (immagine 2):</label>
-            <input type="file" name="image2"><br><br>
+                    <label>Gameplay / Showcase 1 (immagine 2):</label>
+                    <input type="file" name="image2"><br><br>
 
-            <label>Gameplay / Showcase 2 (immagine 3):</label>
-            <input type="file" name="image3"><br><br>
+                    <label>Gameplay / Showcase 2 (immagine 3):</label>
+                    <input type="file" name="image3"><br><br>
 
-            <input type="submit" value="Carica Immagini">
-        </form>
+                    <input type="submit" value="Carica Immagini">
+                </form>
+            
+        </div>
 
     </BODY>
 </HTML>

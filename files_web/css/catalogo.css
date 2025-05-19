@@ -1,27 +1,28 @@
-body{
+/* === Sfondo della pagina con sfumatura verde === */
+body {
     background: linear-gradient(to right, #b9eebd, #9dc9a1);
 }
 
+/* === Titolo del catalogo === */
 .catalogo-title {
     text-align: center;
     margin-top: 30px;
-    font-size: clamp(24px, 5vw, 48px);
+    font-size: clamp(24px, 5vw, 48px); /* Dimensione adattiva */
     color: #01cd01;
-    -webkit-text-stroke: 1px #ffffff;
+    -webkit-text-stroke: 1px #ffffff; /* Contorno bianco al testo */
     font-weight: bold;
-
 }
 
-/* layout a griglia responsive */
+/* === Layout griglia responsive per il catalogo === */
 .catalogo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Griglia flessibile */
     gap: 30px;
-    padding: 20px 20%;
+    padding: 20px 20%; /* Spaziatura orizzontale */
     justify-content: center;
 }
 
-
+/* === Stile di ciascun item del catalogo === */
 .catalogo-item {
     width: 100%;
     background-color: #ddd;
@@ -30,18 +31,20 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     text-align: center;
-    margin-bottom: 20px; /* Spazio tra i riquadri */
+    margin-bottom: 20px;
     transition: transform 0.2s;
 }
 
-/* link testuali disabilitati */
+/* === Disabilita comportamento standard dei link e mantiene stile === */
 .catalogo-item a {
-    text-decoration: green wavy underline;;
+    text-decoration: green wavy underline;
     color: inherit;
     all: unset;
     display: block;
+    cursor: pointer;
 }
 
+/* === Immagini all'interno del catalogo === */
 .catalogo-item img {
     width: 95%;
     height: auto;
@@ -49,7 +52,13 @@ body{
     border: 2px solid #ccc;
     transform: scale(1.02);
 }
+.catalogo-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
+
+/* === Stile per il sottotitolo sotto l'immagine === */
 .sottotitolo {
     background-color: #01cd01;
     margin-top: 10px;
@@ -62,10 +71,12 @@ body{
     min-height: 50px;
 }
 
+/* === Margini generali per logo e immagini in alto a destra === */
 .logo, .top-right-image, .top-right-carrello {
     margin: 10px;
 }
 
+/* === Posizionamento assoluto per elementi in alto a destra === */
 .top-right-image, .top-right-carrello {
     position: absolute;
     top: 10px;
@@ -79,6 +90,7 @@ body{
     right: 10px;
 }
 
+/* === Sezione generica con stile a scheda === */
 .sezione {
     width: 30%;
     align-self: center;
@@ -90,11 +102,13 @@ body{
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* === Effetto al passaggio del mouse sulla sezione === */
 .sezione:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* === Messaggio per quando non ci sono giochi disponibili === */
 .testo-nessun-gioco {
     font-size: 14px;
     text-align: center;
@@ -103,6 +117,7 @@ body{
     margin-bottom: 10px;
 }
 
+/* === Contenitore dei link di paginazione === */
 .pagination {
     display: flex;
     justify-content: center;
@@ -110,6 +125,7 @@ body{
     gap: 10px;
 }
 
+/* === Stile dei link nella paginazione === */
 .pagination a {
     padding: 8px 16px;
     text-decoration: none;
@@ -119,12 +135,14 @@ body{
     transition: background-color 0.3s;
 }
 
+/* === Stile per il link attivo (pagina corrente) === */
 .pagination a.active {
     background-color: #4CAF50;
     color: white;
     border: 1px solid #4CAF50;
 }
 
+/* === Effetto hover sui link non attivi della paginazione === */
 .pagination a:hover:not(.active) {
     background-color: #ddd;
 }

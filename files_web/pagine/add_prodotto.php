@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("../php_files/db_connection.php");
+include '../php_files/header_check.php'; 
 
 // (FACOLTATIVO) Controllo utente admin
 // if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
@@ -44,11 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Admin - Aggiungi Prodotto</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 30px;
-        }
+        
         form {
             max-width: 600px;
         }
@@ -76,9 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-
+   <div class="contact-container"> 
     <h1>Admin: Aggiungi Prodotto</h1>
-
+    <div class="section">    
     <form method="POST">
         <label for="nome">Nome*</label>
         <input type="text" name="nome" required>
@@ -93,13 +93,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="saga">
 
         <label>Piattaforme*</label>
-        <div>
-            <label><input type="checkbox" name="piattaforma[]" value="PS3"> PS3</label><br>
-            <label><input type="checkbox" name="piattaforma[]" value="PS4"> PS4</label><br>
-            <label><input type="checkbox" name="piattaforma[]" value="PS5"> PS5</label><br>
-            <label><input type="checkbox" name="piattaforma[]" value="PC"> PC</label><br>
-            <label><input type="checkbox" name="piattaforma[]" value="XBOX360"> XBOX360</label><br>
-            <label><input type="checkbox" name="piattaforma[]" value="XBOXONE"> XBOXONE</label><br>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PS3"> PS3
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PS4"> PS4
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PS5"> PS5
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="PC"> PC
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="XBOX360"> XBOX360
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="piattaforma[]" value="XBOXONE"> XBOXONE
+            </label>
         </div>
 
         <label>
@@ -123,10 +135,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Aggiungi Prodotto</button>
     </form>
+    </div>
 
     <?php if ($message): ?>
         <div class="message"><?= htmlspecialchars($message) ?></div>
     <?php endif; ?>
-
+   </div>
 </body>
 </html>

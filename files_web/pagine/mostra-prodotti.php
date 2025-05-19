@@ -14,21 +14,17 @@
     <link rel="stylesheet" href="../css/barra-navigazione.css">
     <link rel="stylesheet" href="../css/mostra-prodotti.css">
 
-    <!-- sto impazzeno non so cosa fare -->
-    <!-- vecchi -->
+    <!-- scripts -->
     <script src="../js/seleziona_quantita.js" defer></script>
-    <!-- <script src="../js/dropdown_platforms.js" defer></script> -->
-
-    <!-- nuovo --> 
     <script src="../js/product_functions.js" defer></script>
 </head>
 <body>
     <?php 
         // setup della pagina
         session_start();
-        include '../php_files/header_check.php'; 
         include '../php_files/db_connection.php';
         include '../php_files/cart_actions_handler.php'; 
+        include '../php_files/header_check.php'; 
         include '../php_files/get_history.php';
  
         $productId = $_GET['productId'];
@@ -53,6 +49,7 @@
                     WHERE i.tipologia = 'carrello'
                     AND i.FKuserId = ?
                     AND i.FKproductId = ?
+
                     ORDER BY i.timestamp DESC
                     LIMIT 1";
             
@@ -61,6 +58,8 @@
             $stmt->bind_param("ii", $_SESSION['userId'], $productId);
             $stmt->execute();
             $result = $stmt->get_result();
+
+            print_r($result);
             
             if ($result->num_rows > 0) {
                 $cartItem = $result->fetch_assoc();
@@ -230,6 +229,7 @@
                                     <input type="hidden" name="cart_action" value="update">
                                     <input type="hidden" name="productId" value="<?= $productId ?>">
                                     <input type="hidden" name="piattaforma" value="<?= $piattaforma ?>">
+                                    <input type="hidden" name="redirect" value="mostra-prodotti.php?productId=<?= $productId ?>&piattaforma=<?= $piattaforma ?>">
                                     <button type="button" onclick="updateCart(-1)">−</button>
                                     <span id="quantita"><?= $qtaCarello ?></span>
                                     <button type="button" onclick="updateCart(1)">+</button>
@@ -240,6 +240,7 @@
                         </div>
                     </div>
                 <?php else : ?>
+                    <!-- utente loggato che non ha il prodotto nel carrello -->
                     <div class="riquadro">
                         <button id="addToCartBtn" class="quantita-text" 
                                 data-product-id="<?= $productId ?>" 

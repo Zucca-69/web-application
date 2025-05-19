@@ -33,18 +33,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Aggiorna quantità nel carrello
 function updateCart(change) {
-    const quantitySpan = document.getElementById("quantita");
-    const quantityInput = document.getElementById("quantityInput");
+    const button = event.target;
+    const form = button.closest("form");
+    const quantitySpan = form.querySelector("#quantita");
+    const quantityInput = form.querySelector("#quantityInput");
+
     let currentQty = parseInt(quantitySpan.textContent);
     let newQty = currentQty + change;
     if (newQty < 1) newQty = 1;
+
     quantitySpan.textContent = newQty;
     quantityInput.value = newQty;
-    document.querySelector('form').submit();
+
+    form.submit();
 }
 
 // Aggiunta al carrello
 function addToCart(productId, piattaforma) {
+    const encodedProductId = encodeURIComponent(productId);
+    const encodedPiattaforma = encodeURIComponent(piattaforma);
     const form = document.createElement('form');
     form.method = 'post';
     form.innerHTML = `
@@ -52,6 +59,7 @@ function addToCart(productId, piattaforma) {
         <input type="hidden" name="productId" value="${productId}">
         <input type="hidden" name="piattaforma" value="${piattaforma}">
         <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="redirect" value="mostra-prodotti.php?productId=${encodedProductId}&piattaforma=${encodedPiattaforma}">
     `;
     document.body.appendChild(form);
     form.submit();
@@ -60,15 +68,19 @@ function addToCart(productId, piattaforma) {
 // Rimuovi dal carrello
 function removeFromCart(productId, piattaforma) {
     if (confirm("Rimuovere questo prodotto dal carrello?")) {
+        const encodedProductId = encodeURIComponent(productId);
+        const encodedPiattaforma = encodeURIComponent(piattaforma);
         const form = document.createElement('form');
         form.method = 'post';
         form.innerHTML = `
             <input type="hidden" name="cart_action" value="remove">
             <input type="hidden" name="productId" value="${productId}">
             <input type="hidden" name="piattaforma" value="${piattaforma}">
+            <input type="hidden" name="redirect" value="mostra-prodotti.php?productId=${encodedProductId}&piattaforma=${encodedPiattaforma}">
         `;
         document.body.appendChild(form);
         form.submit();
     }
+
 }
 

@@ -1,3 +1,4 @@
+/* Contenitore principale con layout flex e spaziatura */
 .container {
     display: flex;
     justify-content: space-between;
@@ -6,12 +7,14 @@
     max-width: 1200px;
 }
 
+/* Sezione immagini del gioco, occupa il 70% dello spazio */
 .immagini-gioco {
     width: 70%;
     padding-left: 20px;
     padding-top: 20px;
 }
 
+/* Immagine principale con bordo e margine inferiore */
 .immagine-principale img {
     width: 100%;
     height: auto;
@@ -19,6 +22,7 @@
     margin-bottom: 10px;
 }
 
+/* Contenitore miniature, flex con gap e centrato */
 .miniature {
     display: flex;
     gap: 10px;
@@ -26,6 +30,7 @@
     margin-top: 10px;
 }
 
+/* Stile miniature: larghezza 30%, bordo, cursore puntatore, transizioni */
 .miniature img {
     width: 30%;
     cursor: pointer;
@@ -33,11 +38,13 @@
     transition: transform 0.3s, border 0.3s;
 }
 
+/* Effetto hover sulle miniature: ingrandimento e bordo scuro */
 .miniature img:hover {
     transform: scale(1.1);
     border: 2px solid #333;
 }
 
+/* Sezione informazioni del gioco, occupa 40%, flex colonna */
 .informazioni-gioco {
     width: 40%;
     display: flex;
@@ -46,6 +53,7 @@
     padding-top: 20px;
 }
 
+/* Riquadro verde con testo centrato e ombra */
 .riquadro {
     width: 100%;
     height: 100px;
@@ -63,15 +71,18 @@
     cursor: pointer;
 }
 
+/* Testo all'interno del riquadro centrato */
 .riquadro p {
     text-align: center;
 }
 
+/* Hover sul riquadro: ingrandimento e ombra più marcata */
 .riquadro:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Barra richieste nascosta di default, stile box con margini e ombra */
 .barra-richieste {
     display: none;
     margin-top: 10px;
@@ -82,15 +93,18 @@
     width: auto;
 }
 
+/* Lista senza stile di default e padding per la barra richieste */
 .barra-richieste ul {
     list-style: none;
     padding: 10px;
 }
 
+/* Spaziatura tra gli elementi della lista */
 .barra-richieste ul li {
     margin: 10px 0;
 }
 
+/* Link della barra richieste senza decorazione, colore e transizione */
 .barra-richieste ul li a {
     text-decoration: none;
     color: #333;
@@ -98,10 +112,12 @@
     transition: color 0.3s;
 }
 
+/* Hover sul link barra richieste: colore verde */
 .barra-richieste ul li a:hover {
     color: #01cd01;
 }
 
+/* Contenitore per sezioni con layout verticale e gap */
 .sezioni-contenitore {
     display: flex;
     flex-direction: column;
@@ -112,6 +128,7 @@
     padding: 0 20px;
 }
 
+/* Stile base per ogni sezione: colore, bordi arrotondati e ombra */
 .sezione {
     width: 100%;
     background-color: #01cd01;
@@ -122,11 +139,13 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Hover sulle sezioni: leggero ingrandimento e ombra più evidente */
 .sezione:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Titolo etichetta delle sezioni, font bold e colore scuro */
 .etichetta-sezione {
     font-size: 20px;
     font-weight: bold;
@@ -134,6 +153,7 @@
     margin-bottom: 15px;
 }
 
+/* Testo descrizione delle sezioni, dimensione ridotta e colore */
 .testo-descrizione {
     font-size: 14px;
     color: #333;
@@ -141,6 +161,7 @@
     margin-bottom: 10px;
 }
 
+/* Contenitore immagini delle sezioni, flex con spaziatura */
 .sezione-img-container {
     display: flex;
     justify-content: space-between;
@@ -148,6 +169,7 @@
     gap: 10px;
 }
 
+/* Immagini delle sezioni: dimensioni, proporzioni, bordo e transizioni */
 .sezione-img-container img {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -158,10 +180,12 @@
     transition: transform 0.3s ease-in-out;
 }
 
+/* Hover sulle immagini delle sezioni: ingrandimento */
 .sezione-img-container img:hover {
     transform: scale(1.1);
 }
 
+/* Titolo principale della sezione con sfondo verde, dimensioni e ombra */
 .sezione-titolo {
     width: 100%;
     height: 150px;
@@ -178,22 +202,26 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Titolo h1 dentro sezione titolo, senza margini */
 .sezione-titolo h1 {
     margin: 0;
     font-size: 32px;
     color: #333;
 }
 
+/* Hover sul titolo sezione: ingrandimento e ombra più evidente */
 .sezione-titolo:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Testo per quantità, dimensione e colore */
 .quantita-text {
     font-size: 18px;
     color: #333;
 }
 
+/* Bottone quantità con colori, bordo, arrotondamento e transizioni */
 .quantita-btn {
     font-size: 24px;
     padding: 10px 20px;
@@ -205,12 +233,14 @@
     transition: background-color 0.2s, transform 0.2s;
 }
 
+/* Hover sul bottone quantità: inverti colori e ingrandisci */
 .quantita-btn:hover {
     background-color: #01cd01;
     color: white;
     transform: scale(1.1);
 }
 
+/* Contenitore per bottoni quantità, layout flex con gap */
 .quantita-btn-container {
     display: flex;
     gap: 20px;

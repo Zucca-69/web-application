@@ -1,39 +1,43 @@
-/* Reset */
+/* === Reset di base === */
+/* Rimuove margini e padding predefiniti da elementi comuni per uniformare lo stile tra browser */
 body, h1, h2, p, a, ul, li {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Include padding e bordo nel calcolo delle dimensioni */
 }
 
-/* Globale */
+/* === Stili globali per il <body> === */
 body {
-    /* font-family: Arial, sans-serif; */
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    color: #1e1e1e;
-    line-height: 1.6;
+    /* font-family: Arial, sans-serif; */  /* Vecchio font, ora commentato */
+    font-family: 'Poppins', sans-serif;    /* Font moderno e leggibile */
+    font-size: 16px;                       /* Dimensione di base del testo */
+    color: #1e1e1e;                        /* Colore del testo principale */
+    line-height: 1.6;                      /* Spaziatura tra le righe del testo */
 
-
-    /* background: linear-gradient(to right, #588b1d, #368a36); old*/
+    /* Gradiente di sfondo dal verde chiaro al verde più intenso */
+    /* background: linear-gradient(to right, #588b1d, #368a36); old */
     background: linear-gradient(to right, #b9eebd, #9dc9a1);
 
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: flex;             /* Layout flessibile verticale */
+    flex-direction: column;   /* Direzione verticale per figli (header, main, footer) */
+    min-height: 100vh;        /* Altezza minima: tutta la viewport */
 }
 
+/* === Sezione principale della pagina === */
 main {
-    flex: 1;
+    flex: 1;  /* Occupa tutto lo spazio disponibile tra header e footer */
 }
 
-
+/* === Variabili CSS globali === */
 :root {
-    --primary-color: #01cd01;
-    --primary-hover: #02a302;
-    --background-light: #f5fff5;
-    --text-dark: #222;
+    --primary-color: #01cd01;       /* Verde principale per bottoni, link ecc. */
+    --primary-hover: #02a302;       /* Colore al passaggio del mouse */
+    --background-light: #f5fff5;    /* Colore di sfondo chiaro */
+    --text-dark: #222;              /* Colore del testo scuro */
 }
 
+/* === Transizioni per link e pulsanti === */
 button, a {
     transition: background-color 0.3s ease, color 0.3s ease;
+    /* Rende le modifiche di colore fluide al passaggio del mouse */
 }

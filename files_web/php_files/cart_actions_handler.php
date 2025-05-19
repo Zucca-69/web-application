@@ -6,6 +6,7 @@ if (isset($_POST['cart_action']) && isset($_SESSION['userId'])) {
     $quantity = isset($_POST['quantity']) ? max(1, (int)$_POST['quantity']) : 1;
     $productId = $_POST['productId'] ?? null;
     $piattaforma = $_POST['piattaforma'] ?? null;
+    $redirect = $_POST['redirect'] ?? null;
 
     
     // Handle different actions
@@ -120,11 +121,14 @@ if (isset($_POST['cart_action']) && isset($_SESSION['userId'])) {
                 $stmt->bind_param("i", $cartId);
                 $stmt->execute();
             }
-            break;
+        break;
     }
 
     
     // Refresh page to show changes
-    header("Location: mostra-prodotti.php?productId=" . $productId . "&piattaforma=" . $piattaforma);
+    if ($redirect) {
+    header("Location: $redirect");
+    exit();
+}
     exit();
 }

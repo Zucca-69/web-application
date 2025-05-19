@@ -1,56 +1,75 @@
+/* === Contenitore principale del carrello === */
 .cart-container {
-    max-width: 800px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-top: 50px;
+    max-width: 800px; /* Larghezza massima del contenitore */
+    margin: auto; /* Centra orizzontalmente */
+    background: #fff; /* Sfondo bianco */
+    padding: 20px; /* Spaziatura interna */
+    border-radius: 10px; /* Angoli arrotondati */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Ombra leggera */
+    margin-top: 50px; /* Distanza dall'alto */
 }
+
+/* === Titolo principale del carrello === */
 h1 {
-    text-align: center;
+    text-align: center; /* Allinea il testo al centro */
 }
+
+/* === Tabella dei prodotti nel carrello === */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    border-collapse: collapse; /* Elimina gli spazi tra le celle */
+    margin-top: 20px; /* Spazio sopra la tabella */
 }
+
+/* === Celle dell'intestazione e del corpo tabella === */
 th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+    padding: 12px; /* Spaziatura interna */
+    text-align: center; /* Centra il contenuto */
+    border-bottom: 1px solid #ddd; /* Riga divisoria tra le righe */
 }
+
+/* === Totale carrello === */
 .total {
-    text-align: right;
-    font-size: 1.2em;
-    margin-top: 20px;
+    text-align: right; /* Allinea il testo a destra */
+    font-size: 1.2em; /* Ingrandisce il testo */
+    margin-top: 20px; /* Spazio sopra */
 }
+
+/* === Bottone per procedere al checkout === */
 .checkout-btn {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: #28a745;
-    color: white;
+    display: block; /* Mostrato come blocco per occupare tutta la larghezza */
+    width: 100%; /* Occupa il 100% del contenitore */
+    padding: 15px; /* Spaziatura interna */
+    background-color: #28a745; /* Verde (Bootstrap style) */
+    color: white; /* Testo bianco */
     font-size: 1em;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
+    border: none; /* Nessun bordo */
+    border-radius: 8px; /* Angoli arrotondati */
+    cursor: pointer; /* Cambia cursore su hover */
+    margin-top: 20px; /* Spazio sopra il bottone */
 }
+
+/* === Effetto hover sul bottone checkout === */
 .checkout-btn:hover {
-    background-color: #218838;
+    background-color: #218838; /* Verde più scuro al passaggio del mouse */
 }
+
+/* === Controlli per modificare la quantità (es: + / -) === */
 .qty-controls {
-    text-align: center;
+    text-align: center; /* Centra i controlli nella cella */
 }
+
+/* === Contenitore per i pulsanti di azione (es: rimuovi, modifica) === */
 .action-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    display: flex; /* Disposizione flessibile */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Allinea verticalmente */
+    gap: 8px; /* Spazio tra i pulsanti */
 }
+
+/* === Stile dei pulsanti di azione === */
 .action-buttons button {
-    padding: 6px 10px;
-    cursor: pointer;
-    font-size: 16px;
+    padding: 6px 10px; /* Spaziatura interna */
+    cursor: pointer; /* Mostra mano al passaggio */
+    font-size: 16px; /* Dimensione del testo */
 }

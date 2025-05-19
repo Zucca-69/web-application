@@ -1,35 +1,38 @@
-
-/* categorie */
+/* === Contenitore principale delle categorie: griglia a 4 colonne con spazio tra gli elementi === */
 .categorie {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1%;
-    padding: 2%;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonne uguali */
+    gap: 1%; /* Spaziatura tra le colonne */
+    padding: 2%; /* Padding interno */
 }
 
+/* === Ogni elemento della categoria (contenitore dell'immagine e del testo) === */
 .categorie-item {
-    position: relative;
+    position: relative; /* Necessario per posizionare il testo sopra l'immagine */
 }
 
+/* === Immagini delle categorie, riempiono il contenitore e hanno bordi arrotondati === */
 .categorie-item img {
-    width: 100%;
-    border-radius: 8px;
+    width: 100%; /* Immagine riempie completamente il contenitore */
+    border-radius: 8px; /* Angoli arrotondati */
 }
 
+/* === Testo sovrapposto all'immagine, posizionato in basso e centrato === */
 .categorie-item .testo {
     position: absolute;
-    top: 85%;
-    left: 50%;
-    background: rgba(0, 0, 0, 0.5);
+    top: 85%; /* Posizionato vicino al fondo dell'immagine */
+    left: 50%; /* Centra orizzontalmente */
+    background: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente per migliorare la leggibilità */
     color: white;
     padding: 1% 2%;
-    border-radius: 5%;
+    border-radius: 5%; /* Angoli arrotondati del box testo */
     font-size: 100%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Centra esattamente il testo */
 }
 
+/* === Effetto al passaggio del mouse sull'immagine: ingrandimento e bordo verde === */
 .categorie-item img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Leggero ingrandimento */
     transition: transform 0.3s;
-    border: 2px solid #01cd01;
+    border: 2px solid #01cd01; /* Bordo verde evidenziato */
 }
